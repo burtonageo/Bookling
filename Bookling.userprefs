@@ -1,0 +1,41 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Controller/LibraryController.cs">
+    <Files>
+      <File FileName="Bookling/Bookling.Controller/LibraryController.cs" Line="139" Column="22" />
+      <File FileName="Bookling/Bookling.Models/Book.cs" Line="34" Column="5" />
+      <File FileName="Bookling/Main.cs" Line="29" Column="26" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Bookling" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Bookling.Controller" expanded="True">
+              <Node name="LibraryController.cs" selected="True" />
+            </Node>
+            <Node name="Bookling.Interface" expanded="True">
+              <Node name="About Dialog" expanded="True" />
+              <Node name="Main Window" expanded="True" />
+              <Node name="Preferences Dialog" expanded="True" />
+            </Node>
+            <Node name="Bookling.Models" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="ConnectionManagerPad">
+        <State selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
