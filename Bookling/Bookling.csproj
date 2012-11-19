@@ -73,15 +73,32 @@
     <Compile Include="Main.cs" />
     <Compile Include="Bookling.Controller\LibraryController.cs" />
     <Compile Include="Bookling.Models\Book.cs" />
-    <Compile Include="Bookling.Interface\About Dialog\AboutDialog.cs" />
     <Compile Include="Bookling.Interface\Main Window\MainWindow.cs" />
     <Compile Include="Bookling.Interface\Main Window\MainWindow.designer.cs" />
     <Compile Include="Bookling.Interface\Main Window\MainWindowController.cs" />
-    <Compile Include="Bookling.Interface\Preferences Dialog\PreferencesDialogController.cs" />
+    <Compile Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.cs" />
+    <Compile Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.designer.cs">
+      <DependentUpon>BookMetadataDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookling.Interface\Metadata Dialog\BookMetadataDialogController.cs" />
     <Compile Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.cs" />
+    <Compile Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.designer.cs">
+      <DependentUpon>PreferencesDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookling.Interface\Preferences Dialog\PreferencesDialogController.cs" />
+    <Compile Include="Bookling.Interface\Main Menu\AppDelegate.cs" />
+    <Compile Include="Bookling.Interface\Main Menu\AppDelegate.designer.cs" />
+    <Compile Include="Bookling.Interface\About Dialog\AboutDialog.cs" />
+    <Compile Include="Bookling.Interface\About Dialog\AboutDialog.designer.cs">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookling.Interface\About Dialog\AboutDialogController.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Bookling.Interface\Main Window\MainWindow.xib" />
+    <InterfaceDefinition Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.xib" />
+    <InterfaceDefinition Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.xib" />
+    <InterfaceDefinition Include="Bookling.Interface\Main Menu\MainMenu.xib" />
     <InterfaceDefinition Include="Bookling.Interface\About Dialog\AboutDialog.xib" />
   </ItemGroup>
   <ItemGroup>
@@ -98,5 +115,6 @@
     <Folder Include="Bookling.Interface\Preferences Dialog\" />
     <Folder Include="Bookling.Interface\Main Window\Views\" />
     <Folder Include="Bookling.Interface\Main Menu\" />
+    <Folder Include="Bookling.Interface\Metadata Dialog\" />
   </ItemGroup>
 </Project>

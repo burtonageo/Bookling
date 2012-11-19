@@ -31,7 +31,6 @@ namespace Bookling.Models
 	{
 		public int BookId, YearPublished;
 		public String Title, Author, FileURI;
-		//public DateTime modified;
 	}
 }
 

@@ -10,9 +10,10 @@ namespace Bookling
 	{
 		static void Main (string[] args)
 		{
-			//NSApplication.Init ();
-			//NSApplication.Main (args);
+			NSApplication.Init ();
+			NSApplication.Main (args);
 
+			/*
 			Bookling.LibraryController controller = new LibraryController();
 
 			Bookling.Models.Book book1;
@@ -47,6 +48,7 @@ namespace Bookling
 			controller.PrintLibrary();
 
 			//Console.WriteLine(controller.MaxId);
+			*/
 		}
 	}
 }	

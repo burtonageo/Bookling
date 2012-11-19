@@ -11,11 +11,11 @@ namespace Bookling.Controller
 	[Register ("AppDelegate")]
 	partial class AppDelegate
 	{
-		[Action ("ShowAboutDialog:")]
-		partial void ShowAboutDialog (MonoMac.Foundation.NSObject sender);
-
 		[Action ("ShowPreferencesDialog:")]
 		partial void ShowPreferencesDialog (MonoMac.Foundation.NSObject sender);
+
+		[Action ("ShowAboutDialog:")]
+		partial void ShowAboutDialog (MonoMac.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
