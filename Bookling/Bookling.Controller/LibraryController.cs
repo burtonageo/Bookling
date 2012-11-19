@@ -34,7 +34,7 @@ namespace Bookling
 {
 	public class LibraryController
 	{
-		public static string DatabasePath 
+		public static String DatabasePath 
 		{
 			get {
 				return String.Format (DatabaseDirectory + "{0}Library.db", 
@@ -42,7 +42,7 @@ namespace Bookling
 			}
 		}
 
-		public static string DatabaseDirectory 
+		public static String DatabaseDirectory 
 		{
 			get {
 				return String.Format (

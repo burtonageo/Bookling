@@ -25,6 +25,7 @@
 // THE SOFTWARE.
 using System;
 using System.Drawing;
+using System.IO;
 using MonoMac.Foundation;
 using MonoMac.AppKit;
 using MonoMac.ObjCRuntime;
@@ -70,7 +71,14 @@ namespace Bookling.Controller
 
 		partial void ImportFile (MonoMac.Foundation.NSObject sender)
 		{
+			NSOpenPanel filePanel = NSOpenPanel.OpenPanel;
+			string[] allowedFileTypes = {"pdf", "epub", "mobi"};
+			filePanel.AllowedFileTypes = allowedFileTypes;
 
+			var result = filePanel.RunModal();
+			if (result == 1) {
+				Console.WriteLine (filePanel.Url);
+			}
 		}
 	}
 }
