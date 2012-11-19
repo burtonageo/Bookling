@@ -34,22 +34,27 @@ namespace Bookling.Controller
 {
 	public partial class AppDelegate : NSApplicationDelegate
 	{
-		MainWindowController mainWindowController;
-		
+		private MainWindowController mainWindowController;
+		private LibraryController libraryController;
+
 		public AppDelegate ()
 		{
+
 		}
 
 		public override void FinishedLaunching (NSObject notification)
 		{
+			libraryController = new LibraryController ();
+
 			mainWindowController = new MainWindowController ();
 			mainWindowController.Window.MakeKeyAndOrderFront (this);
+
 		}
 
 		partial void ShowAboutDialog (MonoMac.Foundation.NSObject sender)
 		{
 			AboutDialogController about = new AboutDialogController();
-			about.Window.MakeKeyAndOrderFront(this);
+			about.Window.MakeKeyAndOrderFront(mainWindowController.Window);
 		}
 
 		partial void ShowPreferencesDialog (MonoMac.Foundation.NSObject sender)
@@ -57,8 +62,6 @@ namespace Bookling.Controller
 			PreferencesDialogController prefs = new PreferencesDialogController();
 			prefs.Window.MakeKeyAndOrderFront(this);
 		}
-
-
 	}
 }
 

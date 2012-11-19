@@ -12,13 +12,29 @@ namespace Bookling.Interface
 	partial class MainWindow
 	{
 		[Outlet]
-		MonoMac.AppKit.NSBox LibraryViewBox { get; set; }
+		public MonoMac.AppKit.NSBox LibraryViewBox { get; set; }
+
+		[Outlet]
+		public MonoMac.AppKit.NSToolbarItem ShareButton { get; set; }
+
+		[Outlet]
+		public MonoMac.AppKit.NSOutlineView LibrarySourceList { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (LibraryViewBox != null) {
 				LibraryViewBox.Dispose ();
 				LibraryViewBox = null;
+			}
+
+			if (ShareButton != null) {
+				ShareButton.Dispose ();
+				ShareButton = null;
+			}
+
+			if (LibrarySourceList != null) {
+				LibrarySourceList.Dispose ();
+				LibrarySourceList = null;
 			}
 		}
 	}

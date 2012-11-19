@@ -78,7 +78,7 @@ namespace Bookling
 			}
 
 			if (!exists) {
-				using (SqliteCommand command = new SqliteCommand(Connection)) {
+				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = 
 						"CREATE TABLE Books (BookID INTEGER PRIMARY KEY, " +
 						"BookTitle TEXT, BookAuthor TEXT, " +
@@ -102,7 +102,7 @@ namespace Bookling
 		public bool AddBook (Book book)
 		{
 			try {
-				using (SqliteCommand command = new SqliteCommand(Connection)) {
+				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
 						"INSERT INTO Books (BookID, BookTitle, BookAuthor, " +
 							"BookPublishedYear, BookUri) VALUES (" +
@@ -167,7 +167,7 @@ namespace Bookling
 		public bool RemoveBook (int bookID) 
 		{
 			try {
-				using (SqliteCommand command = new SqliteCommand(Connection)) {
+				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
 						"DELETE FROM Books WHERE BookID = :id;";
 					command.Parameters.Add (new SqliteParameter ("id", bookID));
@@ -180,11 +180,10 @@ namespace Bookling
 			}
 		}
 
-
 		public bool AlterBookData (int bookID, Book book)
 		{
 			try {
-				using (SqliteCommand command = new SqliteCommand(Connection)) {
+				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
 					"UPDATE Books SET " +
 						"BookTitle = :title, BookAuthor = :author, " +
@@ -202,7 +201,7 @@ namespace Bookling
 				Console.WriteLine(e.Message);
 				return false;
 			}
-		}
+		} 
 	}
 }
 

@@ -33,6 +33,8 @@ namespace Bookling.Interface
 {
 	public partial class MainWindowController : MonoMac.AppKit.NSWindowController
 	{
+		private LibraryListViewController listViewController;
+
 		#region Constructors
 		
 		// Called when created from unmanaged code
@@ -57,6 +59,8 @@ namespace Bookling.Interface
 		// Shared initialization code
 		void Initialize ()
 		{
+			listViewController = new LibraryListViewController();
+			Window.LibraryViewBox.ContentView = listViewController.View;
 		}
 		
 		#endregion
