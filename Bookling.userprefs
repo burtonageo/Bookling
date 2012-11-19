@@ -1,12 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Interface/Main Window/MainWindowController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Controller/LibraryController.cs">
     <Files>
-      <File FileName="Bookling/Bookling.Controller/LibraryController.cs" Line="43" Column="5" />
+      <File FileName="Bookling/Bookling.Controller/LibraryController.cs" Line="124" Column="5" />
       <File FileName="Bookling/Bookling.Models/Book.cs" Line="33" Column="40" />
-      <File FileName="Bookling/Bookling.Interface/Main Menu/AppDelegate.cs" Line="34" Column="2" />
-      <File FileName="Bookling/Bookling.Interface/Main Window/MainWindow.cs" Line="47" Column="4" />
-      <File FileName="Bookling/Bookling.Interface/Main Window/MainWindowController.cs" Line="64" Column="4" />
+      <File FileName="Bookling/Bookling.Interface/Main Menu/AppDelegate.cs" Line="47" Column="6" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/MainWindow.cs" Line="45" Column="26" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/MainWindowController.cs" Line="71" Column="8" />
+      <File FileName="Bookling/Main.cs" Line="15" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,18 +15,11 @@
           <Node name="Bookling" expanded="True">
             <Node name="Bookling.Controller" expanded="True" />
             <Node name="Bookling.Interface" expanded="True">
-              <Node name="About Dialog" expanded="True" />
-              <Node name="Main Menu" expanded="True" />
-              <Node name="Main Window" expanded="True">
-                <Node name="Views" expanded="True">
-                  <Node name="Grid View" expanded="True" />
-                  <Node name="List View" expanded="True">
-                    <Node name="LibraryListView.xib" selected="True" />
-                  </Node>
-                </Node>
+              <Node name="About Dialog" expanded="True">
+                <Node name="AboutDialog.xib" selected="True" />
               </Node>
-              <Node name="Metadata Dialog" expanded="True" />
-              <Node name="Preferences Dialog" expanded="True" />
+              <Node name="Main Menu" expanded="True" />
+              <Node name="Main Window" expanded="True" />
             </Node>
             <Node name="Bookling.Models" expanded="True" />
           </Node>

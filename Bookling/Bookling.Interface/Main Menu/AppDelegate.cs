@@ -48,19 +48,29 @@ namespace Bookling.Controller
 
 			mainWindowController = new MainWindowController ();
 			mainWindowController.Window.MakeKeyAndOrderFront (this);
-
 		}
 
 		partial void ShowAboutDialog (MonoMac.Foundation.NSObject sender)
 		{
-			AboutDialogController about = new AboutDialogController();
-			about.Window.MakeKeyAndOrderFront(mainWindowController.Window);
+			AboutDialogController about = new AboutDialogController ();
+			about.Window.MakeKeyAndOrderFront (mainWindowController.Window);
 		}
 
 		partial void ShowPreferencesDialog (MonoMac.Foundation.NSObject sender)
 		{
-			PreferencesDialogController prefs = new PreferencesDialogController();
-			prefs.Window.MakeKeyAndOrderFront(this);
+			PreferencesDialogController prefs = new PreferencesDialogController ();
+			prefs.Window.MakeKeyAndOrderFront (this);
+		}
+
+		partial void ShowInfoDialog (MonoMac.Foundation.NSObject sender)
+		{
+			BookMetadataDialogController info = new BookMetadataDialogController();
+			info.Window.MakeKeyAndOrderFront (this);
+		}
+
+		partial void ImportFile (MonoMac.Foundation.NSObject sender)
+		{
+
 		}
 	}
 }
