@@ -212,7 +212,7 @@
 											</object>
 											<object class="NSMenuItem" id="408072860">
 												<reference key="NSMenu" ref="693404548"/>
-												<string key="NSTitle">Archive…</string>
+												<string key="NSTitle">Bookling Archive…</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="35465992"/>
@@ -220,7 +220,7 @@
 											</object>
 											<object class="NSMenuItem" id="6146381">
 												<reference key="NSMenu" ref="693404548"/>
-												<string key="NSTitle">From iTunes…</string>
+												<string key="NSTitle">From iTunes</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="35465992"/>

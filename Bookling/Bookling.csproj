@@ -71,7 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
-    <Compile Include="Bookling.Controller\LibraryController.cs" />
     <Compile Include="Bookling.Models\Book.cs" />
     <Compile Include="Bookling.Interface\Main Window\MainWindow.cs" />
     <Compile Include="Bookling.Interface\Main Window\MainWindow.designer.cs" />
@@ -103,6 +102,7 @@
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Bookling.Interface\About Dialog\AboutDialogController.cs" />
+    <Compile Include="Bookling.Controller\LibraryManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Bookling.Interface\Main Window\MainWindow.xib" />

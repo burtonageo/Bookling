@@ -23,6 +23,9 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+using Bookling;
+using Bookling.Controller;
+using Bookling.Models;
 using System;
 using System.Drawing;
 using System.IO;
@@ -36,7 +39,7 @@ namespace Bookling.Controller
 	public partial class AppDelegate : NSApplicationDelegate
 	{
 		private MainWindowController mainWindowController;
-		private LibraryController libraryController;
+		private LibraryManager libraryManager;
 
 		public AppDelegate ()
 		{
@@ -45,7 +48,7 @@ namespace Bookling.Controller
 
 		public override void FinishedLaunching (NSObject notification)
 		{
-			libraryController = new LibraryController ();
+			libraryManager = new LibraryManager ();
 
 			mainWindowController = new MainWindowController ();
 			mainWindowController.Window.MakeKeyAndOrderFront (this);
@@ -75,10 +78,16 @@ namespace Bookling.Controller
 			string[] allowedFileTypes = {"pdf", "epub", "mobi"};
 			filePanel.AllowedFileTypes = allowedFileTypes;
 
-			var result = filePanel.RunModal();
+			int result = filePanel.RunModal();
 			if (result == 1) {
-				Console.WriteLine (filePanel.Url);
+				String bookPath = filePanel.Url.ToString ().Replace ("%20", " ");
+				Book book = new Book();
+				book.Title = Path.GetFileNameWithoutExtension (bookPath);
+				book.FilePath = bookPath;
+				Console.WriteLine (book.Title + " " + book.FilePath);
+				libraryManager.AddBook (book);
 			}
+			libraryManager.PrintLibrary ();
 		}
 	}
 }

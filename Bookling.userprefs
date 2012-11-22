@@ -1,25 +1,32 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Controller/LibraryController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Controller/LibraryManager.cs">
     <Files>
-      <File FileName="Bookling/Bookling.Controller/LibraryController.cs" Line="124" Column="5" />
-      <File FileName="Bookling/Bookling.Models/Book.cs" Line="33" Column="40" />
-      <File FileName="Bookling/Bookling.Interface/Main Menu/AppDelegate.cs" Line="47" Column="6" />
-      <File FileName="Bookling/Bookling.Interface/Main Window/MainWindow.cs" Line="45" Column="26" />
-      <File FileName="Bookling/Bookling.Interface/Main Window/MainWindowController.cs" Line="71" Column="8" />
+      <File FileName="Bookling/Bookling.Controller/LibraryManager.cs" Line="186" Column="41" />
+      <File FileName="Bookling/Bookling.Models/Book.cs" Line="33" Column="29" />
+      <File FileName="Bookling/Bookling.Interface/Main Menu/AppDelegate.cs" Line="47" Column="4" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/MainWindow.cs" Line="41" Column="18" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/MainWindowController.cs" Line="66" Column="13" />
       <File FileName="Bookling/Main.cs" Line="15" Column="4" />
+      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialogController.cs" Line="43" Column="11" />
+      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialog.cs" Line="1" Column="1" />
+      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialog.designer.cs" Line="1" Column="1" />
+      <File FileName="Bookling/Bookling.Interface/Main Menu/AppDelegate.designer.cs" Line="24" Column="64" />
+      <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialogController.cs" Line="14" Column="45" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/MainWindow.designer.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Bookling" expanded="True">
-            <Node name="Bookling.Controller" expanded="True" />
+            <Node name="Bookling.Controller" expanded="True">
+              <Node name="LibraryManager.cs" selected="True" />
+            </Node>
             <Node name="Bookling.Interface" expanded="True">
-              <Node name="About Dialog" expanded="True">
-                <Node name="AboutDialog.xib" selected="True" />
-              </Node>
+              <Node name="About Dialog" expanded="True" />
               <Node name="Main Menu" expanded="True" />
               <Node name="Main Window" expanded="True" />
+              <Node name="Metadata Dialog" expanded="True" />
             </Node>
             <Node name="Bookling.Models" expanded="True" />
           </Node>
