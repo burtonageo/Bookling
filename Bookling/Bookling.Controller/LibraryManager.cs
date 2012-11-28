@@ -76,8 +76,7 @@ namespace Bookling
 
 		public int DatabaseSize {
 			get {
-				int size = 0;
-				return size;
+				return Books.Count;
 			}
 		}
 
@@ -113,13 +112,14 @@ namespace Bookling
 
 		public LibraryManager ()
 		{
+			if (!Directory.Exists (LibraryManager.DatabaseDirectory)) {
+				Directory.CreateDirectory (LibraryManager.DatabaseDirectory);
+			}
+
 			Connection = new SqliteConnection (
 				"Data Source= " + LibraryManager.DatabasePath + 
 				"; Version = 3;");
 
-			if (!Directory.Exists (LibraryManager.DatabaseDirectory)) {
-				Directory.CreateDirectory (LibraryManager.DatabaseDirectory);
-			}
 
 			bool exists = File.Exists (LibraryManager.DatabasePath);
 			if (!exists) {

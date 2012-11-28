@@ -28,12 +28,21 @@ using System.Collections.Generic;
 using System.Linq;
 using MonoMac.Foundation;
 using MonoMac.AppKit;
+using Bookling.Controller;
+using Bookling.Models;
 
 namespace Bookling.Interface
 {
 	public partial class MainWindowController : MonoMac.AppKit.NSWindowController
 	{
 		private LibraryListViewController listViewController;
+		private LibraryManager libraryManager;
+		
+		public List <Book> Books {
+			get {
+				return libraryManager.Books;
+			}
+		}
 
 		#region Constructors
 		
@@ -59,8 +68,10 @@ namespace Bookling.Interface
 		// Shared initialization code
 		void Initialize ()
 		{
-			listViewController = new LibraryListViewController();
-			Window.LibraryViewBox.ContentView = listViewController.View;
+			libraryManager = new LibraryManager ();
+			LibraryListViewController listViewController = new LibraryListViewController ();
+			Window.LibraryViewBox.ContentView = 
+				listViewController.View;
 		}
 		
 		#endregion
@@ -70,6 +81,41 @@ namespace Bookling.Interface
 			get {
 				return (MainWindow)base.Window;
 			}
+		}
+		partial void ShowAboutDialog (MonoMac.Foundation.NSObject sender)
+		{
+			AboutDialogController about = new AboutDialogController ();
+			about.Window.MakeKeyAndOrderFront (Window);
+		}
+		
+		partial void ShowPreferencesDialog (MonoMac.Foundation.NSObject sender)
+		{
+			PreferencesDialogController prefs = new PreferencesDialogController ();
+			prefs.Window.MakeKeyAndOrderFront (this);
+		}
+		
+		partial void ShowInfoDialog (MonoMac.Foundation.NSObject sender)
+		{
+			BookMetadataDialogController info = new BookMetadataDialogController();
+			info.Window.MakeKeyAndOrderFront (this);
+		}
+		
+		partial void ImportFile (MonoMac.Foundation.NSObject sender)
+		{
+			NSOpenPanel filePanel = NSOpenPanel.OpenPanel;
+			string[] allowedFileTypes = {"pdf", "epub", "mobi"};
+			filePanel.AllowedFileTypes = allowedFileTypes;
+			
+			int result = filePanel.RunModal();
+			if (result == 1) {
+				String bookPath = filePanel.Url.ToString ().Replace ("%20", " ");
+				Book book = new Book();
+				book.Title = Path.GetFileNameWithoutExtension (bookPath);
+				book.FilePath = bookPath;
+				Console.WriteLine (book.Title + " " + book.FilePath);
+				libraryManager.AddBook (book);
+			}
+			libraryManager.PrintLibrary ();
 		}
 	}
 }

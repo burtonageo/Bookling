@@ -103,6 +103,7 @@
     </Compile>
     <Compile Include="Bookling.Interface\About Dialog\AboutDialogController.cs" />
     <Compile Include="Bookling.Controller\LibraryManager.cs" />
+    <Compile Include="Bookling.Interface\Main Window\Views\List View\LibraryListViewDataSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Bookling.Interface\Main Window\MainWindow.xib" />

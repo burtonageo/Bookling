@@ -2,18 +2,18 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Controller/LibraryManager.cs">
     <Files>
-      <File FileName="Bookling/Bookling.Controller/LibraryManager.cs" Line="186" Column="41" />
-      <File FileName="Bookling/Bookling.Models/Book.cs" Line="33" Column="29" />
-      <File FileName="Bookling/Bookling.Interface/Main Menu/AppDelegate.cs" Line="47" Column="4" />
-      <File FileName="Bookling/Bookling.Interface/Main Window/MainWindow.cs" Line="41" Column="18" />
-      <File FileName="Bookling/Bookling.Interface/Main Window/MainWindowController.cs" Line="66" Column="13" />
-      <File FileName="Bookling/Main.cs" Line="15" Column="4" />
+      <File FileName="Bookling/Bookling.Controller/LibraryManager.cs" Line="117" Column="5" />
+      <File FileName="Bookling/Bookling.Interface/Main Menu/AppDelegate.cs" Line="103" Column="1" />
       <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialogController.cs" Line="43" Column="11" />
       <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialog.cs" Line="1" Column="1" />
       <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialog.designer.cs" Line="1" Column="1" />
       <File FileName="Bookling/Bookling.Interface/Main Menu/AppDelegate.designer.cs" Line="24" Column="64" />
       <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialogController.cs" Line="14" Column="45" />
       <File FileName="Bookling/Bookling.Interface/Main Window/MainWindow.designer.cs" Line="1" Column="1" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/Views/List View/LibraryListViewDataSource.cs" Line="49" Column="3" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/Views/List View/LibraryListViewController.cs" Line="38" Column="3" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/Views/List View/LibraryListView.designer.cs" Line="1" Column="1" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/MainWindowController.cs" Line="70" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,8 +25,11 @@
             <Node name="Bookling.Interface" expanded="True">
               <Node name="About Dialog" expanded="True" />
               <Node name="Main Menu" expanded="True" />
-              <Node name="Main Window" expanded="True" />
-              <Node name="Metadata Dialog" expanded="True" />
+              <Node name="Main Window" expanded="True">
+                <Node name="Views" expanded="True">
+                  <Node name="List View" expanded="True" />
+                </Node>
+              </Node>
             </Node>
             <Node name="Bookling.Models" expanded="True" />
           </Node>

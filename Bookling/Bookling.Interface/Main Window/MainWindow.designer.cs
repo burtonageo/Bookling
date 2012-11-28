@@ -8,17 +8,43 @@ using MonoMac.Foundation;
 
 namespace Bookling.Interface
 {
+	[Register ("MainWindowController")]
+	partial class MainWindowController
+	{
+		[Action ("ShowAboutDialog:")]
+		partial void ShowAboutDialog (MonoMac.Foundation.NSObject sender);
+
+		[Action ("ShowPreferencesDialog:")]
+		partial void ShowPreferencesDialog (MonoMac.Foundation.NSObject sender);
+
+		[Action ("ShowInfoDialog:")]
+		partial void ShowInfoDialog (MonoMac.Foundation.NSObject sender);
+
+		[Action ("ImportFile:")]
+		partial void ImportFile (MonoMac.Foundation.NSObject sender);
+
+		[Action ("ViewAsList:")]
+		partial void ViewAsList (MonoMac.Foundation.NSObject sender);
+
+		[Action ("ViewAsGrid:")]
+		partial void ViewAsGrid (MonoMac.Foundation.NSObject sender);
+		
+		void ReleaseDesignerOutlets ()
+		{
+		}
+	}
+
 	[Register ("MainWindow")]
 	partial class MainWindow
 	{
 		[Outlet]
-		public MonoMac.AppKit.NSBox LibraryViewBox { get; set; }
+		MonoMac.AppKit.NSBox LibraryViewBox { get; set; }
 
 		[Outlet]
-		public MonoMac.AppKit.NSToolbarItem ShareButton { get; set; }
+		MonoMac.AppKit.NSToolbarItem ShareButton { get; set; }
 
 		[Outlet]
-		public MonoMac.AppKit.NSOutlineView LibrarySourceList { get; set; }
+		MonoMac.AppKit.NSOutlineView LibrarySourceList { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -36,15 +62,6 @@ namespace Bookling.Interface
 				LibrarySourceList.Dispose ();
 				LibrarySourceList = null;
 			}
-		}
-	}
-
-	[Register ("MainWindowController")]
-	partial class MainWindowController
-	{
-		
-		void ReleaseDesignerOutlets ()
-		{
 		}
 	}
 }

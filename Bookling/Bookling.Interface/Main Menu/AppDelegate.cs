@@ -27,6 +27,7 @@ using Bookling;
 using Bookling.Controller;
 using Bookling.Models;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using MonoMac.Foundation;
@@ -41,6 +42,12 @@ namespace Bookling.Controller
 		private MainWindowController mainWindowController;
 		private LibraryManager libraryManager;
 
+		public List <Book> Books {
+			get {
+				return libraryManager.Books;
+			}
+		}
+
 		public AppDelegate ()
 		{
 
@@ -51,7 +58,12 @@ namespace Bookling.Controller
 			libraryManager = new LibraryManager ();
 
 			mainWindowController = new MainWindowController ();
+			LibraryListViewController listViewController = new LibraryListViewController ();
+
 			mainWindowController.Window.MakeKeyAndOrderFront (this);
+			mainWindowController.Window.LibraryViewBox.ContentView = 
+				listViewController.View;
+			//listViewController.Books = this.Books;
 		}
 
 		partial void ShowAboutDialog (MonoMac.Foundation.NSObject sender)
