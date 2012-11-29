@@ -11,26 +11,65 @@ namespace Bookling.Interface
 	[Register ("MainWindowController")]
 	partial class MainWindowController
 	{
-		[Action ("ShowAboutDialog:")]
+		[Outlet]
+		MonoMac.AppKit.NSBox libraryViewBox { get; set; }
+
+		[Outlet]
+		MonoMac.AppKit.NSToolbarItem viewSegmentedControl { get; set; }
+
+		[Outlet]
+		MonoMac.AppKit.NSToolbarItem shareButton { get; set; }
+
+		[Outlet]
+		MonoMac.AppKit.NSMenuItem listViewMenuItem { get; set; }
+
+		[Outlet]
+		MonoMac.AppKit.NSMenuItem gridViewMenuItem { get; set; }
+
+		[Action ("showAboutDialog:")]
 		partial void ShowAboutDialog (MonoMac.Foundation.NSObject sender);
 
-		[Action ("ShowPreferencesDialog:")]
+		[Action ("showPreferencesDialog:")]
 		partial void ShowPreferencesDialog (MonoMac.Foundation.NSObject sender);
 
-		[Action ("ShowInfoDialog:")]
+		[Action ("showInfoDialog:")]
 		partial void ShowInfoDialog (MonoMac.Foundation.NSObject sender);
 
-		[Action ("ImportFile:")]
+		[Action ("importFile:")]
 		partial void ImportFile (MonoMac.Foundation.NSObject sender);
 
-		[Action ("ViewAsList:")]
+		[Action ("viewAsList:")]
 		partial void ViewAsList (MonoMac.Foundation.NSObject sender);
 
-		[Action ("ViewAsGrid:")]
+		[Action ("viewAsGrid:")]
 		partial void ViewAsGrid (MonoMac.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (libraryViewBox != null) {
+				libraryViewBox.Dispose ();
+				libraryViewBox = null;
+			}
+
+			if (viewSegmentedControl != null) {
+				viewSegmentedControl.Dispose ();
+				viewSegmentedControl = null;
+			}
+
+			if (shareButton != null) {
+				shareButton.Dispose ();
+				shareButton = null;
+			}
+
+			if (listViewMenuItem != null) {
+				listViewMenuItem.Dispose ();
+				listViewMenuItem = null;
+			}
+
+			if (gridViewMenuItem != null) {
+				gridViewMenuItem.Dispose ();
+				gridViewMenuItem = null;
+			}
 		}
 	}
 

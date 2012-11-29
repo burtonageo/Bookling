@@ -35,7 +35,7 @@ namespace Bookling
 	[Register("LibraryListViewDataSource")]
 	public class LibraryListViewDataSource : NSTableViewDataSource
 	{
-		private List <Book> books;
+		//private List <Book> books;
 
 		[Export("init")]
 		public LibraryListViewDataSource ()
@@ -44,13 +44,13 @@ namespace Bookling
 
 		public LibraryListViewDataSource (List <Book> bookList)
 		{
-			books = bookList;
+			//books = bookList;
 		}
 
 		[Export ("numberOfRowsInTableView:")]
 		public int NumberOfRowsInTableView (NSTableView table)
 		{
-			return 33;
+			return 10; //books.Count;
 
 		}
 

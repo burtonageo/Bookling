@@ -25,6 +25,7 @@
 // THE SOFTWARE.
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using MonoMac.Foundation;
 using MonoMac.AppKit;
@@ -36,7 +37,9 @@ namespace Bookling.Interface
 	public partial class MainWindowController : MonoMac.AppKit.NSWindowController
 	{
 		private LibraryListViewController listViewController;
+		private LibraryGridViewController gridViewController;
 		private LibraryManager libraryManager;
+		private NSViewController currentController;
 		
 		public List <Book> Books {
 			get {
@@ -69,9 +72,10 @@ namespace Bookling.Interface
 		void Initialize ()
 		{
 			libraryManager = new LibraryManager ();
-			LibraryListViewController listViewController = new LibraryListViewController ();
-			Window.LibraryViewBox.ContentView = 
-				listViewController.View;
+			listViewController = new LibraryListViewController ();
+			gridViewController = new LibraryGridViewController ();
+			currentController = listViewController;
+			libraryViewBox.ContentView = listViewController.View;
 		}
 		
 		#endregion
@@ -116,6 +120,26 @@ namespace Bookling.Interface
 				libraryManager.AddBook (book);
 			}
 			libraryManager.PrintLibrary ();
+		}
+
+		partial void ViewAsList (MonoMac.Foundation.NSObject sender)
+		{
+			while (viewSegmentedControl.Tag == 0) {
+				libraryViewBox.ContentView = listViewController.View;
+			}
+		}
+		
+		partial void ViewAsGrid (MonoMac.Foundation.NSObject sender)
+		{
+
+		}
+
+		void SwitchToController(NSViewController theController)
+		{
+			if (theController == currentController) {
+				return;
+			}
+			//if (currentController.
 		}
 	}
 }

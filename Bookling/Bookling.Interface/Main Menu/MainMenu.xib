@@ -189,24 +189,6 @@
 							<string key="NSTitle">File</string>
 							<object class="NSMutableArray" key="NSMenuItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSMenuItem" id="287569399">
-									<reference key="NSMenu" ref="720053764"/>
-									<string key="NSTitle">Get Info…</string>
-									<string key="NSKeyEquiv"/>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="35465992"/>
-									<reference key="NSMixedImage" ref="502551668"/>
-								</object>
-								<object class="NSMenuItem" id="527208772">
-									<reference key="NSMenu" ref="720053764"/>
-									<bool key="NSIsDisabled">YES</bool>
-									<bool key="NSIsSeparator">YES</bool>
-									<string key="NSTitle"/>
-									<string key="NSKeyEquiv"/>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="35465992"/>
-									<reference key="NSMixedImage" ref="502551668"/>
-								</object>
 								<object class="NSMenuItem" id="687681398">
 									<reference key="NSMenu" ref="720053764"/>
 									<string key="NSTitle">Import</string>
@@ -733,7 +715,8 @@
 								<object class="NSMenuItem" id="273674964">
 									<reference key="NSMenu" ref="466310130"/>
 									<string key="NSTitle">As List</string>
-									<string key="NSKeyEquiv"/>
+									<string key="NSKeyEquiv">1</string>
+									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
@@ -741,7 +724,8 @@
 								<object class="NSMenuItem" id="201615538">
 									<reference key="NSMenu" ref="466310130"/>
 									<string key="NSTitle">As Grid</string>
-									<string key="NSKeyEquiv"/>
+									<string key="NSKeyEquiv">2</string>
+									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
@@ -1138,59 +1122,67 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">ShowInfoDialog:</string>
-						<reference key="source" ref="947627720"/>
-						<reference key="destination" ref="587451695"/>
-					</object>
-					<int key="connectionID">547</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">ShowAboutDialog:</string>
+						<string key="label">showAboutDialog:</string>
 						<reference key="source" ref="690221647"/>
 						<reference key="destination" ref="238522557"/>
 					</object>
-					<int key="connectionID">560</int>
+					<int key="connectionID">569</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">ShowPreferencesDialog:</string>
+						<string key="label">showPreferencesDialog:</string>
 						<reference key="source" ref="690221647"/>
 						<reference key="destination" ref="609285721"/>
 					</object>
-					<int key="connectionID">562</int>
+					<int key="connectionID">570</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">ImportFile:</string>
+						<string key="label">showInfoDialog:</string>
+						<reference key="source" ref="690221647"/>
+						<reference key="destination" ref="587451695"/>
+					</object>
+					<int key="connectionID">571</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">importFile:</string>
 						<reference key="source" ref="690221647"/>
 						<reference key="destination" ref="241530093"/>
 					</object>
-					<int key="connectionID">563</int>
+					<int key="connectionID">572</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">ShowInfoDialog:</string>
-						<reference key="source" ref="690221647"/>
-						<reference key="destination" ref="287569399"/>
-					</object>
-					<int key="connectionID">566</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">ViewAsList:</string>
+						<string key="label">viewAsList:</string>
 						<reference key="source" ref="690221647"/>
 						<reference key="destination" ref="273674964"/>
 					</object>
-					<int key="connectionID">567</int>
+					<int key="connectionID">573</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">ViewAsGrid:</string>
+						<string key="label">viewAsGrid:</string>
 						<reference key="source" ref="690221647"/>
 						<reference key="destination" ref="201615538"/>
 					</object>
-					<int key="connectionID">568</int>
+					<int key="connectionID">574</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">listViewMenuItem</string>
+						<reference key="source" ref="690221647"/>
+						<reference key="destination" ref="273674964"/>
+					</object>
+					<int key="connectionID">575</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">gridViewMenuItem</string>
+						<reference key="source" ref="690221647"/>
+						<reference key="destination" ref="201615538"/>
+					</object>
+					<int key="connectionID">576</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1285,8 +1277,6 @@
 							<reference ref="448033292"/>
 							<reference ref="989191665"/>
 							<reference ref="687681398"/>
-							<reference ref="287569399"/>
-							<reference ref="527208772"/>
 						</object>
 						<reference key="parent" ref="379814623"/>
 					</object>
@@ -1850,16 +1840,6 @@
 						<reference key="object" ref="690221647"/>
 						<reference key="parent" ref="0"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">564</int>
-						<reference key="object" ref="287569399"/>
-						<reference key="parent" ref="720053764"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">565</int>
-						<reference key="object" ref="527208772"/>
-						<reference key="parent" ref="720053764"/>
-					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1952,8 +1932,6 @@
 					<string>557.IBPluginDependency</string>
 					<string>559.IBPluginDependency</string>
 					<string>56.IBPluginDependency</string>
-					<string>564.IBPluginDependency</string>
-					<string>565.IBPluginDependency</string>
 					<string>57.IBPluginDependency</string>
 					<string>58.IBPluginDependency</string>
 					<string>74.IBPluginDependency</string>
@@ -1966,8 +1944,6 @@
 				</object>
 				<object class="NSArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2077,7 +2053,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">568</int>
+			<int key="maxID">576</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2097,12 +2073,12 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>ImportFile:</string>
-							<string>ShowAboutDialog:</string>
-							<string>ShowInfoDialog:</string>
-							<string>ShowPreferencesDialog:</string>
-							<string>ViewAsGrid:</string>
-							<string>ViewAsList:</string>
+							<string>importFile:</string>
+							<string>showAboutDialog:</string>
+							<string>showInfoDialog:</string>
+							<string>showPreferencesDialog:</string>
+							<string>viewAsGrid:</string>
+							<string>viewAsList:</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -2118,38 +2094,91 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>ImportFile:</string>
-							<string>ShowAboutDialog:</string>
-							<string>ShowInfoDialog:</string>
-							<string>ShowPreferencesDialog:</string>
-							<string>ViewAsGrid:</string>
-							<string>ViewAsList:</string>
+							<string>importFile:</string>
+							<string>showAboutDialog:</string>
+							<string>showInfoDialog:</string>
+							<string>showPreferencesDialog:</string>
+							<string>viewAsGrid:</string>
+							<string>viewAsList:</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
-								<string key="name">ImportFile:</string>
+								<string key="name">importFile:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">ShowAboutDialog:</string>
+								<string key="name">showAboutDialog:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">ShowInfoDialog:</string>
+								<string key="name">showInfoDialog:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">ShowPreferencesDialog:</string>
+								<string key="name">showPreferencesDialog:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">ViewAsGrid:</string>
+								<string key="name">viewAsGrid:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">ViewAsList:</string>
+								<string key="name">viewAsList:</string>
 								<string key="candidateClassName">id</string>
+							</object>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>gridViewMenuItem</string>
+							<string>libraryViewBox</string>
+							<string>listViewMenuItem</string>
+							<string>shareButton</string>
+							<string>viewSegmentedControl</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSMenuItem</string>
+							<string>NSBox</string>
+							<string>NSMenuItem</string>
+							<string>NSToolbarItem</string>
+							<string>NSToolbarItem</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>gridViewMenuItem</string>
+							<string>libraryViewBox</string>
+							<string>listViewMenuItem</string>
+							<string>shareButton</string>
+							<string>viewSegmentedControl</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">gridViewMenuItem</string>
+								<string key="candidateClassName">NSMenuItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">libraryViewBox</string>
+								<string key="candidateClassName">NSBox</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">listViewMenuItem</string>
+								<string key="candidateClassName">NSMenuItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">shareButton</string>
+								<string key="candidateClassName">NSToolbarItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">viewSegmentedControl</string>
+								<string key="candidateClassName">NSToolbarItem</string>
 							</object>
 						</object>
 					</object>

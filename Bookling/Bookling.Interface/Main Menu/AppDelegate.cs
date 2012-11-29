@@ -40,13 +40,6 @@ namespace Bookling.Controller
 	public partial class AppDelegate : NSApplicationDelegate
 	{
 		private MainWindowController mainWindowController;
-		private LibraryManager libraryManager;
-
-		public List <Book> Books {
-			get {
-				return libraryManager.Books;
-			}
-		}
 
 		public AppDelegate ()
 		{
@@ -55,51 +48,10 @@ namespace Bookling.Controller
 
 		public override void FinishedLaunching (NSObject notification)
 		{
-			libraryManager = new LibraryManager ();
 
 			mainWindowController = new MainWindowController ();
-			LibraryListViewController listViewController = new LibraryListViewController ();
 
 			mainWindowController.Window.MakeKeyAndOrderFront (this);
-			mainWindowController.Window.LibraryViewBox.ContentView = 
-				listViewController.View;
-			//listViewController.Books = this.Books;
-		}
-
-		partial void ShowAboutDialog (MonoMac.Foundation.NSObject sender)
-		{
-			AboutDialogController about = new AboutDialogController ();
-			about.Window.MakeKeyAndOrderFront (mainWindowController.Window);
-		}
-
-		partial void ShowPreferencesDialog (MonoMac.Foundation.NSObject sender)
-		{
-			PreferencesDialogController prefs = new PreferencesDialogController ();
-			prefs.Window.MakeKeyAndOrderFront (this);
-		}
-
-		partial void ShowInfoDialog (MonoMac.Foundation.NSObject sender)
-		{
-			BookMetadataDialogController info = new BookMetadataDialogController();
-			info.Window.MakeKeyAndOrderFront (this);
-		}
-
-		partial void ImportFile (MonoMac.Foundation.NSObject sender)
-		{
-			NSOpenPanel filePanel = NSOpenPanel.OpenPanel;
-			string[] allowedFileTypes = {"pdf", "epub", "mobi"};
-			filePanel.AllowedFileTypes = allowedFileTypes;
-
-			int result = filePanel.RunModal();
-			if (result == 1) {
-				String bookPath = filePanel.Url.ToString ().Replace ("%20", " ");
-				Book book = new Book();
-				book.Title = Path.GetFileNameWithoutExtension (bookPath);
-				book.FilePath = bookPath;
-				Console.WriteLine (book.Title + " " + book.FilePath);
-				libraryManager.AddBook (book);
-			}
-			libraryManager.PrintLibrary ();
 		}
 	}
 }
