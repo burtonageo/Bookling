@@ -1002,35 +1002,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">toggleGrammarChecking:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="967646866"/>
-					</object>
-					<int key="connectionID">347</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">toggleSmartInsertDelete:</string>
 						<reference key="source" ref="1014"/>
 						<reference key="destination" ref="605118523"/>
 					</object>
 					<int key="connectionID">355</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">toggleAutomaticQuoteSubstitution:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="197661976"/>
-					</object>
-					<int key="connectionID">356</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">toggleAutomaticLinkDetection:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="708854459"/>
-					</object>
-					<int key="connectionID">357</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1087,14 +1063,6 @@
 						<reference key="destination" ref="537092702"/>
 					</object>
 					<int key="connectionID">463</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">uppercaseWord:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="1060694897"/>
-					</object>
-					<int key="connectionID">464</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1746,11 +1714,6 @@
 						<reference key="parent" ref="992780483"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">533</int>
-						<reference key="object" ref="947627720"/>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">535</int>
 						<reference key="object" ref="853944058"/>
 						<reference key="parent" ref="466310130"/>
@@ -1838,6 +1801,11 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">559</int>
 						<reference key="object" ref="690221647"/>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">533</int>
+						<reference key="object" ref="947627720"/>
 						<reference key="parent" ref="0"/>
 					</object>
 				</object>
@@ -2077,11 +2045,13 @@
 							<string>showAboutDialog:</string>
 							<string>showInfoDialog:</string>
 							<string>showPreferencesDialog:</string>
+							<string>switchView:</string>
 							<string>viewAsGrid:</string>
 							<string>viewAsList:</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -2098,6 +2068,7 @@
 							<string>showAboutDialog:</string>
 							<string>showInfoDialog:</string>
 							<string>showPreferencesDialog:</string>
+							<string>switchView:</string>
 							<string>viewAsGrid:</string>
 							<string>viewAsList:</string>
 						</object>
@@ -2120,6 +2091,10 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
+								<string key="name">switchView:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
 								<string key="name">viewAsGrid:</string>
 								<string key="candidateClassName">id</string>
 							</object>
@@ -2134,15 +2109,17 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>gridViewMenuItem</string>
-							<string>libraryViewBox</string>
+							<string>libraryBox</string>
+							<string>librarySourceList</string>
 							<string>listViewMenuItem</string>
 							<string>shareButton</string>
-							<string>viewSegmentedControl</string>
+							<string>viewSwitcher</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NSMenuItem</string>
 							<string>NSBox</string>
+							<string>NSOutlineView</string>
 							<string>NSMenuItem</string>
 							<string>NSToolbarItem</string>
 							<string>NSToolbarItem</string>
@@ -2153,10 +2130,11 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>gridViewMenuItem</string>
-							<string>libraryViewBox</string>
+							<string>libraryBox</string>
+							<string>librarySourceList</string>
 							<string>listViewMenuItem</string>
 							<string>shareButton</string>
-							<string>viewSegmentedControl</string>
+							<string>viewSwitcher</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -2165,8 +2143,12 @@
 								<string key="candidateClassName">NSMenuItem</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">libraryViewBox</string>
+								<string key="name">libraryBox</string>
 								<string key="candidateClassName">NSBox</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">librarySourceList</string>
+								<string key="candidateClassName">NSOutlineView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">listViewMenuItem</string>
@@ -2177,7 +2159,7 @@
 								<string key="candidateClassName">NSToolbarItem</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">viewSegmentedControl</string>
+								<string key="name">viewSwitcher</string>
 								<string key="candidateClassName">NSToolbarItem</string>
 							</object>
 						</object>

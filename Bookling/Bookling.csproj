@@ -72,9 +72,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="Bookling.Models\Book.cs" />
-    <Compile Include="Bookling.Interface\Main Window\MainWindow.cs" />
-    <Compile Include="Bookling.Interface\Main Window\MainWindow.designer.cs" />
-    <Compile Include="Bookling.Interface\Main Window\MainWindowController.cs" />
     <Compile Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.cs" />
     <Compile Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.designer.cs">
       <DependentUpon>BookMetadataDialog.cs</DependentUpon>
@@ -104,15 +101,20 @@
     <Compile Include="Bookling.Interface\About Dialog\AboutDialogController.cs" />
     <Compile Include="Bookling.Controller\LibraryManager.cs" />
     <Compile Include="Bookling.Interface\Main Window\Views\List View\LibraryListViewDataSource.cs" />
+    <Compile Include="Bookling.Interface\Main Window\MainWindow.cs" />
+    <Compile Include="Bookling.Interface\Main Window\MainWindowController.cs" />
+    <Compile Include="Bookling.Interface\Main Window\MainWindow.designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Bookling.Interface\Main Window\MainWindow.xib" />
     <InterfaceDefinition Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.xib" />
     <InterfaceDefinition Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.xib" />
     <InterfaceDefinition Include="Bookling.Interface\Main Menu\MainMenu.xib" />
     <InterfaceDefinition Include="Bookling.Interface\Main Window\Views\Grid View\LibraryGridView.xib" />
     <InterfaceDefinition Include="Bookling.Interface\Main Window\Views\List View\LibraryListView.xib" />
     <InterfaceDefinition Include="Bookling.Interface\About Dialog\AboutDialog.xib" />
+    <InterfaceDefinition Include="Bookling.Interface\Main Window\MainWindow.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

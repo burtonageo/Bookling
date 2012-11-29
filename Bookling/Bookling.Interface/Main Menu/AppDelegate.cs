@@ -48,10 +48,11 @@ namespace Bookling.Controller
 
 		public override void FinishedLaunching (NSObject notification)
 		{
+			BookMetadataDialogController info = new BookMetadataDialogController();
+			info.Window.MakeKeyAndOrderFront (this);
 
-			mainWindowController = new MainWindowController ();
-
-			mainWindowController.Window.MakeKeyAndOrderFront (this);
+			//mainWindowController = new MainWindowController ();
+			//mainWindowController.Window.MakeKeyAndOrderFront (this);
 		}
 	}
 }

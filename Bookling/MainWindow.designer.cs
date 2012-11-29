@@ -15,7 +15,7 @@ namespace Bookling
 		MonoMac.AppKit.NSBox libraryBox { get; set; }
 
 		[Outlet]
-		MonoMac.AppKit.NSOutlineView librarySourceOutline { get; set; }
+		MonoMac.AppKit.NSScrollView librarySources { get; set; }
 
 		[Outlet]
 		MonoMac.AppKit.NSSegmentedControl viewSwitcher { get; set; }
@@ -23,8 +23,8 @@ namespace Bookling
 		[Outlet]
 		MonoMac.AppKit.NSButton shareButton { get; set; }
 
-		[Action ("switchView:")]
-		partial void switchView (MonoMac.Foundation.NSObject sender);
+		[Outlet]
+		MonoMac.AppKit.NSSearchField searchField { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -33,9 +33,9 @@ namespace Bookling
 				libraryBox = null;
 			}
 
-			if (librarySourceOutline != null) {
-				librarySourceOutline.Dispose ();
-				librarySourceOutline = null;
+			if (librarySources != null) {
+				librarySources.Dispose ();
+				librarySources = null;
 			}
 
 			if (viewSwitcher != null) {
@@ -46,6 +46,11 @@ namespace Bookling
 			if (shareButton != null) {
 				shareButton.Dispose ();
 				shareButton = null;
+			}
+
+			if (searchField != null) {
+				searchField.Dispose ();
+				searchField = null;
 			}
 		}
 	}
