@@ -1,0 +1,13 @@
+2012-11-30 00:49:17.572 Bookling[8086:1007] Unable to simultaneously satisfy constraints:
+(
+    "<NSAutoresizingMaskLayoutConstraint:0x7dab1d30 h=--& v=--& V:[LibraryListView:0x7daae9d0(379)]>",
+    "<NSLayoutConstraint:0x7daaeec0 NSScrollView:0x7daac770.bottom == LibraryListView:0x7daae9d0.bottom>",
+    "<NSLayoutConstraint:0x7daaee20 V:|-(0)-[NSScrollView:0x7daac770]   (Names: '|':LibraryListView:0x7daae9d0 )>",
+    "<NSAutoresizingMaskLayoutConstraint:0x7dab1560 h=-&- v=-&- V:[NSClipView:0x7daad080]-(391)-|   (Names: '|':NSScrollView:0x7daac770 )>",
+    "<NSAutoresizingMaskLayoutConstraint:0x7dab1520 h=-&- v=-&- V:|-(0)-[NSClipView:0x7daad080]   (Names: '|':NSScrollView:0x7daac770 )>"
+)
+
+Will attempt to recover by breaking constraint 
+<NSLayoutConstraint:0x7daaeec0 NSScrollView:0x7daac770.bottom == LibraryListView:0x7daae9d0.bottom>
+
+Set the NSUserDefault NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints to YES to have -[NSWindow visualizeConstraints:] automatically called when this happens.  And/or, break on objc_exception_throw to catch this in the debugger.

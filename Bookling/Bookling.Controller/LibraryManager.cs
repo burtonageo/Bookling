@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 
-namespace Bookling
+namespace Bookling.Controller
 {
 	public class LibraryManager
 	{
