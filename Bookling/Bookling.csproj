@@ -124,7 +124,6 @@
     <Folder Include="Bookling.Interface\Main Window\" />
     <Folder Include="Bookling.Interface\Preferences Dialog\" />
     <Folder Include="Bookling.Interface\Main Window\Views\" />
-    <Folder Include="Bookling.Interface\Main Menu\" />
     <Folder Include="Bookling.Interface\Metadata Dialog\" />
     <Folder Include="Bookling.Interface\Main Window\Views\List View\" />
     <Folder Include="Bookling.Interface\Main Window\Views\Grid View\" />

@@ -13,6 +13,9 @@ namespace Bookling
 	{
 		[Action ("VisitWebsite:")]
 		partial void VisitWebsite (MonoMac.Foundation.NSObject sender);
+
+		[Action ("CloseWindow:")]
+		partial void CloseWindow (MonoMac.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{

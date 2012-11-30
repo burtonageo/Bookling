@@ -43,6 +43,7 @@ namespace Bookling
 				return (PreferencesDialog)base.Window;
 			}
 		}
+
 	}
 }
 

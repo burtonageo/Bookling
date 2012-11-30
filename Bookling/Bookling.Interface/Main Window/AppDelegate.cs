@@ -59,21 +59,31 @@ namespace Bookling.Interface
 		{
 			libraryManager = new LibraryManager ();
 			listViewController = new LibraryListViewController ();
+			//listViewController.Books =this.Books;
 			gridViewController = new LibraryGridViewController ();
 			SwitchToController (listViewController);
 			mainWindow.MakeKeyAndOrderFront (this);
+		}
+
+
+		public override bool 
+			ApplicationShouldTerminateAfterLastWindowClosed (NSApplication sender)
+		{
+			return true;
 		}
 
 		partial void ShowAboutDialog (MonoMac.Foundation.NSObject sender)
 		{
 			AboutDialogController about = new AboutDialogController ();
 			about.Window.MakeKeyAndOrderFront (this.mainWindow);
+			NSApplication.SharedApplication.RunModalForWindow (about.Window);
 		}
 		
 		partial void ShowPreferencesDialog (MonoMac.Foundation.NSObject sender)
 		{
 			PreferencesDialogController prefs = new PreferencesDialogController ();
 			prefs.Window.MakeKeyAndOrderFront (this.mainWindow);
+			NSApplication.SharedApplication.RunModalForWindow (prefs.Window);
 		}
 		
 		partial void ShowInfoDialog (MonoMac.Foundation.NSObject sender)
@@ -109,7 +119,7 @@ namespace Bookling.Interface
 		{
 			SwitchToController (gridViewController);
 		}
-		
+
 		void SwitchToController (NSViewController theController)
 		{
 			if (theController == currentController) {

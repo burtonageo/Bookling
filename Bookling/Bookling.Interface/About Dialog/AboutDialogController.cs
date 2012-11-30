@@ -33,6 +33,7 @@ namespace Bookling
 		// Shared initialization code
 		void Initialize ()
 		{
+
 		}
 		
 		#endregion
@@ -43,6 +44,13 @@ namespace Bookling
 				return (AboutDialog)base.Window;
 			}
 		}
+
+		partial void CloseWindow (MonoMac.Foundation.NSObject sender)
+		{
+			this.Window.OrderOut (sender);
+			NSApplication.SharedApplication.StopModal ();
+		}
+
 	}
 }
 
