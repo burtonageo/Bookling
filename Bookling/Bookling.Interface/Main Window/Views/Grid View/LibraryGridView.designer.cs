@@ -1,5 +1,5 @@
 
-namespace Bookling
+namespace Bookling.Interface
 {
 	
 	// Should subclass MonoMac.AppKit.NSView

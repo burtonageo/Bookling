@@ -30,7 +30,7 @@ using MonoMac.Foundation;
 using MonoMac.AppKit;
 using Bookling.Models;
 
-namespace Bookling
+namespace Bookling.Interface
 {
 	[Register("LibraryListViewDataSource")]
 	public class LibraryListViewDataSource : NSTableViewDataSource

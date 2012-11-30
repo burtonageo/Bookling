@@ -6,7 +6,7 @@
 //
 using MonoMac.Foundation;
 
-namespace Bookling
+namespace Bookling.Interface
 {
 	[Register ("LibraryListViewController")]
 	partial class LibraryListViewController

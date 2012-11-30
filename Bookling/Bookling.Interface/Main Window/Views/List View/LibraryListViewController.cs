@@ -6,7 +6,7 @@ using MonoMac.Foundation;
 using MonoMac.AppKit;
 using Bookling.Models;
 
-namespace Bookling
+namespace Bookling.Interface
 {
 	public partial class LibraryListViewController : MonoMac.AppKit.NSViewController
 	{

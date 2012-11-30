@@ -51,6 +51,13 @@ namespace Bookling
 			NSApplication.SharedApplication.StopModal ();
 		}
 
+		partial void VisitWebsite (MonoMac.Foundation.NSObject sender)
+		{
+			NSWorkspace.SharedWorkspace.OpenUrl (new NSUrl 
+			                                     ("https://github.com/burtonageo/Bookling", 
+			 									  isDir: false));
+		}
 	}
 }
 
+ 

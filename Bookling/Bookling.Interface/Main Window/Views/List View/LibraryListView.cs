@@ -5,7 +5,7 @@ using System.Linq;
 using MonoMac.Foundation;
 using MonoMac.AppKit;
 
-namespace Bookling
+namespace Bookling.Interface
 {
 	public partial class LibraryListView : MonoMac.AppKit.NSView
 	{
