@@ -25,7 +25,11 @@
 // THE SOFTWARE.
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using MonoMac.Foundation;
 using MonoMac.AppKit;
 
@@ -58,9 +62,11 @@ namespace Bookling.Interface
 		void Initialize ()
 		{
 			//resetButton = new NSButton ();
-			resetButton.Enabled = false;
+			//resetButton.Enabled = false;
 			//acceptButton.Enabled = false;
+
 		}
+
 		
 		#endregion
 		
@@ -71,6 +77,20 @@ namespace Bookling.Interface
 			}
 		}
 
+		[Export("awakeFromNib")]
+		public override void AwakeFromNib ()
+		{
+			base.AwakeFromNib ();
+
+
+			Window.BackgroundColor = NSColor.FromPatternImage (NSImage.FromStream 
+			                         	(Assembly.GetExecutingAssembly ().
+			 								GetManifestResourceStream 
+			 									("Bookling.Textures.paper.png")));
+			Window.SetContentBorderThickness (0.0f, NSRectEdge.MaxYEdge);
+			//NSApplication.SharedApplication.RunModalForWindow (this.Window);
+		}
+
 		partial void ResetToDefaults (MonoMac.Foundation.NSObject sender)
 		{
 
@@ -78,19 +98,28 @@ namespace Bookling.Interface
 		
 		partial void Accept (MonoMac.Foundation.NSObject sender)
 		{
-
+			NSApplication.SharedApplication.StopModal ();
+			Window.OrderOut (sender);
 		}
 		
 		partial void Cancel (MonoMac.Foundation.NSObject sender)
 		{
-			Window.OrderOut (sender);
 			NSApplication.SharedApplication.StopModal ();
+			Window.OrderOut (sender);
 		}
 		
 		partial void SwitchView (MonoMac.Foundation.NSObject sender)
 		{
-
+			switch (viewSelector.SelectedSegment) {
+			case 0:
+				break;
+			case 1:
+				break;
+			case 2:
+				break;
+			}
 		}
+
 	}
 }
 

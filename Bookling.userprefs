@@ -1,35 +1,48 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Interface/About Dialog/AboutDialogBackingView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Interface/Preferences Dialog/PreferencesDialogController.cs">
     <Files>
       <File FileName="Bookling/Bookling.Controller/LibraryManager.cs" Line="118" Column="4" />
-      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialogController.cs" Line="45" Column="5" />
+      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialogController.cs" Line="48" Column="24" />
       <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialog.cs" Line="15" Column="18" />
       <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialog.designer.cs" Line="15" Column="66" />
       <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialogController.cs" Line="40" Column="4" />
       <File FileName="Bookling/Bookling.Interface/Main Window/Views/List View/LibraryListViewController.cs" Line="2" Column="29" />
-      <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialog.designer.cs" Line="32" Column="11" />
-      <File FileName="Bookling/Bookling.Interface/Main Window/AppDelegate.cs" Line="78" Column="1" />
+      <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialog.designer.cs" Line="20" Column="11" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/AppDelegate.cs" Line="137" Column="28" />
       <File FileName="Bookling/Bookling.Interface/Main Window/AppDelegate.designer.cs" Line="28" Column="1" />
-      <File FileName="Bookling/Bookling.Interface/Preferences Dialog/PreferencesDialogController.cs" Line="38" Column="8" />
+      <File FileName="Bookling/Bookling.Interface/Preferences Dialog/PreferencesDialogController.cs" Line="23" Column="81" />
       <File FileName="Bookling/Bookling.Interface/Main Window/Views/List View/LibraryListViewDataSource.cs" Line="47" Column="4" />
       <File FileName="Bookling/Bookling.Interface/Main Window/Views/List View/LibraryListView.cs" Line="2" Column="19" />
       <File FileName="Bookling/Bookling.Interface/Main Window/Views/List View/LibraryListView.designer.cs" Line="33" Column="3" />
       <File FileName="Bookling/Bookling.Interface/Main Window/Views/Grid View/LibraryGridView.cs" Line="2" Column="19" />
       <File FileName="Bookling/Bookling.Interface/Main Window/Views/Grid View/LibraryGridView.designer.cs" Line="2" Column="29" />
-      <File FileName="Bookling/Bookling.Interface/Main Window/Views/Grid View/LibraryGridViewController.cs" Line="2" Column="29" />
-      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialogBackingView.cs" Line="51" Column="17" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/Views/Grid View/LibraryGridViewController.cs" Line="1" Column="1" />
+      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialogBackingView.cs" Line="45" Column="27" />
+      <File FileName="Bookling/Bookling.Interface/Preferences Dialog/PreferencesDialog.designer.cs" Line="29" Column="19" />
+      <File FileName="Bookling/Bookling.Interface/Preferences Dialog/PreferencesDialog.cs" Line="2" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Bookling" expanded="True">
+            <Node name="Bookling.Controller" expanded="True" />
             <Node name="Bookling.Interface" expanded="True">
               <Node name="About Dialog" expanded="True">
                 <Node name="Texture" expanded="True" />
-                <Node name="AboutDialogBackingView.cs" selected="True" />
               </Node>
-              <Node name="Main Window" expanded="True" />
+              <Node name="Main Window" expanded="True">
+                <Node name="Views" expanded="True">
+                  <Node name="Grid View" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Metadata Dialog" expanded="True">
+                <Node name="BookMetadataDialog.cs" expanded="True" />
+              </Node>
+              <Node name="Preferences Dialog" expanded="True">
+                <Node name="PreferencesDialog.cs" expanded="True" />
+                <Node name="PreferencesDialogController.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

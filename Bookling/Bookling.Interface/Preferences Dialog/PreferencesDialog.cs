@@ -55,6 +55,12 @@ namespace Bookling.Interface
 		
 		#endregion
 
+		public override void PerformClose (NSObject sender)
+		{
+			NSApplication.SharedApplication.StopModal ();
+			base.PerformClose (sender);
+		}
+
 	}
 }
 

@@ -101,7 +101,6 @@
     <Compile Include="Bookling.Interface\Main Window\Views\List View\LibraryListViewDataSource.cs" />
     <Compile Include="Bookling.Interface\Main Window\AppDelegate.cs" />
     <Compile Include="Bookling.Interface\Main Window\AppDelegate.designer.cs" />
-    <Compile Include="Bookling.Interface\About Dialog\AboutDialogBackingView.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.xib" />
@@ -114,8 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
-    <None Include="Bookling.Interface\About Dialog\Texture\paper_%402X.png" />
-    <None Include="Bookling.Interface\About Dialog\Texture\paper.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Mono\MonoMac\v0.0\Mono.MonoMac.targets" />
@@ -130,6 +127,13 @@
     <Folder Include="Bookling.Interface\Metadata Dialog\" />
     <Folder Include="Bookling.Interface\Main Window\Views\List View\" />
     <Folder Include="Bookling.Interface\Main Window\Views\Grid View\" />
-    <Folder Include="Bookling.Interface\About Dialog\Texture\" />
+    <Folder Include="Textures\" />
+    <Folder Include="Icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\paper_%402X.png" />
+    <EmbeddedResource Include="Textures\paper.png" />
+    <EmbeddedResource Include="Icons\close_%402X.png" />
+    <EmbeddedResource Include="Icons\close.png" />
   </ItemGroup>
 </Project>
