@@ -1,10 +1,10 @@
 //
-// PreferencesDialog.cs
+// LightDialog.cs
 //
 // Author:
-//       georgeburton <burtonageo@gmail.com>
+//       George Burton <burtonageo@gmail.com>
 //
-// Copyright (c) 2012 georgeburton
+// Copyright (c) 2012 George Burton
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,24 +26,32 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using MonoMac.Foundation;
 using MonoMac.AppKit;
+using MonoMac.ObjCRuntime;
 
 namespace Bookling.Interface
 {
-	public partial class PreferencesDialog : LightDialog
+	[Register ("LightDialog")]
+	public class LightDialog : MonoMac.AppKit.NSWindow
 	{
+		private NSButton windowCloseButton;
+		private NSButton windowMinimizeButton;
+		private NSButton windowZoomButton;
+
 		#region Constructors
 		
 		// Called when created from unmanaged code
-		public PreferencesDialog (IntPtr handle) : base (handle)
+		public LightDialog (IntPtr handle) : base (handle)
 		{
 			Initialize ();
 		}
 		
 		// Called when created directly from a XIB file
 		[Export ("initWithCoder:")]
-		public PreferencesDialog (NSCoder coder) : base (coder)
+		public LightDialog (NSCoder coder) : base (coder)
 		{
 			Initialize ();
 		}
@@ -53,7 +61,32 @@ namespace Bookling.Interface
 		{
 		}
 		
-		#endregion
+#endregion
+		
+		[Export ("awakeFromNib")]
+		public override void AwakeFromNib ()
+		{
+			base.AwakeFromNib ();
+			
+			windowCloseButton = StandardWindowButton (NSWindowButton.CloseButton);
+			windowMinimizeButton = StandardWindowButton (NSWindowButton.MiniaturizeButton);
+			windowZoomButton = StandardWindowButton (NSWindowButton.ZoomButton);			                                         
+			
+			windowZoomButton.Hidden = true;
+			windowMinimizeButton.Hidden = true;
+
+			windowCloseButton.Bordered = false;
+			windowCloseButton.Image = NSImage.FromStream 
+				(Assembly.GetExecutingAssembly ().
+				 GetManifestResourceStream 
+				 ("Bookling.Icons.close.png"));
+			
+			BackgroundColor = NSColor.FromPatternImage (NSImage.FromStream 
+			                                                   (Assembly.GetExecutingAssembly ().
+																GetManifestResourceStream 
+			 														("Bookling.Textures.paper.png")));
+
+		}
 	}
 }
 

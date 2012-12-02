@@ -6,7 +6,7 @@
 //
 using MonoMac.Foundation;
 
-namespace Bookling
+namespace Bookling.Interface
 {
 	[Register ("BookMetadataDialogController")]
 	partial class BookMetadataDialogController
@@ -34,6 +34,15 @@ namespace Bookling
 
 		[Action ("AcceptChanges:")]
 		partial void AcceptChanges (MonoMac.Foundation.NSObject sender);
+
+		[Action ("CloseWindow:")]
+		partial void CloseWindow (MonoMac.Foundation.NSObject sender);
+
+		[Action ("NextItem:")]
+		partial void NextItem (MonoMac.Foundation.NSObject sender);
+
+		[Action ("PreviousItem:")]
+		partial void PreviousItem (MonoMac.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{

@@ -5,9 +5,9 @@ using System.Linq;
 using MonoMac.Foundation;
 using MonoMac.AppKit;
 
-namespace Bookling
+namespace Bookling.Interface
 {
-	public partial class BookMetadataDialog : MonoMac.AppKit.NSWindow
+	public partial class BookMetadataDialog : LightDialog
 	{
 		#region Constructors
 		

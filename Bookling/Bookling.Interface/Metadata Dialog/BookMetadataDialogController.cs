@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using MonoMac.Foundation;
 using MonoMac.AppKit;
+using MonoMac.ObjCRuntime;
 
-namespace Bookling
+namespace Bookling.Interface
 {
 	public partial class BookMetadataDialogController : MonoMac.AppKit.NSWindowController
 	{
@@ -42,6 +43,21 @@ namespace Bookling
 			get {
 				return (BookMetadataDialog)base.Window;
 			}
+		}
+
+		[Export("awakeFromNib")]
+		public override void AwakeFromNib ()
+		{
+			base.AwakeFromNib ();
+			Window.StandardWindowButton (NSWindowButton.CloseButton).Target = this;
+			Window.StandardWindowButton (NSWindowButton.CloseButton).Action = 
+				new Selector ("CloseWindow:");
+		}
+
+		partial void CloseWindow (MonoMac.Foundation.NSObject sender)
+		{
+			Window.Close ();
+			NSApplication.SharedApplication.StopModal ();
 		}
 	}
 }

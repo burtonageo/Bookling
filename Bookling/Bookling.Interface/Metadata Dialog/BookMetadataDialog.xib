@@ -45,7 +45,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSWindowTemplate" id="563805196">
-				<int key="NSWindowStyleMask">3</int>
+				<int key="NSWindowStyleMask">259</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{120, 65}, {560, 449}}</string>
 				<int key="NSWTFlags">-1535638528</int>
@@ -61,7 +61,7 @@
 						<object class="NSButton" id="535815456">
 							<reference key="NSNextResponder" ref="1018359836"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{88, 6}, {82, 32}}</string>
+							<string key="NSFrame">{{102, 13}, {82, 25}}</string>
 							<reference key="NSSuperview" ref="1018359836"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="566088569"/>
@@ -79,7 +79,7 @@
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="535815456"/>
 								<int key="NSButtonFlags">-2038284288</int>
-								<int key="NSButtonFlags2">129</int>
+								<int key="NSButtonFlags2">163</int>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">200</int>
@@ -90,7 +90,7 @@
 						<object class="NSButton" id="389587000">
 							<reference key="NSNextResponder" ref="1018359836"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{6, 6}, {82, 32}}</string>
+							<string key="NSFrame">{{12, 13}, {82, 25}}</string>
 							<reference key="NSSuperview" ref="1018359836"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="535815456"/>
@@ -104,7 +104,7 @@
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="389587000"/>
 								<int key="NSButtonFlags">-2038284288</int>
-								<int key="NSButtonFlags2">129</int>
+								<int key="NSButtonFlags2">163</int>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">200</int>
@@ -115,7 +115,7 @@
 						<object class="NSButton" id="566088569">
 							<reference key="NSNextResponder" ref="1018359836"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{330, 6}, {82, 32}}</string>
+							<string key="NSFrame">{{322, 13}, {82, 25}}</string>
 							<reference key="NSSuperview" ref="1018359836"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="356972529"/>
@@ -129,7 +129,7 @@
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="566088569"/>
 								<int key="NSButtonFlags">-2038284288</int>
-								<int key="NSButtonFlags2">129</int>
+								<int key="NSButtonFlags2">163</int>
 								<string key="NSAlternateContents"/>
 								<string type="base64-UTF8" key="NSKeyEquivalent">Gw</string>
 								<int key="NSPeriodicDelay">200</int>
@@ -400,7 +400,7 @@
 												<string key="NSFrame">{{78, 71}, {438, 17}}</string>
 												<reference key="NSSuperview" ref="831815096"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="340834326"/>
+												<reference key="NSNextKeyView" ref="389587000"/>
 												<string key="NSReuseIdentifierKey">_NS:1535</string>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSTextFieldCell" key="NSCell" id="474050889">
@@ -693,7 +693,6 @@
 												<int key="NSvFlags">268</int>
 												<string key="NSFrame">{{482, 40}, {31, 19}}</string>
 												<reference key="NSSuperview" ref="88269381"/>
-												<reference key="NSNextKeyView" ref="389587000"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSTextFieldCell" key="NSCell" id="260638912">
@@ -787,9 +786,10 @@
 						<object class="NSButton" id="356972529">
 							<reference key="NSNextResponder" ref="1018359836"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{412, 6}, {134, 32}}</string>
+							<string key="NSFrame">{{412, 13}, {134, 25}}</string>
 							<reference key="NSSuperview" ref="1018359836"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="782274354">
@@ -800,7 +800,7 @@
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="356972529"/>
 								<int key="NSButtonFlags">-2038284288</int>
-								<int key="NSButtonFlags2">129</int>
+								<int key="NSButtonFlags2">163</int>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">200</int>
@@ -815,8 +815,11 @@
 					<reference key="NSNextKeyView" ref="340834326"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1280, 800}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
+				<bool key="NSAutorecalculatesContentBorderThicknessMinY">NO</bool>
+				<double key="NSContentBorderThicknessMinY">45</double>
+				<bool key="NSAutorecalculatesContentBorderThicknessMaxY">NO</bool>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 		</object>
@@ -896,12 +899,36 @@
 					<int key="connectionID">93</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">orderOut:</string>
-						<reference key="source" ref="1003"/>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">CloseWindow</string>
+						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="566088569"/>
 					</object>
-					<int key="connectionID">61</int>
+					<int key="connectionID">94</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">CloseWindow:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="566088569"/>
+					</object>
+					<int key="connectionID">95</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">NextItem:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="535815456"/>
+					</object>
+					<int key="connectionID">96</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">PreviousItem:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="389587000"/>
+					</object>
+					<int key="connectionID">97</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -948,10 +975,10 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="340834326"/>
-							<reference ref="535815456"/>
-							<reference ref="389587000"/>
 							<reference ref="356972529"/>
 							<reference ref="566088569"/>
+							<reference ref="535815456"/>
+							<reference ref="389587000"/>
 						</object>
 						<reference key="parent" ref="563805196"/>
 					</object>
@@ -1553,14 +1580,14 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">93</int>
+			<int key="maxID">97</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBPartialClassDescription">
 					<string key="className">BookMetadataDialog</string>
-					<string key="superclassName">NSWindow</string>
+					<string key="superclassName">LightDialog</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/BookMetadataDialog.h</string>
@@ -1570,14 +1597,49 @@
 					<string key="className">BookMetadataDialogController</string>
 					<string key="superclassName">NSWindowController</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">AcceptChanges:</string>
-						<string key="NS.object.0">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>AcceptChanges:</string>
+							<string>CloseWindow:</string>
+							<string>NextItem:</string>
+							<string>PreviousItem:</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">AcceptChanges:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">AcceptChanges:</string>
-							<string key="candidateClassName">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>AcceptChanges:</string>
+							<string>CloseWindow:</string>
+							<string>NextItem:</string>
+							<string>PreviousItem:</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">AcceptChanges:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">CloseWindow:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">NextItem:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">PreviousItem:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -1650,6 +1712,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/BookMetadataDialogController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">LightDialog</string>
+					<string key="superclassName">NSWindow</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/LightDialog.h</string>
 					</object>
 				</object>
 			</object>

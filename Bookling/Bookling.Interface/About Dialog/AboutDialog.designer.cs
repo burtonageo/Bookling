@@ -6,7 +6,7 @@
 //
 using MonoMac.Foundation;
 
-namespace Bookling
+namespace Bookling.Interface
 {
 	[Register ("AboutDialogController")]
 	partial class AboutDialogController

@@ -96,6 +96,10 @@
     <Compile Include="Bookling.Interface\Main Window\Views\List View\LibraryListViewDataSource.cs" />
     <Compile Include="Bookling.Interface\Main Window\AppDelegate.cs" />
     <Compile Include="Bookling.Interface\Main Window\AppDelegate.designer.cs" />
+    <Compile Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.cs" />
+    <Compile Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.designer.cs" />
+    <Compile Include="Bookling.Interface\Metadata Dialog\BookMetadataDialogController.cs" />
+    <Compile Include="Bookling.Interface\Light Dialog\LightDialog.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.xib" />
@@ -104,6 +108,7 @@
     <InterfaceDefinition Include="Bookling.Interface\About Dialog\AboutDialog.xib" />
     <InterfaceDefinition Include="Bookling.Interface\Main Window\MainMenu.xib" />
     <InterfaceDefinition Include="AppDelegate.xib" />
+    <InterfaceDefinition Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -122,6 +127,8 @@
     <Folder Include="Bookling.Interface\Main Window\Views\Grid View\" />
     <Folder Include="Textures\" />
     <Folder Include="Icons\" />
+    <Folder Include="Bookling.Interface\Light Dialog\" />
+    <Folder Include="Bookling.Interface\Metadata Dialog\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Textures\paper_%402X.png" />
