@@ -72,11 +72,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="Bookling.Models\Book.cs" />
-    <Compile Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.cs" />
-    <Compile Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.designer.cs">
-      <DependentUpon>BookMetadataDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bookling.Interface\Metadata Dialog\BookMetadataDialogController.cs" />
     <Compile Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.cs" />
     <Compile Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.designer.cs">
       <DependentUpon>PreferencesDialog.cs</DependentUpon>
@@ -103,7 +98,6 @@
     <Compile Include="Bookling.Interface\Main Window\AppDelegate.designer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.xib" />
     <InterfaceDefinition Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.xib" />
     <InterfaceDefinition Include="Bookling.Interface\Main Window\Views\Grid View\LibraryGridView.xib" />
     <InterfaceDefinition Include="Bookling.Interface\Main Window\Views\List View\LibraryListView.xib" />
@@ -124,7 +118,6 @@
     <Folder Include="Bookling.Interface\Main Window\" />
     <Folder Include="Bookling.Interface\Preferences Dialog\" />
     <Folder Include="Bookling.Interface\Main Window\Views\" />
-    <Folder Include="Bookling.Interface\Metadata Dialog\" />
     <Folder Include="Bookling.Interface\Main Window\Views\List View\" />
     <Folder Include="Bookling.Interface\Main Window\Views\Grid View\" />
     <Folder Include="Textures\" />

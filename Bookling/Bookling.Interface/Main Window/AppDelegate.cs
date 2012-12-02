@@ -59,7 +59,6 @@ namespace Bookling.Interface
 		{
 			libraryManager = new LibraryManager ();
 			listViewController = new LibraryListViewController ();
-			//listViewController.Books =this.Books;
 			gridViewController = new LibraryGridViewController ();
 			SwitchToController (listViewController);
 			mainWindow.MakeKeyAndOrderFront (this);

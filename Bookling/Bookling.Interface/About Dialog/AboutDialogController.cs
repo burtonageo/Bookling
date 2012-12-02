@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Resources;
 using MonoMac.Foundation;
 using MonoMac.AppKit;
+using MonoMac.ObjCRuntime;
 
 namespace Bookling
 {
@@ -15,7 +16,7 @@ namespace Bookling
 	{
 		private NSButton windowCloseButton;
 		private NSButton windowMinimizeButton;
-		private NSButton windowMaximizeButton;
+		private NSButton windowZoomButton;
 
 
 		#region Constructors
@@ -61,24 +62,24 @@ namespace Bookling
 
 			windowCloseButton = Window.StandardWindowButton (NSWindowButton.CloseButton);
 			windowMinimizeButton = Window.StandardWindowButton (NSWindowButton.MiniaturizeButton);
-			windowMaximizeButton = Window.StandardWindowButton (NSWindowButton.ZoomButton);			                                         
+			windowZoomButton = Window.StandardWindowButton (NSWindowButton.ZoomButton);			                                         
 
-			windowMaximizeButton.Hidden = true;
+			windowZoomButton.Hidden = true;
 			windowMinimizeButton.Hidden = true;
 
 			windowCloseButton.Target = this;
-			windowCloseButton.Action = new MonoMac.ObjCRuntime.Selector ("CloseWindow:");
+			windowCloseButton.Action = new Selector ("CloseWindow:");
 
 			windowCloseButton.Bordered = false;
 			windowCloseButton.Image = NSImage.FromStream 
 				(Assembly.GetExecutingAssembly ().
-				 GetManifestResourceStream 
-				 ("Bookling.Icons.close.png"));
+					GetManifestResourceStream 
+						("Bookling.Icons.close.png"));
 
 			Window.BackgroundColor = NSColor.FromPatternImage (NSImage.FromStream 
 			            (Assembly.GetExecutingAssembly ().
-			 			GetManifestResourceStream 
-			               ("Bookling.Textures.paper.png")));
+			 				GetManifestResourceStream 
+			               		("Bookling.Textures.paper.png")));
 		}
 
 		partial void CloseWindow (MonoMac.Foundation.NSObject sender)

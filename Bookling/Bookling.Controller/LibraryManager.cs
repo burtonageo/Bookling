@@ -107,7 +107,6 @@ namespace Bookling.Controller
 			}
 		}
 
-
 		private SqliteConnection Connection;
 
 		public LibraryManager ()
