@@ -81,9 +81,10 @@ namespace Bookling.Interface
 		[Export("awakeFromNib")]
 		public override void AwakeFromNib ()
 		{
+			base.AwakeFromNib ();
 			Window.StandardWindowButton (NSWindowButton.CloseButton).Target = this;
 			Window.StandardWindowButton (NSWindowButton.CloseButton).Action = 
-				new Selector ("CloseWindow:");
+				new Selector ("Cancel:");
 		}
 
 		partial void ResetToDefaults (MonoMac.Foundation.NSObject sender)

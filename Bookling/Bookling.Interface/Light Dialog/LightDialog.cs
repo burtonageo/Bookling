@@ -24,7 +24,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
@@ -40,6 +39,8 @@ namespace Bookling.Interface
 		private NSButton windowCloseButton;
 		private NSButton windowMinimizeButton;
 		private NSButton windowZoomButton;
+		//private NSView lightDialogTitleView;
+		//private int buttonId;
 
 		#region Constructors
 		
@@ -59,6 +60,7 @@ namespace Bookling.Interface
 		// Shared initialization code
 		void Initialize ()
 		{
+			//lightDialogTitleView = new LightDialogTitleView ();
 		}
 		
 #endregion
@@ -67,7 +69,8 @@ namespace Bookling.Interface
 		public override void AwakeFromNib ()
 		{
 			base.AwakeFromNib ();
-			
+
+
 			windowCloseButton = StandardWindowButton (NSWindowButton.CloseButton);
 			windowMinimizeButton = StandardWindowButton (NSWindowButton.MiniaturizeButton);
 			windowZoomButton = StandardWindowButton (NSWindowButton.ZoomButton);			                                         
@@ -75,17 +78,38 @@ namespace Bookling.Interface
 			windowZoomButton.Hidden = true;
 			windowMinimizeButton.Hidden = true;
 
-			windowCloseButton.Bordered = false;
-			windowCloseButton.Image = NSImage.FromStream 
-				(Assembly.GetExecutingAssembly ().
-				 GetManifestResourceStream 
-				 ("Bookling.Icons.close.png"));
-			
-			BackgroundColor = NSColor.FromPatternImage (NSImage.FromStream 
-			                                                   (Assembly.GetExecutingAssembly ().
-																GetManifestResourceStream 
-			 														("Bookling.Textures.paper.png")));
+			if (NSScreen.MainScreen.BackingScaleFactor > 1.0f) {
 
+				windowCloseButton.Bordered = false;
+				windowCloseButton.Image = NSImage.FromStream 
+					(Assembly.GetExecutingAssembly ().
+					 GetManifestResourceStream (
+						"Bookling.Icons.close_@2X.png"));
+
+				BackgroundColor = NSColor.FromPatternImage (NSImage.FromStream 
+				                                            (Assembly.GetExecutingAssembly ().
+				 GetManifestResourceStream (
+					"Bookling.Textures.paper_@2X.png")));
+			} else {
+
+				windowCloseButton.Bordered = false;
+				windowCloseButton.Image = NSImage.FromStream 
+					(Assembly.GetExecutingAssembly ().
+					 GetManifestResourceStream (
+				 		"Bookling.Icons.close.png"));
+
+				BackgroundColor = NSColor.FromPatternImage (NSImage.FromStream 
+					(Assembly.GetExecutingAssembly ().
+					 GetManifestResourceStream (
+							"Bookling.Textures.paper.png")));		
+			}
+
+			/*
+			NSView themeFrame = ContentView.Superview;
+			NSView firstSubview = themeFrame.Subviews[0];
+			lightDialogTitleView.AutoresizingMask = NSViewResizingMask.MaxYMargin;
+			themeFrame.AddSubview (lightDialogTitleView, NSWindowOrderingMode.Below, firstSubview);
+			*/
 		}
 	}
 }
