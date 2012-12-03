@@ -107,17 +107,19 @@ namespace Bookling.Controller
 			}
 		}
 
-		private SqliteConnection Connection;
+		private SqliteConnection Connection {
+			get {
+				return new SqliteConnection (
+					"Data Source= " + LibraryManager.DatabasePath + 
+					"; Version = 3;");
+			}
+		}
 
 		public LibraryManager ()
 		{
 			if (!Directory.Exists (LibraryManager.DatabaseDirectory)) {
 				Directory.CreateDirectory (LibraryManager.DatabaseDirectory);
 			}
-
-			Connection = new SqliteConnection (
-				"Data Source= " + LibraryManager.DatabasePath + 
-				"; Version = 3;");
 
 
 			bool exists = File.Exists (LibraryManager.DatabasePath);
@@ -128,22 +130,17 @@ namespace Bookling.Controller
 			if (!exists) {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = 
+						"CREATE TABLE Authors (AuthorID INTEGER PRIMARY KEY, " +
+						"BookAuthor TEXT);" +
 						"CREATE TABLE Books (BookID INTEGER PRIMARY KEY, " +
-						"BookTitle TEXT, BookAuthor TEXT, " +
+						"BookTitle TEXT, " +
+						"FOREIGN KEY (AuthorID) REFERENCES Authors (AuthorID) , " +
 						"BookPublishedYear INTEGER, BookPath TEXT);";
+
 					command.ExecuteNonQuery();
 				}
 			}
-		}
-
-		~LibraryManager ()
-		{
-			if (Connection != null && 
-				Connection.State != ConnectionState.Closed) {
-				Connection.Close ();
-				Connection.Dispose();
-				Connection = null;
-			}
+			Connection.Close ();
 		}
 
 		public bool AddBook (Book book)
@@ -155,7 +152,9 @@ namespace Bookling.Controller
 			//                                  LibraryController.DatabaseDirectory);
 			//File.Copy (sourcePath, targetPath, overwrite: true);
 			Console.WriteLine (book.Title);
+
 			try {
+				Connection.Open ();
 				using (SqliteCommand command = new SqliteCommand (
 						"INSERT INTO Books (BookID, BookTitle, BookAuthor, " +
 						"BookPublishedYear, BookPath) VALUES (" +
@@ -173,11 +172,14 @@ namespace Bookling.Controller
 			} catch (SqliteException e) {
 				Console.WriteLine (e.Message);
 				return false;
+			} finally {
+				Connection.Close ();
 			}
 		}
 
 		public void PrintLibrary ()
 		{
+			Connection.Open ();
 			SqliteCommand command = Connection.CreateCommand ();
 			command.CommandText ="SELECT BookID, BookTitle, BookAuthor FROM Books";
 
@@ -193,34 +195,39 @@ namespace Bookling.Controller
 			command = null;
 			reader.Close ();
 			reader = null;
+			Connection.Close ();
 		}
 
 
 
-		public bool RemoveBook (Book book) 
+		public bool RemoveBook (Book book)
 		{
 			try {
+				Connection.Open ();
 				using (SqliteCommand command = new SqliteCommand(Connection)) {
 					command.CommandText =
 						"DELETE FROM Books WHERE " +
-							"BookTitle = title AND BookPath = path AND" +
-							"BookAuthor = author AND BookPublishedYear = year";
+						"BookTitle = title AND BookPath = path AND" +
+						"BookAuthor = author AND BookPublishedYear = year";
 					command.Parameters.Add (new SqliteParameter ("title", book.Title)); 
 					command.Parameters.Add (new SqliteParameter ("author", book.Author)); 
 					command.Parameters.Add (new SqliteParameter ("year", book.YearPublished));
 					command.Parameters.Add (new SqliteParameter ("path", book.FilePath));
 					command.ExecuteNonQuery ();
-					}
+				}
 				return true;
 			} catch (SqliteException e) {
 				Console.WriteLine (e.Message);
 				return false;
+			} finally {
+				Connection.Close ();
 			}
 		}
 
 		public bool RemoveBook (int bookID) 
 		{
 			try {
+				Connection.Open ();
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
 						"DELETE FROM Books WHERE BookID = id;";
@@ -231,12 +238,15 @@ namespace Bookling.Controller
 			} catch (SqliteException e) {
 				Console.WriteLine (e.Message);
 				return false;
+			} finally {
+				Connection.Close ();
 			}
 		}
 
 		public bool AlterBookData (int bookID, Book book)
 		{
 			try {
+				Connection.Open ();
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
 					"UPDATE Books SET " +
@@ -254,6 +264,8 @@ namespace Bookling.Controller
 			} catch (SqliteException e) {
 				Console.WriteLine (e.Message);
 				return false;
+			} finally {
+				Connection.Close ();
 			}
 		} 
 	}

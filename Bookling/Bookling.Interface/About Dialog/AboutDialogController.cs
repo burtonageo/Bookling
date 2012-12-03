@@ -1,7 +1,5 @@
 
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using MonoMac.Foundation;
 using MonoMac.AppKit;
@@ -50,6 +48,7 @@ namespace Bookling.Interface
 		[Export("awakeFromNib")]
 		public override void AwakeFromNib ()
 		{
+			base.AwakeFromNib ();
 			Window.StandardWindowButton (NSWindowButton.CloseButton).Target = this;
 			Window.StandardWindowButton (NSWindowButton.CloseButton).Action = 
 				new Selector ("CloseWindow:");

@@ -43,7 +43,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSWindowTemplate" id="283107718">
-				<int key="NSWindowStyleMask">4354</int>
+				<int key="NSWindowStyleMask">4355</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{120, 65}, {451, 176}}</string>
 				<int key="NSWTFlags">-1535638528</int>
@@ -344,6 +344,7 @@
 				<bool key="NSAutorecalculatesContentBorderThicknessMinY">NO</bool>
 				<bool key="NSAutorecalculatesContentBorderThicknessMaxY">NO</bool>
 				<int key="NSWindowAnimationBehavior">5</int>
+				<int key="NSWindowCollectionBehavior">4</int>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 		</object>
