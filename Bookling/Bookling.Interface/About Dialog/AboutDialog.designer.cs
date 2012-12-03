@@ -16,6 +16,9 @@ namespace Bookling.Interface
 
 		[Action ("CloseWindow:")]
 		partial void CloseWindow (MonoMac.Foundation.NSObject sender);
+
+		[Action ("SwitchView:")]
+		partial void SwitchView (MonoMac.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{

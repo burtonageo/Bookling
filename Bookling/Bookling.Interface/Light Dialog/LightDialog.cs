@@ -70,7 +70,6 @@ namespace Bookling.Interface
 		{
 			base.AwakeFromNib ();
 
-
 			windowCloseButton = StandardWindowButton (NSWindowButton.CloseButton);
 			windowMinimizeButton = StandardWindowButton (NSWindowButton.MiniaturizeButton);
 			windowZoomButton = StandardWindowButton (NSWindowButton.ZoomButton);			                                         
@@ -79,7 +78,6 @@ namespace Bookling.Interface
 			windowMinimizeButton.Hidden = true;
 
 			if (NSScreen.MainScreen.BackingScaleFactor > 1.0f) {
-
 				windowCloseButton.Bordered = false;
 				windowCloseButton.Image = NSImage.FromStream 
 					(Assembly.GetExecutingAssembly ().

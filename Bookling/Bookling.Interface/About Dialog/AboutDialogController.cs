@@ -65,6 +65,11 @@ namespace Bookling.Interface
 			NSWorkspace.SharedWorkspace.OpenUrl
 				(NSUrl.FromString ("https://github.com/burtonageo/Bookling"));
 		}
+
+		partial void SwitchView (MonoMac.Foundation.NSObject sender)
+		{
+
+		}
 	}
 }
 
