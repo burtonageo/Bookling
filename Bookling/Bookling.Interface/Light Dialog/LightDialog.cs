@@ -74,62 +74,24 @@ namespace Bookling.Interface
 
 			customClose = new NSButton ();
 			customClose.Bordered = false;
-			customClose.Frame = new RectangleF (new PointF (0.0f, 0.0f), new SizeF (25.0f, 25.0f));
 
 			NSButton windowCloseButton = StandardWindowButton (NSWindowButton.CloseButton);
 			NSButton windowMinimizeButton = StandardWindowButton (NSWindowButton.MiniaturizeButton);
 			NSButton windowZoomButton = StandardWindowButton (NSWindowButton.ZoomButton);			                                         
 			
 			windowZoomButton.Hidden = true;
+			windowZoomButton.Enabled = false;
 			windowMinimizeButton.Hidden = true;
+			windowMinimizeButton.Enabled = false;
 			windowCloseButton.Hidden = true;
+			windowCloseButton.Enabled = false;
 
 			if (NSScreen.MainScreen.BackingScaleFactor > 1.0f) {
-				NSImage closeImage = NSImage.FromStream 
-					(Assembly.GetExecutingAssembly ().
-					 GetManifestResourceStream (
-						"Bookling.Icons.close_@2X.png"));
-				customClose.Frame = new RectangleF (new PointF (0.0f, 0.0f), 
-				                                    new SizeF (closeImage.Size.Height,
-				           							closeImage.Size.Width));
-				NSImage pressedCloseImage = NSImage.FromStream 
-					(Assembly.GetExecutingAssembly ().
-					 GetManifestResourceStream (
-						"Bookling.Icons.close_pressed_@2X.png"));
-
-				customClose.Image = closeImage;
-				customClose.AlternateImage = pressedCloseImage;
-				customClose.Cell.HighlightsBy = (int)NSCellMask.ContentsCell;
-
-				BackgroundColor = NSColor.FromPatternImage (NSImage.FromStream 
-				                                            (Assembly.GetExecutingAssembly ().
-				 GetManifestResourceStream (
-					"Bookling.Textures.paper_@2X.png")));
+				AssignImages ("Bookling.Icons.close_@2X.png", "Bookling.Icons.close_pressed_@2X.png",
+				              "Bookling.Textures.paper_@2X.png");
 			} else {
-				NSImage closeImage = NSImage.FromStream 
-					(Assembly.GetExecutingAssembly ().
-					 GetManifestResourceStream (
-						"Bookling.Icons.close.png"));
-				customClose.Frame = new RectangleF (new PointF (0.0f, 0.0f), 
-				                                    new SizeF (closeImage.Size.Height,
-				           							closeImage.Size.Width));
-				NSImage pressedCloseImage = NSImage.FromStream 
-					(Assembly.GetExecutingAssembly ().
-					 GetManifestResourceStream (
-						"Bookling.Icons.close_pressed.png"));
-				customClose.Frame = new RectangleF (
-					new PointF (0.0f, 0.0f), 
-					new SizeF (pressedCloseImage.Size.Height,
-				        		pressedCloseImage.Size.Width));
-
-				customClose.Image = closeImage;
-				customClose.AlternateImage = pressedCloseImage;
-				customClose.Cell.HighlightsBy = (int)NSCellMask.ContentsCell;
-
-				BackgroundColor = NSColor.FromPatternImage (NSImage.FromStream 
-					(Assembly.GetExecutingAssembly ().
-					 GetManifestResourceStream (
-							"Bookling.Textures.paper.png")));		
+				AssignImages ("Bookling.Icons.close.png", "Bookling.Icons.close_pressed.png",
+				              "Bookling.Textures.paper.png");
 			}
 
 			NSView themeFrame = ContentView.Superview;
@@ -143,6 +105,36 @@ namespace Bookling.Interface
 			customClose.Enabled = true;
 			customClose.Target = this;
 			customClose.Action = new Selector("performClose:");
+		}
+
+		private void AssignImages (String closeIconFileName, 
+		                           String pressedCloseIconFileName,
+		                           String backgroundFileName)
+		{
+			NSImage closeImage = NSImage.FromStream 
+				(Assembly.GetExecutingAssembly ().
+				 GetManifestResourceStream (
+					closeIconFileName));
+			customClose.Frame = new RectangleF (new PointF (0.0f, 0.0f), 
+			                                    new SizeF (closeImage.Size.Height,
+			           closeImage.Size.Width));
+			NSImage pressedCloseImage = NSImage.FromStream 
+				(Assembly.GetExecutingAssembly ().
+				 GetManifestResourceStream (
+					pressedCloseIconFileName));
+			customClose.Frame = new RectangleF (
+				new PointF (0.0f, 0.0f), 
+				new SizeF (pressedCloseImage.Size.Height,
+			           pressedCloseImage.Size.Width));
+			
+			customClose.Image = closeImage;
+			customClose.AlternateImage = pressedCloseImage;
+			customClose.Cell.HighlightsBy = (int)NSCellMask.ContentsCell;
+			
+			BackgroundColor = NSColor.FromPatternImage (NSImage.FromStream (
+				Assembly.GetExecutingAssembly ().
+			 	GetManifestResourceStream (backgroundFileName)));		
+
 		}
 	}
 }
