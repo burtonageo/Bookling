@@ -1438,7 +1438,6 @@
 													<string key="NSFrameSize">{502, 406}</string>
 													<reference key="NSSuperview" ref="330095157"/>
 													<reference key="NSWindow"/>
-													<reference key="NSNextKeyView"/>
 													<string key="NSReuseIdentifierKey">_NS:11</string>
 												</object>
 											</object>
@@ -1876,6 +1875,14 @@
 						<reference key="destination" ref="60186350"/>
 					</object>
 					<int key="connectionID">671</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">Window</string>
+						<reference key="source" ref="947627720"/>
+						<reference key="destination" ref="60186350"/>
+					</object>
+					<int key="connectionID">709</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -3833,7 +3840,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">708</int>
+			<int key="maxID">709</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3912,6 +3919,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>Window</string>
 							<string>gridViewMenuItem</string>
 							<string>libraryBox</string>
 							<string>librarySourceOutline</string>
@@ -3923,6 +3931,7 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSWindow</string>
 							<string>NSMenuItem</string>
 							<string>NSBox</string>
 							<string>NSOutlineView</string>
@@ -3937,6 +3946,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>Window</string>
 							<string>gridViewMenuItem</string>
 							<string>libraryBox</string>
 							<string>librarySourceOutline</string>
@@ -3948,6 +3958,10 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">Window</string>
+								<string key="candidateClassName">NSWindow</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">gridViewMenuItem</string>
 								<string key="candidateClassName">NSMenuItem</string>

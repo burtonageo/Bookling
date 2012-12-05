@@ -34,14 +34,6 @@ namespace Bookling.Controller
 {
 	public class LibraryManager
 	{
-		public static String DatabasePath 
-		{
-			get {
-				return String.Format (DatabaseDirectory + "{0}Library.db", 
-						Path.DirectorySeparatorChar);
-			}
-		}
-
 		public static String DatabaseDirectory 
 		{
 			get {
@@ -52,24 +44,33 @@ namespace Bookling.Controller
 			}
 		}
 
+		public static String DatabasePath 
+		{
+			get {
+				return String.Format (DatabaseDirectory + "{0}Library.db", 
+						Path.DirectorySeparatorChar);
+			}
+		}
+
 		public int MaxId 
 		{
 			get {
 				int max = 0;
+				Connection.Open ();
+				try {
 
-				SqliteCommand command = Connection.CreateCommand ();
-				command.CommandText = "SELECT COALESCE(MAX(BookId)+1, 0) FROM Books";
+					SqliteCommand command = Connection.CreateCommand ();
+					command.CommandText = "SELECT COALESCE(MAX(BookID)+1, 0) FROM Books";
 
-				SqliteDataReader reader = command.ExecuteReader();
-				while(reader.Read ()) {
-					max = reader.GetInt32(0);
+					SqliteDataReader reader = command.ExecuteReader();
+					while(reader.Read ()) {
+						max = reader.GetInt32(0);
+					}
+				} catch (Exception e) {
+					Console.WriteLine (e.Message);
+				} finally {
+					Connection.Close ();
 				}
-
-				command.Dispose ();
-				command = null;
-				reader.Close ();
-				reader = null;
-
 				return max;
 			}
 		}
@@ -84,6 +85,7 @@ namespace Bookling.Controller
 			get {
 				List <Book> bookList = new List<Book>();
 
+				Connection.Open ();
 				SqliteCommand command = Connection.CreateCommand ();
 				command.CommandText ="SELECT BookId BookTitle, BookAuthor, " +
 					"BookPublishedYear, BookPath FROM Books";
@@ -98,10 +100,7 @@ namespace Bookling.Controller
 					b.Author = reader.GetString (4);
 					bookList.Add (b);
 				}
-				command.Dispose ();
-				command = null;
-				reader.Close ();
-				reader = null;
+				Connection.Close ();
 
 				return bookList;
 			}
@@ -126,37 +125,29 @@ namespace Bookling.Controller
 			if (!exists) {
 				SqliteConnection.CreateFile (LibraryManager.DatabasePath);
 			}
+
 			Connection.Open ();
 			if (!exists) {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = 
-						"CREATE TABLE Authors (AuthorID INTEGER PRIMARY KEY, " +
-						"BookAuthor TEXT);" +
 						"CREATE TABLE Books (BookID INTEGER PRIMARY KEY, " +
-						"BookTitle TEXT, " +
-						"FOREIGN KEY (AuthorID) REFERENCES Authors (AuthorID) , " +
-						"BookPublishedYear INTEGER, BookPath TEXT);";
-
+						"BookTitle TEXT, BookAuthor TEXT, BookPublishedYear INTEGER, " +
+						"BookPath TEXT, BookGenre TEXT);"; 
 					command.ExecuteNonQuery();
 				}
 			}
 			Connection.Close ();
+			//PrintLibrary ();
 		}
 
 		public bool AddBook (Book book)
-		{
-			//string bookFileName = Path.GetFileName(book.FilePath);
-
-			//string sourcePath = Path.GetFullPath(book.FilePath);
-			//string targetPath = Path.Combine (bookFileName, 
-			//                                  LibraryController.DatabaseDirectory);
-			//File.Copy (sourcePath, targetPath, overwrite: true);
+		{			
 			Console.WriteLine (book.Title);
 
 			try {
 				Connection.Open ();
 				using (SqliteCommand command = new SqliteCommand (
-						"INSERT INTO Books (BookID, BookTitle, BookAuthor, " +
+					"INSERT INTO Books (BookID, BookTitle, BookAuthor, " +
 						"BookPublishedYear, BookPath) VALUES (" +
 						":id, :title, :author, :year, :path);", Connection)) {
 
@@ -166,7 +157,7 @@ namespace Bookling.Controller
 					command.Parameters.AddWithValue (":year", book.YearPublished);
 					command.Parameters.AddWithValue (":path", book.FilePath);
 					Console.WriteLine (command.CommandText);
-					command.ExecuteNonQuery ();
+					//command.ExecuteNonQuery ();
 				}
 				return true;
 			} catch (SqliteException e) {
@@ -180,30 +171,30 @@ namespace Bookling.Controller
 		public void PrintLibrary ()
 		{
 			Connection.Open ();
-			SqliteCommand command = Connection.CreateCommand ();
-			command.CommandText ="SELECT BookID, BookTitle, BookAuthor FROM Books";
+			try {
+				SqliteCommand command = Connection.CreateCommand ();
+				command.CommandText = "SELECT BookID, BookTitle, BookAuthor FROM Books";
 
-			var reader = command.ExecuteReader ();
-			while(reader.Read ()) {
-				int id = reader.GetInt32 (0);
-				string title = reader.GetString (1);
-				//string author = reader.GetString (1);
-				Console.WriteLine (id + ". " + title);// + " by " + author);
+				var reader = command.ExecuteReader ();
+				while (reader.Read ()) {
+					int id = reader.GetInt32 (0);
+					string title = reader.GetString (1);
+					//string author = reader.GetString (1);
+					Console.WriteLine (id + ". " + title);// + " by " + author);
+				}
+			} catch (SqliteException e) {
+				Console.WriteLine (e.Message);
+			} finally {
+				Connection.Close ();
 			}
-
-			command.Dispose ();
-			command = null;
-			reader.Close ();
-			reader = null;
-			Connection.Close ();
 		}
 
 
 
 		public bool RemoveBook (Book book)
 		{
+			Connection.Open ();
 			try {
-				Connection.Open ();
 				using (SqliteCommand command = new SqliteCommand(Connection)) {
 					command.CommandText =
 						"DELETE FROM Books WHERE " +
@@ -226,8 +217,8 @@ namespace Bookling.Controller
 
 		public bool RemoveBook (int bookID) 
 		{
+			Connection.Open ();
 			try {
-				Connection.Open ();
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
 						"DELETE FROM Books WHERE BookID = id;";
@@ -245,11 +236,11 @@ namespace Bookling.Controller
 
 		public bool AlterBookData (int bookID, Book book)
 		{
+			Connection.Open ();
 			try {
-				Connection.Open ();
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
-					"UPDATE Books SET " +
+						"UPDATE Books SET " +
 						"BookTitle = title, BookAuthor = author, " +
 						"BookPublishedYear = year, BookPath = path " +
 						"WHERE BookID = id;";

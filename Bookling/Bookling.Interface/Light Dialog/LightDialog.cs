@@ -37,11 +37,9 @@ namespace Bookling.Interface
 	[Register ("LightDialog")]
 	public class LightDialog : MonoMac.AppKit.NSWindow
 	{
-		private NSButton customClose;
 		public NSButton CloseButton {
-			get {
-				return customClose;
-			}
+			protected set;
+			get;
 		}
 
 		#region Constructors
@@ -72,8 +70,9 @@ namespace Bookling.Interface
 		{
 			base.AwakeFromNib ();
 
-			customClose = new NSButton ();
-			customClose.Bordered = false;
+			CloseButton = new NSButton ();
+			CloseButton.BezelStyle = NSBezelStyle.Circular;
+			CloseButton.Bordered = false;
 
 			NSButton windowCloseButton = StandardWindowButton (NSWindowButton.CloseButton);
 			NSButton windowMinimizeButton = StandardWindowButton (NSWindowButton.MiniaturizeButton);
@@ -95,16 +94,19 @@ namespace Bookling.Interface
 			}
 
 			NSView themeFrame = ContentView.Superview;
-			RectangleF container = themeFrame.Frame;
-			RectangleF accessoryView = CloseButton.Frame;
-			RectangleF newFrame = new RectangleF (1, container.Size.Height - accessoryView.Size.Height - 2,    // y position
-			                                      accessoryView.Size.Width, accessoryView.Size.Height);
-			customClose.Frame = newFrame;
-			themeFrame.AddSubview (customClose);
-			customClose.AutoresizingMask = NSViewResizingMask.MinXMargin | NSViewResizingMask.MinYMargin;
-			customClose.Enabled = true;
-			customClose.Target = this;
-			customClose.Action = new Selector("performClose:");
+			RectangleF containerFrame = themeFrame.Frame;
+			RectangleF buttonFrame = CloseButton.Frame;
+			RectangleF newFrame = new RectangleF (
+				1, containerFrame.Size.Height - buttonFrame.Size.Height - 2,
+			    buttonFrame.Size.Width, buttonFrame.Size.Height);
+
+			CloseButton.Frame = newFrame;
+			themeFrame.AddSubview (CloseButton);
+			CloseButton.AutoresizingMask = NSViewResizingMask.MinXMargin | NSViewResizingMask.MinYMargin;
+			CloseButton.Enabled = true;
+			CloseButton.Target = this;
+			CloseButton.Action = new Selector("performClose:");
+
 		}
 
 		private void AssignImages (String closeIconFileName, 
@@ -115,21 +117,21 @@ namespace Bookling.Interface
 				(Assembly.GetExecutingAssembly ().
 				 GetManifestResourceStream (
 					closeIconFileName));
-			customClose.Frame = new RectangleF (new PointF (0.0f, 0.0f), 
+			CloseButton.Frame = new RectangleF (new PointF (0.0f, 0.0f), 
 			                                    new SizeF (closeImage.Size.Height,
 			           closeImage.Size.Width));
 			NSImage pressedCloseImage = NSImage.FromStream 
 				(Assembly.GetExecutingAssembly ().
 				 GetManifestResourceStream (
 					pressedCloseIconFileName));
-			customClose.Frame = new RectangleF (
+			CloseButton.Frame = new RectangleF (
 				new PointF (0.0f, 0.0f), 
 				new SizeF (pressedCloseImage.Size.Height,
 			           pressedCloseImage.Size.Width));
 			
-			customClose.Image = closeImage;
-			customClose.AlternateImage = pressedCloseImage;
-			customClose.Cell.HighlightsBy = (int)NSCellMask.ContentsCell;
+			CloseButton.Image = closeImage;
+			CloseButton.AlternateImage = pressedCloseImage;
+			CloseButton.Cell.HighlightsBy = (int)NSCellMask.ContentsCell;
 			
 			BackgroundColor = NSColor.FromPatternImage (NSImage.FromStream (
 				Assembly.GetExecutingAssembly ().

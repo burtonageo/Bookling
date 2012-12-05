@@ -75,6 +75,10 @@ namespace Bookling.Interface
 		{
 			AboutDialogController about = new AboutDialogController ();
 			about.Window.MakeKeyAndOrderFront (this.mainWindow);
+			about.Window.SetFrameTopLeftPoint (new PointF (
+				mainWindow.Frame.Left + 
+				((mainWindow.Frame.Right - about.Window.Frame.Right) / 2), 
+				mainWindow.Frame.Bottom - 35));
 			NSApplication.SharedApplication.RunModalForWindow (about.Window);
 		}
 		
@@ -82,6 +86,10 @@ namespace Bookling.Interface
 		{
 			PreferencesDialogController prefs = new PreferencesDialogController ();
 			prefs.Window.MakeKeyAndOrderFront (this.mainWindow);
+			prefs.Window.SetFrameTopLeftPoint (new PointF (
+				mainWindow.Frame.Left + 
+				((mainWindow.Frame.Right - prefs.Window.Frame.Right) / 2), 
+				mainWindow.Frame.Bottom - 20));
 			NSApplication.SharedApplication.RunModalForWindow (prefs.Window);
 		}
 		
@@ -89,6 +97,8 @@ namespace Bookling.Interface
 		{
 			BookMetadataDialogController info = new BookMetadataDialogController();
 			info.Window.MakeKeyAndOrderFront (this.mainWindow);
+			info.Window.SetFrameTopLeftPoint (new PointF(
+				(mainWindow.Frame.Right - info.Window.Frame.Left) / 4, mainWindow.Frame.Bottom));
 		}
 		
 		partial void ImportFile (MonoMac.Foundation.NSObject sender)
@@ -98,15 +108,17 @@ namespace Bookling.Interface
 			filePanel.AllowedFileTypes = allowedFileTypes;
 			
 			int result = filePanel.RunModal();
+			//NSApplication.SharedApplication.BeginSheet (filePanel, mainWindow);
 			if (result == 1) {
 				String bookPath = filePanel.Url.ToString ().Replace ("%20", " ");
 				Book book = new Book();
 				book.Title = Path.GetFileNameWithoutExtension (bookPath);
 				book.FilePath = bookPath;
 				Console.WriteLine (book.Title + " " + book.FilePath);
-				libraryManager.AddBook (book);
+				//libraryManager.AddBook (book);
 			}
-			libraryManager.PrintLibrary ();
+			//NSApplication.SharedApplication.EndSheet (filePanel);
+			//libraryManager.PrintLibrary ();
 		}
 		
 		partial void ViewAsList (MonoMac.Foundation.NSObject sender)
