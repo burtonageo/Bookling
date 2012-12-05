@@ -82,8 +82,8 @@ namespace Bookling.Interface
 		public override void AwakeFromNib ()
 		{
 			base.AwakeFromNib ();
-			Window.StandardWindowButton (NSWindowButton.CloseButton).Target = this;
-			Window.StandardWindowButton (NSWindowButton.CloseButton).Action = 
+			Window.CloseButton.Target = this;
+			Window.CloseButton.Action = 
 				new Selector ("Cancel:");
 		}
 

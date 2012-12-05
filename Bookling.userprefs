@@ -2,14 +2,14 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Interface/Light Dialog/LightDialog.cs">
     <Files>
-      <File FileName="Bookling/Bookling.Controller/LibraryManager.cs" Line="118" Column="4" />
-      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialogController.cs" Line="54" Column="23" />
-      <File FileName="Bookling/Bookling.Interface/Light Dialog/LightDialog.cs" Line="82" Column="5" />
+      <File FileName="Bookling/Bookling.Controller/LibraryManager.cs" Line="268" Column="25" />
+      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialogController.cs" Line="72" Column="4" />
+      <File FileName="Bookling/Bookling.Interface/Light Dialog/LightDialog.cs" Line="46" Column="3" />
       <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialog.cs" Line="10" Column="55" />
       <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialogController.cs" Line="40" Column="3" />
       <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialog.designer.cs" Line="39" Column="64" />
       <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialog.cs" Line="10" Column="48" />
-      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialog.designer.cs" Line="17" Column="26" />
+      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialog.designer.cs" Line="21" Column="64" />
       <File FileName="Bookling/Bookling.Interface/Preferences Dialog/PreferencesDialogController.cs" Line="84" Column="25" />
       <File FileName="Bookling/Bookling.Interface/Preferences Dialog/PreferencesDialog.cs" Line="56" Column="13" />
       <File FileName="Bookling/LightDialogTitleView.designer.cs" Line="11" Column="10" />
@@ -23,7 +23,9 @@
               <Node name="About Dialog" expanded="True">
                 <Node name="AboutDialog.cs" expanded="True" />
               </Node>
-              <Node name="Light Dialog" expanded="True" />
+              <Node name="Light Dialog" expanded="True">
+                <Node name="LightDialog.cs" selected="True" />
+              </Node>
               <Node name="Main Window" expanded="True" />
               <Node name="Metadata Dialog" expanded="True" />
               <Node name="Preferences Dialog" expanded="True" />

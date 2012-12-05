@@ -100,9 +100,6 @@
     <Compile Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.designer.cs" />
     <Compile Include="Bookling.Interface\Metadata Dialog\BookMetadataDialogController.cs" />
     <Compile Include="Bookling.Interface\Light Dialog\LightDialog.cs" />
-    <Compile Include="LightDialogTitleView.designer.cs">
-      <DependentUpon>LightDialogTitleView.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.xib" />
@@ -139,5 +136,7 @@
     <EmbeddedResource Include="Textures\paper.png" />
     <EmbeddedResource Include="Icons\close_%402X.png" />
     <EmbeddedResource Include="Icons\close.png" />
+    <EmbeddedResource Include="Icons\close_pressed.png" />
+    <EmbeddedResource Include="Icons\close_pressed_%402X.png" />
   </ItemGroup>
 </Project>
