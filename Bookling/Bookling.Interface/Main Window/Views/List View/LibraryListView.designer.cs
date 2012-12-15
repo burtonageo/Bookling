@@ -12,7 +12,7 @@ namespace Bookling.Interface
 	partial class LibraryListViewController
 	{
 		[Outlet]
-		MonoMac.AppKit.NSTableView tableView { get; set; }
+		public MonoMac.AppKit.NSTableView tableView { get; private set; }
 		
 		void ReleaseDesignerOutlets ()
 		{

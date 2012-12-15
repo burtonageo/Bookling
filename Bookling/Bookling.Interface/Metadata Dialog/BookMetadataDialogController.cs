@@ -10,6 +10,17 @@ namespace Bookling.Interface
 {
 	public partial class BookMetadataDialogController : MonoMac.AppKit.NSWindowController
 	{
+		public bool IsPartOfSeries {
+			get {
+				switch (isSeriesCheckBox.State) {
+				case NSCellStateValue.Off:
+					return false;
+				default:
+					return true;
+				}
+			}
+		}
+
 		#region Constructors
 		
 		// Called when created from unmanaged code
@@ -51,12 +62,28 @@ namespace Bookling.Interface
 			base.AwakeFromNib ();
 			Window.CloseButton.Target = this;
 			Window.CloseButton.Action = new Selector ("CloseWindow:");
-		}
+
+			// Make sure checkbox and series fields are in sync
+			SwitchIsInSeries (new NSObject ());
+		} 
 
 		partial void CloseWindow (MonoMac.Foundation.NSObject sender)
 		{
 			Window.Close ();
 			NSApplication.SharedApplication.StopModal ();
+		}
+
+		partial void SwitchIsInSeries (MonoMac.Foundation.NSObject sender)
+		{
+			if (!IsPartOfSeries) {
+				seriesField.Enabled = false;
+				seriesStartField.Enabled = false;
+				seriesEndField.Enabled = false;
+			} else {
+				seriesField.Enabled = true;
+				seriesStartField.Enabled = true;
+				seriesEndField.Enabled = true;
+			}
 		}
 	}
 }

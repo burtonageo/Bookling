@@ -1,5 +1,5 @@
 //
-// LibraryListViewDataSource.cs
+// LightWindow.cs
 //
 // Author:
 //       George Burton <burtonageo@gmail.com>
@@ -23,47 +23,59 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-/*
 using System;
-using System.Collections;
 using System.Linq;
+using System.Drawing;
+using System.Reflection;
+using System.Resources;
 using MonoMac.Foundation;
 using MonoMac.AppKit;
-using Bookling.Models;
 
 
 namespace Bookling.Interface
 {
-	[Register("LibraryListViewDataSource")]
-	public class LibraryListViewDataSource : NSTableViewDataSource
+	[Register ("LightWindow")]
+	public class LightWindow : MonoMac.AppKit.NSWindow
 	{
-		//private List <Book> Books;
-
-		[Export("init")]
-		public LibraryListViewDataSource ()
+		#region Constructors
+		
+		// Called when created from unmanaged code
+		public LightWindow (IntPtr handle) : base (handle)
+		{
+			Initialize ();
+		}
+		
+		// Called when created directly from a XIB file
+		[Export ("initWithCoder:")]
+		public LightWindow (NSCoder coder) : base (coder)
+		{
+			Initialize ();
+		}
+		
+		// Shared initialization code
+		void Initialize ()
 		{
 		}
-
-		public LibraryListViewDataSource (ArrayList bookList)
+		
+#endregion
+		
+		[Export ("awakeFromNib")]
+		public override void AwakeFromNib ()
 		{
-			//Books = new List<Book> (bookList);
+			base.AwakeFromNib ();
+			
+			if (NSScreen.MainScreen.BackingScaleFactor > 1.0f) {
+				AssignBackgroundImage ("lightwindow.card_@2X.png");
+			} else {
+				AssignBackgroundImage ("lightwindow.card.png");
+			}
 		}
-
-		[Export ("numberOfRowsInTableView:")]
-		public int NumberOfRowsInTableView (NSTableView table)
+		
+		protected void AssignBackgroundImage (String backgroundFileName)
 		{
-			//return Books.Count;
-			return 10;
+			BackgroundColor = NSColor.FromPatternImage (NSImage.FromStream (
+				Assembly.GetExecutingAssembly ().
+				GetManifestResourceStream (backgroundFileName)));		
 		}
-
-		[Export ("tableView:objectValueForTableColumn:row:")]
-		public NSObject ObjectValueForTableColumn (
-			NSTableView table, NSTableColumn col, int row)
-		{
-			return new NSString ("Hello");
-		}
-
-
 	}
 }
-*/

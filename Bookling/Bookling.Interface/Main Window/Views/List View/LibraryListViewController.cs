@@ -26,21 +26,25 @@
 
 
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using MonoMac.Foundation;
 using MonoMac.AppKit;
 using Bookling.Models;
+using Bookling.Controller;
 
 namespace Bookling.Interface
 {
 	public partial class LibraryListViewController : MonoMac.AppKit.NSViewController
 	{
-		public List <Book> Books {
+		public ArrayList Books {
 			get;
 			set;
 		}
 
+		private LibraryManager manager;
+		private LibraryListViewDataSource source;
+	
 		#region Constructors
 		
 		// Called when created from unmanaged code
@@ -79,8 +83,41 @@ namespace Bookling.Interface
 		[Export("AwakeFromNib")]
 		public override void AwakeFromNib ()
 		{
-			LibraryListViewDataSource source = new LibraryListViewDataSource (Books);
+			manager = new LibraryManager ();
+			//source = new LibraryListViewDataSource (manager.Books);
+			//Console.WriteLine (manager.Books.Count);
 			tableView.DataSource = source;
+			tableView.BackgroundColor = NSColor.FromCalibratedRgba (0.0f, 0.0f, 0.0f, 0.0f);
+		}
+
+		
+		[Register("LibraryListViewDataSource")]
+		private class LibraryListViewDataSource : NSTableViewDataSource
+		{
+			//private ArrayList books;
+			
+			[Export("init")]
+			public LibraryListViewDataSource ()
+			{
+			}
+
+			public LibraryListViewDataSource (ArrayList bookList)
+			{
+				//books = bookList;
+			}
+			
+			[Export ("numberOfRowsInTableView:")]
+			public int NumberOfRowsInTableView (NSTableView table)
+			{
+				return 10;//books.Count;
+			}
+			
+			[Export ("tableView:objectValueForTableColumn:row:")]
+			public NSObject ObjectValueForTableColumn (
+				NSTableView table, NSTableColumn col, int row)
+			{
+				return new NSString ("Hello");
+			}
 		}
 	}
 }

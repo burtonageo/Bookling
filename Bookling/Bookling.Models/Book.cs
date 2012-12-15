@@ -29,7 +29,7 @@ namespace Bookling.Models
 {
 	public struct Book
 	{
-		public String Title, Author, FilePath;
+		public String Title, Author, FilePath, Genre;
 	 	public int YearPublished;
 	}
 }

@@ -27,7 +27,7 @@ using Bookling;
 using Bookling.Controller;
 using Bookling.Models;
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Drawing;
 using System.IO;
 using MonoMac.Foundation;
@@ -44,7 +44,7 @@ namespace Bookling.Interface
 		private LibraryManager libraryManager;
 		private NSViewController currentController;
 		
-		public List <Book> Books {
+		public ArrayList Books {
 			get {
 				return libraryManager.Books;
 			}
@@ -115,10 +115,11 @@ namespace Bookling.Interface
 				book.Title = Path.GetFileNameWithoutExtension (bookPath);
 				book.FilePath = bookPath;
 				Console.WriteLine (book.Title + " " + book.FilePath);
-				//libraryManager.AddBook (book);
+				libraryManager.AddBook (book);
+				listViewController.tableView.ReloadData ();
 			}
 			//NSApplication.SharedApplication.EndSheet (filePanel);
-			//libraryManager.PrintLibrary ();
+			libraryManager.PrintLibrary ();
 		}
 		
 		partial void ViewAsList (MonoMac.Foundation.NSObject sender)

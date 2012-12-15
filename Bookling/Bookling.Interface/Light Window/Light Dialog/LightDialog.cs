@@ -35,7 +35,7 @@ using MonoMac.ObjCRuntime;
 namespace Bookling.Interface
 {
 	[Register ("LightDialog")]
-	public class LightDialog : MonoMac.AppKit.NSWindow
+	public class LightDialog : LightWindow
 	{
 		public NSButton CloseButton {
 			protected set;
@@ -60,7 +60,6 @@ namespace Bookling.Interface
 		// Shared initialization code
 		void Initialize ()
 		{
-			//lightDialogTitleView = new LightDialogTitleView ();
 		}
 		
 #endregion
@@ -79,39 +78,35 @@ namespace Bookling.Interface
 			NSButton windowZoomButton = StandardWindowButton (NSWindowButton.ZoomButton);			                                         
 			
 			windowZoomButton.Hidden = true;
-			windowZoomButton.Enabled = false;
 			windowMinimizeButton.Hidden = true;
-			windowMinimizeButton.Enabled = false;
 			windowCloseButton.Hidden = true;
-			windowCloseButton.Enabled = false;
 
 			if (NSScreen.MainScreen.BackingScaleFactor > 1.0f) {
-				AssignImages ("Bookling.Icons.close_@2X.png", "Bookling.Icons.close_pressed_@2X.png",
-				              "Bookling.Textures.paper_@2X.png");
+				AssignCloseImage ("lightdialog.close_@2X.png", 
+				              "lightdialog.closed_pressed_@2X.png");
+				AssignBackgroundImage ("lightwindow.paper_@2X.png");
 			} else {
-				AssignImages ("Bookling.Icons.close.png", "Bookling.Icons.close_pressed.png",
-				              "Bookling.Textures.paper.png");
+				AssignCloseImage ("lightdialog.close.png", 
+				              "lightdialog.close_pressed.png");
+				AssignBackgroundImage ("lightwindow.paper.png");
 			}
 
 			NSView themeFrame = ContentView.Superview;
 			RectangleF containerFrame = themeFrame.Frame;
 			RectangleF buttonFrame = CloseButton.Frame;
-			RectangleF newFrame = new RectangleF (
-				1, containerFrame.Size.Height - buttonFrame.Size.Height - 2,
-			    buttonFrame.Size.Width, buttonFrame.Size.Height);
 
-			CloseButton.Frame = newFrame;
+			CloseButton.Frame = new RectangleF (
+				1.5f, containerFrame.Size.Height - buttonFrame.Size.Height - 2,
+				buttonFrame.Size.Width, buttonFrame.Size.Height);;
 			themeFrame.AddSubview (CloseButton);
 			CloseButton.AutoresizingMask = NSViewResizingMask.MinXMargin | NSViewResizingMask.MinYMargin;
 			CloseButton.Enabled = true;
 			CloseButton.Target = this;
 			CloseButton.Action = new Selector("performClose:");
-
 		}
 
-		private void AssignImages (String closeIconFileName, 
-		                           String pressedCloseIconFileName,
-		                           String backgroundFileName)
+		private void AssignCloseImage (String closeIconFileName, 
+		                           String pressedCloseIconFileName)
 		{
 			NSImage closeImage = NSImage.FromStream 
 				(Assembly.GetExecutingAssembly ().
@@ -119,7 +114,7 @@ namespace Bookling.Interface
 					closeIconFileName));
 			CloseButton.Frame = new RectangleF (new PointF (0.0f, 0.0f), 
 			                                    new SizeF (closeImage.Size.Height,
-			           closeImage.Size.Width));
+			           									closeImage.Size.Width));
 			NSImage pressedCloseImage = NSImage.FromStream 
 				(Assembly.GetExecutingAssembly ().
 				 GetManifestResourceStream (
@@ -132,11 +127,6 @@ namespace Bookling.Interface
 			CloseButton.Image = closeImage;
 			CloseButton.AlternateImage = pressedCloseImage;
 			CloseButton.Cell.HighlightsBy = (int)NSCellMask.ContentsCell;
-			
-			BackgroundColor = NSColor.FromPatternImage (NSImage.FromStream (
-				Assembly.GetExecutingAssembly ().
-			 	GetManifestResourceStream (backgroundFileName)));		
-
 		}
 	}
 }

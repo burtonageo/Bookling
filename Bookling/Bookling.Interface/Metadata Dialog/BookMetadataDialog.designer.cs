@@ -12,25 +12,28 @@ namespace Bookling.Interface
 	partial class BookMetadataDialogController
 	{
 		[Outlet]
-		MonoMac.AppKit.NSTextField TitleField { get; set; }
+		MonoMac.AppKit.NSTextField titleField { get; set; }
 
 		[Outlet]
-		MonoMac.AppKit.NSTextField AuthorField { get; set; }
+		MonoMac.AppKit.NSTextField authorField { get; set; }
 
 		[Outlet]
-		MonoMac.AppKit.NSTextField GenreField { get; set; }
+		MonoMac.AppKit.NSTextField genreField { get; set; }
 
 		[Outlet]
-		MonoMac.AppKit.NSTextField YearField { get; set; }
+		MonoMac.AppKit.NSTextField yearField { get; set; }
 
 		[Outlet]
-		MonoMac.AppKit.NSTextField SeriesField { get; set; }
+		MonoMac.AppKit.NSTextField seriesField { get; set; }
 
 		[Outlet]
-		MonoMac.AppKit.NSTextField SeriesStartField { get; set; }
+		MonoMac.AppKit.NSTextField seriesStartField { get; set; }
 
 		[Outlet]
-		MonoMac.AppKit.NSTextField SeriesEndField { get; set; }
+		MonoMac.AppKit.NSTextField seriesEndField { get; set; }
+
+		[Outlet]
+		MonoMac.AppKit.NSButton isSeriesCheckBox { get; set; }
 
 		[Action ("AcceptChanges:")]
 		partial void AcceptChanges (MonoMac.Foundation.NSObject sender);
@@ -43,42 +46,50 @@ namespace Bookling.Interface
 
 		[Action ("PreviousItem:")]
 		partial void PreviousItem (MonoMac.Foundation.NSObject sender);
+
+		[Action ("SwitchIsInSeries:")]
+		partial void SwitchIsInSeries (MonoMac.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (TitleField != null) {
-				TitleField.Dispose ();
-				TitleField = null;
+			if (titleField != null) {
+				titleField.Dispose ();
+				titleField = null;
 			}
 
-			if (AuthorField != null) {
-				AuthorField.Dispose ();
-				AuthorField = null;
+			if (authorField != null) {
+				authorField.Dispose ();
+				authorField = null;
 			}
 
-			if (GenreField != null) {
-				GenreField.Dispose ();
-				GenreField = null;
+			if (genreField != null) {
+				genreField.Dispose ();
+				genreField = null;
 			}
 
-			if (YearField != null) {
-				YearField.Dispose ();
-				YearField = null;
+			if (yearField != null) {
+				yearField.Dispose ();
+				yearField = null;
 			}
 
-			if (SeriesField != null) {
-				SeriesField.Dispose ();
-				SeriesField = null;
+			if (seriesField != null) {
+				seriesField.Dispose ();
+				seriesField = null;
 			}
 
-			if (SeriesStartField != null) {
-				SeriesStartField.Dispose ();
-				SeriesStartField = null;
+			if (seriesStartField != null) {
+				seriesStartField.Dispose ();
+				seriesStartField = null;
 			}
 
-			if (SeriesEndField != null) {
-				SeriesEndField.Dispose ();
-				SeriesEndField = null;
+			if (seriesEndField != null) {
+				seriesEndField.Dispose ();
+				seriesEndField = null;
+			}
+
+			if (isSeriesCheckBox != null) {
+				isSeriesCheckBox.Dispose ();
+				isSeriesCheckBox = null;
 			}
 		}
 	}

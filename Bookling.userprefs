@@ -1,37 +1,33 @@
-﻿<Properties>
+﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Interface/Light Dialog/LightDialog.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Interface/Light Window/Light Dialog/LightDialog.cs">
     <Files>
-      <File FileName="Bookling/Bookling.Controller/LibraryManager.cs" Line="268" Column="25" />
-      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialogController.cs" Line="72" Column="4" />
-      <File FileName="Bookling/Bookling.Interface/Light Dialog/LightDialog.cs" Line="46" Column="3" />
-      <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialog.cs" Line="10" Column="55" />
-      <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialogController.cs" Line="40" Column="3" />
-      <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialog.designer.cs" Line="39" Column="64" />
-      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialog.cs" Line="10" Column="48" />
-      <File FileName="Bookling/Bookling.Interface/About Dialog/AboutDialog.designer.cs" Line="21" Column="64" />
-      <File FileName="Bookling/Bookling.Interface/Preferences Dialog/PreferencesDialogController.cs" Line="84" Column="25" />
-      <File FileName="Bookling/Bookling.Interface/Preferences Dialog/PreferencesDialog.cs" Line="56" Column="13" />
-      <File FileName="Bookling/LightDialogTitleView.designer.cs" Line="11" Column="10" />
+      <File FileName="Bookling/Bookling.Interface/Light Window/LightWindow.cs" Line="68" Column="45" />
+      <File FileName="Bookling/Bookling.Interface/Light Window/Light Dialog/LightDialog.cs" Line="87" Column="40" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/Views/List View/LibraryListViewController.cs" Line="96" Column="1" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/AppDelegate.designer.cs" Line="1" Column="1" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/AppDelegate.cs" Line="69" Column="34" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Bookling" expanded="True">
-            <Node name="Bookling.Controller" expanded="True" />
             <Node name="Bookling.Interface" expanded="True">
-              <Node name="About Dialog" expanded="True">
-                <Node name="AboutDialog.cs" expanded="True" />
+              <Node name="Light Window" expanded="True">
+                <Node name="Light Dialog" expanded="True">
+                  <Node name="Icons" expanded="True" />
+                </Node>
+                <Node name="Textures" expanded="True">
+                  <Node name="paper.png" selected="True" />
+                </Node>
               </Node>
-              <Node name="Light Dialog" expanded="True">
-                <Node name="LightDialog.cs" selected="True" />
+              <Node name="Main Window" expanded="True">
+                <Node name="Views" expanded="True">
+                  <Node name="List View" expanded="True" />
+                </Node>
               </Node>
-              <Node name="Main Window" expanded="True" />
               <Node name="Metadata Dialog" expanded="True" />
-              <Node name="Preferences Dialog" expanded="True" />
             </Node>
-            <Node name="Bookling.Models" expanded="True" />
-            <Node name="Icons" expanded="True" />
           </Node>
         </State>
       </Pad>
