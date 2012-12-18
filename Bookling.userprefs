@@ -1,32 +1,29 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Interface/Light Window/Light Dialog/LightDialog.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Interface/Main Window/AppDelegate.cs">
     <Files>
       <File FileName="Bookling/Bookling.Interface/Light Window/LightWindow.cs" Line="68" Column="45" />
-      <File FileName="Bookling/Bookling.Interface/Light Window/Light Dialog/LightDialog.cs" Line="87" Column="40" />
+      <File FileName="Bookling/Bookling.Interface/Light Window/Light Dialog/LightDialog.cs" Line="96" Column="4" />
       <File FileName="Bookling/Bookling.Interface/Main Window/Views/List View/LibraryListViewController.cs" Line="96" Column="1" />
       <File FileName="Bookling/Bookling.Interface/Main Window/AppDelegate.designer.cs" Line="1" Column="1" />
-      <File FileName="Bookling/Bookling.Interface/Main Window/AppDelegate.cs" Line="69" Column="34" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/AppDelegate.cs" Line="58" Column="28" />
+      <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialogController.cs" Line="67" Column="8" />
+      <File FileName="Bookling/Bookling.Controller/LibraryManager.cs" Line="224" Column="33" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Bookling" expanded="True">
+            <Node name="Bookling.Controller" expanded="True" />
             <Node name="Bookling.Interface" expanded="True">
               <Node name="Light Window" expanded="True">
                 <Node name="Light Dialog" expanded="True">
                   <Node name="Icons" expanded="True" />
                 </Node>
-                <Node name="Textures" expanded="True">
-                  <Node name="paper.png" selected="True" />
-                </Node>
               </Node>
               <Node name="Main Window" expanded="True">
-                <Node name="Views" expanded="True">
-                  <Node name="List View" expanded="True" />
-                </Node>
+                <Node name="AppDelegate.cs" selected="True" />
               </Node>
-              <Node name="Metadata Dialog" expanded="True" />
             </Node>
           </Node>
         </State>

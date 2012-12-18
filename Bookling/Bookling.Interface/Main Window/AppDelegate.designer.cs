@@ -35,6 +35,9 @@ namespace Bookling.Interface
 		[Outlet]
 		MonoMac.AppKit.NSMenuItem gridViewMenuItem { get; set; }
 
+		[Outlet]
+		MonoMac.AppKit.NSSplitView splitView { get; set; }
+
 		[Action ("ShowAboutDialog:")]
 		partial void ShowAboutDialog (MonoMac.Foundation.NSObject sender);
 
@@ -96,6 +99,11 @@ namespace Bookling.Interface
 			if (gridViewMenuItem != null) {
 				gridViewMenuItem.Dispose ();
 				gridViewMenuItem = null;
+			}
+
+			if (splitView != null) {
+				splitView.Dispose ();
+				splitView = null;
 			}
 		}
 	}
