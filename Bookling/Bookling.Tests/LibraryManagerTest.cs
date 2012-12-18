@@ -26,6 +26,7 @@
 using System;
 using NUnit.Framework;
 using Bookling.Controller;
+using Bookling.Models;
 
 namespace Bookling
 {
@@ -35,14 +36,29 @@ namespace Bookling
 		private LibraryManager testManager;
 
 		[SetUp]
-		public void createManager ()
+		public void CreateLibraryManager ()
 		{
-			testManager = new LibraryManager();
+			testManager = new LibraryManager ();
 		}
 
-		[Test()]
-		public void TestCase ()
+		[Test]
+		public void CreateLibraryManagerTest ()
 		{
+			Assert.IsNotNull (testManager);
+		}
+
+		[Test]
+		public void AddBookToLibraryTest ()
+		{
+			Book b = new Book();
+			b.Title = "Sample Book";
+			b.Author = "Sample Author";
+			b.Genre = "Sample Genre";
+			b.YearPublished = 1969;
+			b.FilePath = "/home/books/ebooks";
+
+			Assert.IsTrue (testManager.AddBook (b));
+			//Assert.IsFalse (testManager.AddBook ("This is obviously false data"));
 		}
 	}
 }
