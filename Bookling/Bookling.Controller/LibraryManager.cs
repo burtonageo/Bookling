@@ -132,7 +132,7 @@ namespace Bookling.Controller
 		public LibraryManager ()
 		{
 			Connection = new SqliteConnection (
-				"Data Source= " + LibraryManager.DatabasePath + 
+				"Data Source = " + LibraryManager.DatabasePath + 
 				"; Version = 3;");
 
 			if (!Directory.Exists (LibraryManager.DatabaseDirectory)) {
@@ -150,8 +150,8 @@ namespace Bookling.Controller
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = 
 						"CREATE TABLE Books (BookID INTEGER PRIMARY KEY, " +
-						"BookTitle TEXT, BookAuthor TEXT, BookPublishedYear INTEGER, " +
-						"BookPath TEXT, BookGenre TEXT);"; 
+						"BookTitle TEXT, BookAuthor TEXT, BookGenre TEXT, " +
+						"BookPublishedYear INTEGER, BookPath TEXT);"; 
 					command.ExecuteNonQuery();
 				}
 			}
@@ -169,12 +169,13 @@ namespace Bookling.Controller
 			try {			
 				using (SqliteCommand command = new SqliteCommand (
 					"INSERT INTO Books (BookID, BookTitle, BookAuthor, " +
-						"BookPublishedYear, BookPath) VALUES (" +
-						":id, :title, :author, :year, :path);", Connection)) {
+						"BookGenre, BookPublishedYear, BookPath) VALUES (" +
+						":id, :title, :author, :genre, :year, :path);", Connection)) {
 
 					command.Parameters.AddWithValue (":id", MaxId); 
 					command.Parameters.AddWithValue (":title", book.Title); 
-					command.Parameters.AddWithValue (":author", book.Author); 
+					command.Parameters.AddWithValue (":author", book.Author);
+					command.Parameters.AddWithValue (":genre", book.Genre);
 					command.Parameters.AddWithValue (":year", book.YearPublished);
 					command.Parameters.AddWithValue (":path", book.FilePath);
 					Console.WriteLine (command.CommandText);
@@ -187,12 +188,32 @@ namespace Bookling.Controller
 			}
 		}
 
+		public Book GetBook (int index)
+		{
+			Book b = new Book ();
+
+			SqliteCommand command = Connection.CreateCommand ();
+			command.CommandText = "SELECT BookTitle, BookAuthor, " +
+				"BookGenre, BookPublishedYear, BookPath FROM Books";
+			
+			SqliteDataReader reader = command.ExecuteReader ();
+			while (reader.Read ()) {
+				b.Title = reader.GetString (0);
+				b.Author = reader.GetString (1);
+				b.Genre = reader.GetString (2);
+				b.YearPublished = reader.GetInt32 (3);
+				b.Author = reader.GetString (4);
+			}
+
+
+			return new Book();
+		}
+
 		public void PrintLibrary ()
 		{
 			try {
 				SqliteCommand command = Connection.CreateCommand ();
 				command.CommandText = "SELECT BookID, BookTitle, BookAuthor FROM Books";
-				Console.WriteLine ("yo");
 	
 				SqliteDataReader reader = command.ExecuteReader ();
 				while (reader.Read ()) {
@@ -212,15 +233,17 @@ namespace Bookling.Controller
 		{
 			
 			try {
-				using (SqliteCommand command = new SqliteCommand(Connection)) {
+				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
 						"DELETE FROM Books WHERE " +
-						"BookTitle = title AND BookPath = path AND" +
-						"BookAuthor = author AND BookPublishedYear = year";
-					command.Parameters.Add (new SqliteParameter ("title", book.Title)); 
-					command.Parameters.Add (new SqliteParameter ("author", book.Author)); 
-					command.Parameters.Add (new SqliteParameter ("year", book.YearPublished));
-					command.Parameters.Add (new SqliteParameter ("path", book.FilePath));
+						"BookTitle = :title AND BookAuthor = :author AND " +
+						"BookGenre = :genre AND BookPath = :path " +
+						"AND BookPublishedYear = :year;";
+					command.Parameters.Add (new SqliteParameter (":title", book.Title)); 
+					command.Parameters.Add (new SqliteParameter (":author", book.Author)); 
+					command.Parameters.Add (new SqliteParameter (":genre", book.Genre)); 
+					command.Parameters.Add (new SqliteParameter (":path", book.FilePath));
+					command.Parameters.Add (new SqliteParameter (":year", book.YearPublished));
 					command.ExecuteNonQuery ();
 				}
 				return true;
@@ -236,16 +259,14 @@ namespace Bookling.Controller
 			try {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
-						"DELETE FROM Books WHERE BookID = id;";
-					command.Parameters.Add (new SqliteParameter ("id", bookID));
+						"DELETE FROM Books WHERE BookID = :id;";
+					command.Parameters.Add (new SqliteParameter (":id", bookID));
 					command.ExecuteNonQuery ();
 				}
 				return true;
 			} catch (SqliteException e) {
 				Console.WriteLine (e.Message);
 				return false;
-			} finally {
-				
 			}
 		}
 

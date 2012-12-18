@@ -24,6 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using System.IO;
 using NUnit.Framework;
 using Bookling.Controller;
 using Bookling.Models;
@@ -34,11 +35,25 @@ namespace Bookling
 	public class LibraryManagerTest
 	{
 		private LibraryManager testManager;
+		private Book b;
 
 		[SetUp]
 		public void CreateLibraryManager ()
 		{
 			testManager = new LibraryManager ();
+
+			b = new Book();
+			b.Title = "Sample Book";
+			b.Author = "Sample Author";
+			b.Genre = "Sample Genre";
+			b.YearPublished = 1969;
+			b.FilePath = "/home/books/ebooks";
+		}
+
+		[TearDown]
+		public void DeleteLibraryManagerDatabase ()
+		{
+			File.Delete (LibraryManager.DatabasePath);
 		}
 
 		[Test]
@@ -50,15 +65,26 @@ namespace Bookling
 		[Test]
 		public void AddBookToLibraryTest ()
 		{
-			Book b = new Book();
-			b.Title = "Sample Book";
-			b.Author = "Sample Author";
-			b.Genre = "Sample Genre";
-			b.YearPublished = 1969;
-			b.FilePath = "/home/books/ebooks";
-
 			Assert.IsTrue (testManager.AddBook (b));
-			//Assert.IsFalse (testManager.AddBook ("This is obviously false data"));
+			Assert.IsNotNull (testManager.GetBook (0));
+		}
+
+		[Test]
+		public void RemoveBookFromLibraryByIndexTest ()
+		{
+			testManager.AddBook (b);
+			Assert.IsTrue (testManager.RemoveBook (0));
+			Console.WriteLine (testManager.GetBook (0).Author);
+			Assert.IsNull (testManager.GetBook (0));
+
+		}
+
+		[Test]
+		public void RemoveBookFromLibraryByReferenceTest ()
+		{
+			testManager.AddBook (b);
+			Assert.IsTrue (testManager.RemoveBook (b));
+			Assert.IsFalse (testManager.RemoveBook (new Book()));
 		}
 	}
 }
