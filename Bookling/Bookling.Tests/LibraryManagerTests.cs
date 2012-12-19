@@ -31,7 +31,7 @@ using Bookling.Models;
 
 namespace Bookling
 {
-	[TestFixture()]
+	[TestFixture]
 	public class LibraryManagerTests
 	{
 		private LibraryManager testManager;
@@ -70,21 +70,33 @@ namespace Bookling
 		}
 
 		[Test]
-		public void RemoveBookFromLibraryByIndexTest ()
+		public void RemoveKnownBookFromLibraryByIndexTest ()
 		{
 			testManager.AddBook (b);
 			Console.WriteLine ("Sample Author: " + testManager.GetBook (0).Author);
 			Assert.IsTrue (testManager.RemoveBook (0));
-			Console.WriteLine ("Sample Author: " + testManager.GetBook (0).Author);
-			Assert.IsNull (testManager.GetBook (0));
 		}
 
 		[Test]
-		public void RemoveBookFromLibraryByReferenceTest ()
+		[ExpectedException("Bookling.Controller.BookNotFoundException")]
+		public void RemoveUnknownBookFromLibraryByIndexTest ()
+		{
+			Console.WriteLine ("Sample Author: " + testManager.GetBook (0).Author);
+			testManager.GetBook (0);
+		}
+
+		[Test]
+		public void RemoveKnownBookFromLibraryByReferenceTest ()
 		{
 			testManager.AddBook (b);
 			Assert.IsTrue (testManager.RemoveBook (b));
-			Assert.IsFalse (testManager.RemoveBook (new Book ()));
+		}
+
+		[Test]
+		[ExpectedException("Bookling.Controller.BookNotFoundException")]
+		public void RemoveUnknownBookFromLibraryByReferenceTest ()
+		{
+			testManager.RemoveBook (new Book ());
 		}
 	}
 }

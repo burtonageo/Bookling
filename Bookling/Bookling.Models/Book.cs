@@ -31,6 +31,16 @@ namespace Bookling.Models
 	{
 		public String Title, Author, FilePath, Genre;
 	 	public int YearPublished;
+
+		public bool HasNoData ()
+		{
+			return (
+				Title == "" &&
+				Author == "" &&
+				FilePath == "" &&
+				Genre == "" && 
+				YearPublished == 0);
+		}
 	}
 }
 

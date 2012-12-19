@@ -29,14 +29,15 @@ namespace Bookling.Controller
 {
 	public class BookNotFoundException : Exception
 	{
-		public BookNotFoundException ()
+		public override string Message 
 		{
-		}
-
-		public override string Message {
 			get {
 				return "Book not found in library";
 			}
+		}
+
+		public BookNotFoundException ()
+		{
 		}
 	}
 }

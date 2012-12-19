@@ -164,8 +164,6 @@ namespace Bookling.Controller
 
 		public bool AddBook (Book book)
 		{			
-			Console.WriteLine (book.Title);
-
 			try {			
 				using (SqliteCommand command = new SqliteCommand (
 					"INSERT INTO Books (BookID, BookTitle, BookAuthor, " +
@@ -203,17 +201,15 @@ namespace Bookling.Controller
 			
 			SqliteDataReader reader = command.ExecuteReader ();
 			while (reader.Read ()) {
-				if (reader.GetString (0) == "") {
-					throw new BookNotFoundException ();
-				}
-
 				b.Title = reader.GetString (0);
 				b.Author = reader.GetString (1);
 				b.Genre = reader.GetString (2);
 				b.YearPublished = reader.GetInt32 (3);
 				b.FilePath = reader.GetString (4);
+				if (b.HasNoData ()) {
+					throw new BookNotFoundException ();
+				}
 			}
-
 			return b;
 		}
 
