@@ -29,7 +29,7 @@ using NUnit.Framework;
 using Bookling.Controller;
 using Bookling.Models;
 
-namespace Bookling
+namespace Bookling.UnitTests
 {
 	[TestFixture]
 	public class LibraryManagerTests
