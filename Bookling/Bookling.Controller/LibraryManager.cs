@@ -190,23 +190,31 @@ namespace Bookling.Controller
 
 		public Book GetBook (int index)
 		{
+			if (index < 0) {
+				throw new BookNotFoundException ();
+			}
+
 			Book b = new Book ();
 
 			SqliteCommand command = Connection.CreateCommand ();
 			command.CommandText = "SELECT BookTitle, BookAuthor, " +
-				"BookGenre, BookPublishedYear, BookPath FROM Books";
+				"BookGenre, BookPublishedYear, BookPath FROM Books WHERE " +
+				"BookID = " + index + ";";
 			
 			SqliteDataReader reader = command.ExecuteReader ();
 			while (reader.Read ()) {
+				if (reader.GetString (0) == "") {
+					throw new BookNotFoundException ();
+				}
+
 				b.Title = reader.GetString (0);
 				b.Author = reader.GetString (1);
 				b.Genre = reader.GetString (2);
 				b.YearPublished = reader.GetInt32 (3);
-				b.Author = reader.GetString (4);
+				b.FilePath = reader.GetString (4);
 			}
 
-
-			return new Book();
+			return b;
 		}
 
 		public void PrintLibrary ()

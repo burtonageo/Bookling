@@ -32,7 +32,7 @@ using Bookling.Models;
 namespace Bookling
 {
 	[TestFixture()]
-	public class LibraryManagerTest
+	public class LibraryManagerTests
 	{
 		private LibraryManager testManager;
 		private Book b;
@@ -73,10 +73,10 @@ namespace Bookling
 		public void RemoveBookFromLibraryByIndexTest ()
 		{
 			testManager.AddBook (b);
+			Console.WriteLine ("Sample Author: " + testManager.GetBook (0).Author);
 			Assert.IsTrue (testManager.RemoveBook (0));
-			Console.WriteLine (testManager.GetBook (0).Author);
+			Console.WriteLine ("Sample Author: " + testManager.GetBook (0).Author);
 			Assert.IsNull (testManager.GetBook (0));
-
 		}
 
 		[Test]
@@ -84,7 +84,7 @@ namespace Bookling
 		{
 			testManager.AddBook (b);
 			Assert.IsTrue (testManager.RemoveBook (b));
-			Assert.IsFalse (testManager.RemoveBook (new Book()));
+			Assert.IsFalse (testManager.RemoveBook (new Book ()));
 		}
 	}
 }
