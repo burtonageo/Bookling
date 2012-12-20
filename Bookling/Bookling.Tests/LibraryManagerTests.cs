@@ -54,7 +54,6 @@ namespace Bookling.UnitTests
 		public void DeleteLibraryManagerDatabase ()
 		{
 			File.Delete (LibraryManager.DatabasePath);
-			testManager = null;
 		}
 
 		[Test]
@@ -90,7 +89,6 @@ namespace Bookling.UnitTests
 		[ExpectedException("Bookling.Controller.BookNotFoundException")]
 		public void RemoveUnknownBookFromLibraryByIndexTest ()
 		{
-			testManager.PrintLibrary ();
 			testManager.GetBook (0);
 		}
 
@@ -105,7 +103,8 @@ namespace Bookling.UnitTests
 		public void RemoveKnownBookFromLibraryByReferenceTest ()
 		{
 			testManager.AddBook (book);
-			Assert.IsTrue (testManager.RemoveBook (book));
+			testManager.RemoveBook (book);
+			Assert.IsEmpty (testManager.Books);
 		}
 
 		[Test]
