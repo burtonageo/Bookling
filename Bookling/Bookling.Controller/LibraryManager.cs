@@ -82,19 +82,22 @@ namespace Bookling.Controller
 			get {
 				ArrayList bookList = new ArrayList();
 				try {
-					SqliteCommand command = Connection.CreateCommand ();
-					command.CommandText = "SELECT BookTitle, BookAuthor, " +
-						"BookGenre, BookPublishedYear, BookPath FROM Books";
+					using (SqliteCommand command = new SqliteCommand (Connection)) {
+						command.CommandText = 
+							"SELECT BookTitle, BookAuthor, " +
+							"BookGenre, BookPublishedYear, " +
+							"BookPath FROM Books";
 
-					SqliteDataReader reader = command.ExecuteReader ();
-					while (reader.Read ()) {
-						Book b = new Book ();
-						b.Title = reader.GetString (0);
-						b.Author = reader.GetString (1);
-						b.Genre = reader.GetString (2);
-						b.YearPublished = reader.GetInt32 (3);
-						b.Author = reader.GetString (4);
-						bookList.Add (b);
+						SqliteDataReader reader = command.ExecuteReader ();
+						while (reader.Read ()) {
+							Book b = new Book ();
+							b.Title = reader.GetString (0);
+							b.Author = reader.GetString (1);
+							b.Genre = reader.GetString (2);
+							b.YearPublished = reader.GetInt32 (3);
+							b.Author = reader.GetString (4);
+							bookList.Add (b);
+						}
 					}
 				} catch (SqliteException e) {
 					throw new SqliteException (e.Message);
