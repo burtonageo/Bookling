@@ -142,9 +142,10 @@ namespace Bookling.Controller
 			try {			
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = 
-						"INSERT INTO Books (BookID, BookTitle, BookAuthor, " +
-						"BookGenre, BookPublishedYear, BookPath) VALUES (" +
-						":id, :title, :author, :genre, :year, :path);";
+						"INSERT INTO Books " +
+						"(BookID, BookTitle, BookAuthor, " +
+						"BookGenre, BookPublishedYear, BookPath) " +
+						"VALUES (:id, :title, :author, :genre, :year, :path);";
 
 					command.Parameters.AddWithValue (":id", MaxId); 
 					command.Parameters.AddWithValue (":title", book.Title); 
@@ -168,9 +169,10 @@ namespace Bookling.Controller
 			Book b = new Book ();
 
 			using (SqliteCommand command = new SqliteCommand (Connection)) {
-				command.CommandText = "SELECT BookTitle, BookAuthor, " +
-					"BookGenre, BookPublishedYear, BookPath FROM Books WHERE " +
-					"BookID = " + index + ";";
+				command.CommandText = 
+					"SELECT BookTitle, BookAuthor, " +
+					"BookGenre, BookPublishedYear, BookPath " +
+					"FROM Books WHERE BookID = " + index + ";";
 			
 				SqliteDataReader reader = command.ExecuteReader ();
 				if (reader.HasRows == false) {
@@ -213,7 +215,6 @@ namespace Bookling.Controller
 
 		public void RemoveBook (int bookID) 
 		{
-			
 			try {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = "DELETE FROM Books WHERE BookID = :id;";
