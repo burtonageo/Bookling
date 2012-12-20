@@ -69,8 +69,6 @@ namespace Bookling.Controller
 					}
 				} catch (Exception e) {
 					Console.WriteLine (e.Message);
-				} finally {
-					
 				}
 				return max;
 			}
@@ -85,14 +83,10 @@ namespace Bookling.Controller
 		public ArrayList Books {
 			get {
 				ArrayList bookList = new ArrayList();
-
 				try {
-
 					SqliteCommand command = Connection.CreateCommand ();
 					command.CommandText = "SELECT BookTitle, BookAuthor, " +
 						"BookGenre, BookPublishedYear, BookPath FROM Books";
-
-
 
 					SqliteDataReader reader = command.ExecuteReader ();
 					while (reader.Read ()) {
@@ -104,7 +98,6 @@ namespace Bookling.Controller
 						b.Author = reader.GetString (4);
 						bookList.Add (b);
 					}
-
 				} catch (SqliteException e) {
 					Console.WriteLine (e.Message);
 				}
@@ -123,7 +116,6 @@ namespace Bookling.Controller
 			if (!Directory.Exists (LibraryManager.DatabaseDirectory)) {
 				Directory.CreateDirectory (LibraryManager.DatabaseDirectory);
 			}
-
 
 			bool exists = File.Exists (LibraryManager.DatabasePath);
 			if (!exists) {
@@ -176,21 +168,22 @@ namespace Bookling.Controller
 
 			Book b = new Book ();
 
-			SqliteCommand command = Connection.CreateCommand ();
-			command.CommandText = "SELECT BookTitle, BookAuthor, " +
-				"BookGenre, BookPublishedYear, BookPath FROM Books WHERE " +
-				"BookID = " + index + ";";
+			using (SqliteCommand command = new SqliteCommand (Connection)) {
+				command.CommandText = "SELECT BookTitle, BookAuthor, " +
+					"BookGenre, BookPublishedYear, BookPath FROM Books WHERE " +
+					"BookID = " + index + ";";
 			
-			SqliteDataReader reader = command.ExecuteReader ();
-			if (reader.HasRows == false) {
-				throw new BookNotFoundException ();
-			}
-			while (reader.Read ()) {
-				b.Title = reader.GetString (0);
-				b.Author = reader.GetString (1);
-				b.Genre = reader.GetString (2);
-				b.YearPublished = reader.GetInt32 (3);
-				b.FilePath = reader.GetString (4);
+				SqliteDataReader reader = command.ExecuteReader ();
+				if (reader.HasRows == false) {
+					throw new BookNotFoundException ();
+				}
+				while (reader.Read ()) {
+					b.Title = reader.GetString (0);
+					b.Author = reader.GetString (1);
+					b.Genre = reader.GetString (2);
+					b.YearPublished = reader.GetInt32 (3);
+					b.FilePath = reader.GetString (4);
+				}
 			}
 			return b;
 		}
@@ -205,11 +198,11 @@ namespace Bookling.Controller
 						"BookTitle = :title AND BookAuthor = :author AND " +
 						"BookGenre = :genre AND BookPath = :path " +
 						"AND BookPublishedYear = :year;";
-					command.Parameters.Add (new SqliteParameter (":title", book.Title)); 
-					command.Parameters.Add (new SqliteParameter (":author", book.Author)); 
-					command.Parameters.Add (new SqliteParameter (":genre", book.Genre)); 
-					command.Parameters.Add (new SqliteParameter (":path", book.FilePath));
-					command.Parameters.Add (new SqliteParameter (":year", book.YearPublished));
+					command.Parameters.AddWithValue (":title", book.Title); 
+					command.Parameters.AddWithValue (":author", book.Author);
+					command.Parameters.AddWithValue (":genre", book.Genre);
+					command.Parameters.AddWithValue (":year", book.YearPublished);
+					command.Parameters.AddWithValue (":path", book.FilePath);
 					command.ExecuteNonQuery ();
 				}
 			} catch (SqliteException e) {
@@ -242,11 +235,12 @@ namespace Bookling.Controller
 						"BookTitle = title, BookAuthor = author, " +
 						"BookPublishedYear = year, BookPath = path " +
 						"WHERE BookID = id;";
-					command.Parameters.Add (new SqliteParameter ("title", book.Title)); 
-					command.Parameters.Add (new SqliteParameter ("author", book.Author)); 
-					command.Parameters.Add (new SqliteParameter ("year", book.YearPublished));
-					command.Parameters.Add (new SqliteParameter ("path", book.FilePath));
-					command.Parameters.Add (new SqliteParameter ("id", bookID));
+					command.Parameters.AddWithValue (":title", book.Title); 
+					command.Parameters.AddWithValue (":author", book.Author);
+					command.Parameters.AddWithValue (":genre", book.Genre);
+					command.Parameters.AddWithValue (":year", book.YearPublished);
+					command.Parameters.AddWithValue (":path", book.FilePath);
+					command.Parameters.AddWithValue (":id", bookID); 
 					command.ExecuteNonQuery ();
 				}
 			} catch (SqliteException e) {
