@@ -38,8 +38,7 @@ namespace Bookling.Models
 				Title == "" &&
 				Author == "" &&
 				FilePath == "" &&
-				Genre == "" && 
-				YearPublished == 0);
+				Genre == "");
 		}
 	}
 }

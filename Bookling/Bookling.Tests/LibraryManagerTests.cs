@@ -35,19 +35,19 @@ namespace Bookling.UnitTests
 	public class LibraryManagerTests
 	{
 		private LibraryManager testManager;
-		private Book b;
+		private Book book;
 
 		[SetUp]
 		public void CreateLibraryManager ()
 		{
 			testManager = new LibraryManager ();
 
-			b = new Book();
-			b.Title = "Sample Book";
-			b.Author = "Sample Author";
-			b.Genre = "Sample Genre";
-			b.YearPublished = 1969;
-			b.FilePath = "/home/books/ebooks";
+			book = new Book();
+			book.Title = "Sample Book";
+			book.Author = "Sample Author";
+			book.Genre = "Sample Genre";
+			book.YearPublished = 1969;
+			book.FilePath = "/home/books/ebooks";
 		}
 
 		[TearDown]
@@ -65,31 +65,46 @@ namespace Bookling.UnitTests
 		[Test]
 		public void AddBookToLibraryTest ()
 		{
-			Assert.IsTrue (testManager.AddBook (b));
-			Assert.IsNotNull (testManager.GetBook (0));
+			testManager.AddBook (book);
+			Assert.IsNotEmpty (testManager.Books);
+		}
+
+		[Test]
+		public void RetrieveBookFromLibraryTest ()
+		{
+			testManager.AddBook (book);
+			Book b = testManager.GetBook (0);
+			Assert.IsTrue (b.Equals (book));
 		}
 
 		[Test]
 		public void RemoveKnownBookFromLibraryByIndexTest ()
 		{
-			testManager.AddBook (b);
-			Console.WriteLine ("Sample Author: " + testManager.GetBook (0).Author);
-			Assert.IsTrue (testManager.RemoveBook (0));
+			testManager.AddBook (book);
+			testManager.RemoveBook (0);
+			Assert.IsEmpty (testManager.Books);
 		}
 
 		[Test]
 		[ExpectedException("Bookling.Controller.BookNotFoundException")]
 		public void RemoveUnknownBookFromLibraryByIndexTest ()
 		{
-			Console.WriteLine ("Sample Author: " + testManager.GetBook (0).Author);
+			testManager.PrintLibrary ();
 			testManager.GetBook (0);
+		}
+
+		[Test]
+		[ExpectedException("Bookling.Controller.BookNotFoundException")]
+		public void RemoveBookWithInvalidIndexTest ()
+		{
+			testManager.GetBook (-3);
 		}
 
 		[Test]
 		public void RemoveKnownBookFromLibraryByReferenceTest ()
 		{
-			testManager.AddBook (b);
-			Assert.IsTrue (testManager.RemoveBook (b));
+			testManager.AddBook (book);
+			Assert.IsTrue (testManager.RemoveBook (book));
 		}
 
 		[Test]

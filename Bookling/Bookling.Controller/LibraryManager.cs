@@ -106,23 +106,6 @@ namespace Bookling.Controller
 				} catch (SqliteException e) {
 					Console.WriteLine (e.Message);
 				}
-				/*
-				SqliteCommand command = Connection.CreateCommand ();
-				command.CommandText ="SELECT BookId, BookTitle, BookAuthor, " +
-					"BookPublishedYear, BookPath FROM Books";
-
-
-				SqliteDataReader reader = command.ExecuteReader ();
-				while(reader.Read ()) {
-					Book b = new Book();
-
-					b.Title = reader.GetString (0);
-					b.Author = reader.GetString (1);
-					b.YearPublished = reader.GetInt32 (2);
-					b.Author = reader.GetString (3);
-					bookList.Add (b);
-				}
-				*/
 				return bookList;
 			}
 		}
@@ -176,7 +159,6 @@ namespace Bookling.Controller
 					command.Parameters.AddWithValue (":genre", book.Genre);
 					command.Parameters.AddWithValue (":year", book.YearPublished);
 					command.Parameters.AddWithValue (":path", book.FilePath);
-					Console.WriteLine (command.CommandText);
 					command.ExecuteNonQuery ();
 				}
 				return true;
