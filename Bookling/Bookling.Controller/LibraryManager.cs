@@ -231,7 +231,7 @@ namespace Bookling.Controller
 					command.ExecuteNonQuery ();
 				}
 			} catch (SqliteException e) {
-				throw new SqliteException (e);
+				throw new SqliteException (e.Message);
 			}
 		}
 
