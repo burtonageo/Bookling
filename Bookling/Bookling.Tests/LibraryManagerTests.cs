@@ -54,6 +54,7 @@ namespace Bookling.UnitTests
 		public void DeleteLibraryManagerDatabase ()
 		{
 			File.Delete (LibraryManager.DatabasePath);
+			testManager = null;
 		}
 
 		[Test]

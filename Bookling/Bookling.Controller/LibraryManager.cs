@@ -89,8 +89,8 @@ namespace Bookling.Controller
 				try {
 
 					SqliteCommand command = Connection.CreateCommand ();
-					command.CommandText = "SELECT BookID, BookTitle, BookAuthor, " +
-						"BookPublishedYear, BookPath FROM Books";
+					command.CommandText = "SELECT BookTitle, BookAuthor, " +
+						"BookGenre, BookPublishedYear, BookPath FROM Books";
 
 
 
@@ -99,10 +99,12 @@ namespace Bookling.Controller
 						Book b = new Book ();
 						b.Title = reader.GetString (0);
 						b.Author = reader.GetString (1);
-						b.YearPublished = reader.GetInt32 (2);
-						b.Author = reader.GetString (3);
+						b.Genre = reader.GetString (2);
+						b.YearPublished = reader.GetInt32 (3);
+						b.Author = reader.GetString (4);
 						bookList.Add (b);
 					}
+
 				} catch (SqliteException e) {
 					Console.WriteLine (e.Message);
 				}
@@ -145,7 +147,7 @@ namespace Bookling.Controller
 			Connection.Close ();
 		}
 
-		public bool AddBook (Book book)
+		public void AddBook (Book book)
 		{			
 			try {			
 				using (SqliteCommand command = new SqliteCommand (
@@ -161,10 +163,8 @@ namespace Bookling.Controller
 					command.Parameters.AddWithValue (":path", book.FilePath);
 					command.ExecuteNonQuery ();
 				}
-				return true;
 			} catch (SqliteException e) {
-				Console.WriteLine (e.Message);
-				return false;
+				throw new SqliteException (e);
 			}
 		}
 
@@ -209,13 +209,11 @@ namespace Bookling.Controller
 					Console.WriteLine (id + ". " + title + " by " + author);
 				}
 			} catch (SqliteException e) {
-				Console.WriteLine (e.Message);
+				throw new SqliteException (e);
 			}
 		}
 
-
-
-		public bool RemoveBook (Book book)
+		public void RemoveBook (Book book)
 		{
 			
 			try {
@@ -232,14 +230,12 @@ namespace Bookling.Controller
 					command.Parameters.Add (new SqliteParameter (":year", book.YearPublished));
 					command.ExecuteNonQuery ();
 				}
-				return true;
 			} catch (SqliteException e) {
-				Console.WriteLine (e.Message);
-				return false;
+				throw new SqliteException (e);
 			}
 		}
 
-		public bool RemoveBook (int bookID) 
+		public void RemoveBook (int bookID) 
 		{
 			
 			try {
@@ -249,14 +245,12 @@ namespace Bookling.Controller
 					command.Parameters.Add (new SqliteParameter (":id", bookID));
 					command.ExecuteNonQuery ();
 				}
-				return true;
 			} catch (SqliteException e) {
-				Console.WriteLine (e.Message);
-				return false;
+				throw new SqliteException (e);
 			}
 		}
 
-		public bool AlterBookData (int bookID, Book book)
+		public void AlterBookData (int bookID, Book book)
 		{
 			
 			try {
@@ -273,12 +267,8 @@ namespace Bookling.Controller
 					command.Parameters.Add (new SqliteParameter ("id", bookID));
 					command.ExecuteNonQuery ();
 				}
-				return true;
 			} catch (SqliteException e) {
-				Console.WriteLine (e.Message);
-				return false;
-			} finally {
-				
+				throw new SqliteException (e);
 			}
 		} 
 	}
