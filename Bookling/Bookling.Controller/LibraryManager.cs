@@ -56,8 +56,7 @@ namespace Bookling.Controller
 		public int MaxId 
 		{
 			get {
-				int max = 0;
-				
+				int max = 0;	
 				try {
 					SqliteCommand command = Connection.CreateCommand ();
 					command.CommandText = "SELECT COALESCE(MAX(BookID)+1, 0) FROM Books";
@@ -232,9 +231,11 @@ namespace Bookling.Controller
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
 						"UPDATE Books SET " +
-						"BookTitle = title, BookAuthor = author, " +
-						"BookPublishedYear = year, BookPath = path " +
-						"WHERE BookID = id;";
+						"BookTitle = :title, " +
+						"BookAuthor = :author, " +
+						"BookPublishedYear = :year, " +
+						"BookPath = :path " +
+						"WHERE BookID = :id;";
 					command.Parameters.AddWithValue (":title", book.Title); 
 					command.Parameters.AddWithValue (":author", book.Author);
 					command.Parameters.AddWithValue (":genre", book.Genre);
