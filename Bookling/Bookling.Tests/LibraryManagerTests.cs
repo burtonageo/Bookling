@@ -97,14 +97,14 @@ namespace Bookling.UnitTests
 		[ExpectedException("Bookling.Controller.BookNotFoundException")]
 		public void RemoveUnknownBookFromLibraryByIndexTest ()
 		{
-			testManager.GetBook (0);
+			testManager.RemoveBook (0);
 		}
 
 		[Test]
 		[ExpectedException("Bookling.Controller.BookNotFoundException")]
 		public void RemoveBookWithInvalidIndexTest ()
 		{
-			testManager.GetBook (-3);
+			testManager.RemoveBook (-3);
 		}
 
 		[Test]
