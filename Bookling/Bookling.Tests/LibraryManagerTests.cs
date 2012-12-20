@@ -47,13 +47,14 @@ namespace Bookling.UnitTests
 			book.Author = "Sample Author";
 			book.Genre = "Sample Genre";
 			book.YearPublished = 1969;
-			book.FilePath = "/home/books/ebooks";
+			book.FilePath = "/home/books/ebooks/book.pdf";
 		}
 
 		[TearDown]
 		public void DeleteLibraryManagerDatabase ()
 		{
 			File.Delete (LibraryManager.DatabasePath);
+			Directory.Delete (LibraryManager.DatabaseDirectory);
 		}
 
 		[Test]

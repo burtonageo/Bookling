@@ -59,7 +59,6 @@ namespace Bookling.Controller
 				int max = 0;
 				
 				try {
-
 					SqliteCommand command = Connection.CreateCommand ();
 					command.CommandText = "SELECT COALESCE(MAX(BookID)+1, 0) FROM Books";
 
@@ -67,8 +66,8 @@ namespace Bookling.Controller
 					while(reader.Read ()) {
 						max = reader.GetInt32(0);
 					}
-				} catch (Exception e) {
-					Console.WriteLine (e.Message);
+				} catch (SqliteException e) {
+					throw new SqliteException (e.Message);
 				}
 				return max;
 			}
@@ -99,7 +98,7 @@ namespace Bookling.Controller
 						bookList.Add (b);
 					}
 				} catch (SqliteException e) {
-					Console.WriteLine (e.Message);
+					throw new SqliteException (e.Message);
 				}
 				return bookList;
 			}
@@ -195,9 +194,11 @@ namespace Bookling.Controller
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
 						"DELETE FROM Books WHERE " +
-						"BookTitle = :title AND BookAuthor = :author AND " +
-						"BookGenre = :genre AND BookPath = :path " +
-						"AND BookPublishedYear = :year;";
+						"BookTitle = :title AND " +
+						"BookAuthor = :author AND " +
+						"BookGenre = :genre AND " +
+						"BookPath = :path AND " +
+						"BookPublishedYear = :year;";
 					command.Parameters.AddWithValue (":title", book.Title); 
 					command.Parameters.AddWithValue (":author", book.Author);
 					command.Parameters.AddWithValue (":genre", book.Genre);
@@ -215,8 +216,7 @@ namespace Bookling.Controller
 			
 			try {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
-					command.CommandText =
-						"DELETE FROM Books WHERE BookID = :id;";
+					command.CommandText = "DELETE FROM Books WHERE BookID = :id;";
 					command.Parameters.Add (new SqliteParameter (":id", bookID));
 					command.ExecuteNonQuery ();
 				}
