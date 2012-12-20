@@ -164,7 +164,7 @@ namespace Bookling.Controller
 					command.ExecuteNonQuery ();
 				}
 			} catch (SqliteException e) {
-				throw new SqliteException (e);
+				throw new SqliteException (e.Message);
 			}
 		}
 
@@ -209,7 +209,7 @@ namespace Bookling.Controller
 					Console.WriteLine (id + ". " + title + " by " + author);
 				}
 			} catch (SqliteException e) {
-				throw new SqliteException (e);
+				throw new SqliteException (e.Message);
 			}
 		}
 
@@ -246,7 +246,7 @@ namespace Bookling.Controller
 					command.ExecuteNonQuery ();
 				}
 			} catch (SqliteException e) {
-				throw new SqliteException (e);
+				throw new SqliteException (e.Message);
 			}
 		}
 
@@ -268,7 +268,7 @@ namespace Bookling.Controller
 					command.ExecuteNonQuery ();
 				}
 			} catch (SqliteException e) {
-				throw new SqliteException (e);
+				throw new SqliteException (e.Message);
 			}
 		} 
 	}
