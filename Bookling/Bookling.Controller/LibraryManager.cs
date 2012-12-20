@@ -182,15 +182,15 @@ namespace Bookling.Controller
 				"BookID = " + index + ";";
 			
 			SqliteDataReader reader = command.ExecuteReader ();
+			if (reader.HasRows == false) {
+				throw new BookNotFoundException ();
+			}
 			while (reader.Read ()) {
 				b.Title = reader.GetString (0);
 				b.Author = reader.GetString (1);
 				b.Genre = reader.GetString (2);
 				b.YearPublished = reader.GetInt32 (3);
 				b.FilePath = reader.GetString (4);
-				if (b.HasNoData ()) {
-					throw new BookNotFoundException ();
-				}
 			}
 			return b;
 		}

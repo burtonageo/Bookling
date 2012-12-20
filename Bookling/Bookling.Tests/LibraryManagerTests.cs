@@ -70,11 +70,18 @@ namespace Bookling.UnitTests
 		}
 
 		[Test]
-		public void RetrieveBookFromLibraryTest ()
+		public void RetrieveKnownBookFromLibraryTest ()
 		{
 			testManager.AddBook (book);
 			Book b = testManager.GetBook (0);
 			Assert.IsTrue (b.Equals (book));
+		}
+
+		[Test]
+		[ExpectedException("Bookling.Controller.BookNotFoundException")]
+		public void RetrieveUnknownBookFromLibraryTest ()
+		{
+			testManager.GetBook (0);
 		}
 
 		[Test]
