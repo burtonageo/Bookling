@@ -2,10 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Tests/LibraryManagerTests.cs">
     <Files>
-      <File FileName="Bookling/Bookling.Models/Book.cs" Line="33" Column="29" />
-      <File FileName="Bookling/Bookling.Controller/LibraryManager.cs" Line="212" Column="5" />
-      <File FileName="Bookling/Bookling.Tests/LibraryManagerTests.cs" Line="40" Column="7" />
-      <File FileName="Bookling/Bookling.Controller/BookNotFoundException.cs" Line="22" Column="30" />
+      <File FileName="Bookling/Bookling.Models/Book.cs" Line="41" Column="16" />
+      <File FileName="Bookling/Bookling.Controller/LibraryManager.cs" Line="114" Column="16" />
+      <File FileName="Bookling/Bookling.Tests/LibraryManagerTests.cs" Line="115" Column="19" />
+      <File FileName="Bookling/Bookling.Controller/BookNotFoundException.cs" Line="35" Column="19" />
+      <File FileName="Bookling/Bookling.Interface/Main Window/AppDelegate.cs" Line="122" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -35,9 +36,7 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True">
-          <Node name="Bookling" selected="True" />
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
       <Pad Id="ConnectionManagerPad">
         <State selected="True" />

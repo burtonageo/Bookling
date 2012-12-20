@@ -140,10 +140,11 @@ namespace Bookling.Controller
 		public void AddBook (Book book)
 		{			
 			try {			
-				using (SqliteCommand command = new SqliteCommand (
-					"INSERT INTO Books (BookID, BookTitle, BookAuthor, " +
+				using (SqliteCommand command = new SqliteCommand (Connection)) {
+					command.CommandText = 
+						"INSERT INTO Books (BookID, BookTitle, BookAuthor, " +
 						"BookGenre, BookPublishedYear, BookPath) VALUES (" +
-						":id, :title, :author, :genre, :year, :path);", Connection)) {
+						":id, :title, :author, :genre, :year, :path);";
 
 					command.Parameters.AddWithValue (":id", MaxId); 
 					command.Parameters.AddWithValue (":title", book.Title); 
