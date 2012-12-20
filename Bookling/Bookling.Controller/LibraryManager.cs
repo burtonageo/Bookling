@@ -191,7 +191,6 @@ namespace Bookling.Controller
 
 		public void RemoveBook (Book book)
 		{
-			
 			try {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
