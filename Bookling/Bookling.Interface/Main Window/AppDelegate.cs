@@ -119,7 +119,6 @@ namespace Bookling.Interface
 				listViewController.tableView.ReloadData ();
 			}
 			//NSApplication.SharedApplication.EndSheet (filePanel);
-			libraryManager.PrintLibrary ();
 		}
 		
 		partial void ViewAsList (MonoMac.Foundation.NSObject sender)

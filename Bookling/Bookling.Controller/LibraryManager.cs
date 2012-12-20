@@ -195,24 +195,6 @@ namespace Bookling.Controller
 			return b;
 		}
 
-		public void PrintLibrary ()
-		{
-			try {
-				SqliteCommand command = Connection.CreateCommand ();
-				command.CommandText = "SELECT BookID, BookTitle, BookAuthor FROM Books";
-	
-				SqliteDataReader reader = command.ExecuteReader ();
-				while (reader.Read ()) {
-					int id = reader.GetInt32 (0);
-					String title = reader.GetString (1);
-					String author = reader.GetString (2);
-					Console.WriteLine (id + ". " + title + " by " + author);
-				}
-			} catch (SqliteException e) {
-				throw new SqliteException (e.Message);
-			}
-		}
-
 		public void RemoveBook (Book book)
 		{
 			
