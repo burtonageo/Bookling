@@ -48,7 +48,7 @@ namespace Bookling.Controller
 		public static String DatabasePath 
 		{
 			get {
-				return String.Format (DatabaseDirectory + "{0}Library.db", 
+				return String.Format (LibraryManager.DatabaseDirectory + "{0}Library.db", 
 						Path.DirectorySeparatorChar);
 			}
 		}
@@ -59,7 +59,7 @@ namespace Bookling.Controller
 				int max = 0;	
 				try {
 					SqliteCommand command = Connection.CreateCommand ();
-					command.CommandText = "SELECT COALESCE(MAX(BookID)+1, 0) FROM Books";
+					command.CommandText = "SELECT COALESCE (MAX (BookID) + 1, 0) FROM Books";
 
 					SqliteDataReader reader = command.ExecuteReader();
 					while(reader.Read ()) {
@@ -222,6 +222,7 @@ namespace Bookling.Controller
 					command.CommandText = "DELETE FROM Books WHERE BookID = :id;";
 					command.Parameters.Add (new SqliteParameter (":id", bookID));
 					command.ExecuteNonQuery ();
+
 				}
 			} catch (SqliteException e) {
 				throw new SqliteException (e.Message);

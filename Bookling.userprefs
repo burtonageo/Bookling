@@ -1,28 +1,17 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Tests/LibraryManagerTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Controller/LibraryManager.cs">
     <Files>
-      <File FileName="Bookling/Bookling.Models/Book.cs" Line="41" Column="16" />
-      <File FileName="Bookling/Bookling.Controller/LibraryManager.cs" Line="114" Column="16" />
-      <File FileName="Bookling/Bookling.Tests/LibraryManagerTests.cs" Line="115" Column="19" />
-      <File FileName="Bookling/Bookling.Controller/BookNotFoundException.cs" Line="35" Column="19" />
-      <File FileName="Bookling/Bookling.Interface/Main Window/AppDelegate.cs" Line="122" Column="1" />
+      <File FileName="Bookling/Bookling.Models/Book.cs" Line="33" Column="6" />
+      <File FileName="Bookling/Bookling.Controller/LibraryManager.cs" Line="223" Column="5" />
+      <File FileName="Bookling/Bookling.Tests/LibraryManagerTests.cs" Line="60" Column="9" />
+      <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialog.designer.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Bookling" expanded="True">
             <Node name="Bookling.Controller" expanded="True" />
-            <Node name="Bookling.Interface" expanded="True">
-              <Node name="Light Window" expanded="True">
-                <Node name="Light Dialog" expanded="True">
-                  <Node name="Icons" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Main Window" expanded="True" />
-              <Node name="Metadata Dialog" expanded="True" />
-            </Node>
-            <Node name="Bookling.Models" expanded="True" />
             <Node name="Bookling.Tests" expanded="True">
               <Node name="LibraryManagerTests.cs" selected="True" />
             </Node>
@@ -36,7 +25,9 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True">
+          <Node name="Bookling" selected="True" />
+        </State>
       </Pad>
       <Pad Id="ConnectionManagerPad">
         <State selected="True" />
