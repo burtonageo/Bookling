@@ -64,7 +64,7 @@ namespace Bookling.Interface
 			Window.CloseButton.Action = new Selector ("CloseWindow:");
 
 			// Make sure checkbox and series fields are in sync,
-			// using a dummy NSObject
+			// using a dummy NSObject.
 			SwitchIsInSeries (new NSObject ());
 		} 
 
