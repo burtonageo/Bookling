@@ -26,7 +26,6 @@
 using Bookling.Models;
 using Mono.Data.Sqlite;
 using System;
-using System.Collections.Generic;
 using System.Collections;
 using System.Data;
 using System.IO;
@@ -59,7 +58,8 @@ namespace Bookling.Controller
 				int max = 0;	
 				try {
 					SqliteCommand command = Connection.CreateCommand ();
-					command.CommandText = "SELECT COALESCE (MAX (BookID) + 1, 0) FROM Books";
+					command.CommandText = "SELECT COALESCE (MAX (BookID) + 1, 0) " +
+						"FROM Books";
 
 					SqliteDataReader reader = command.ExecuteReader();
 					while(reader.Read ()) {
@@ -252,7 +252,7 @@ namespace Bookling.Controller
 			} catch (SqliteException e) {
 				throw new SqliteException (e.Message);
 			}
-		} 
+		}
 	}
 }
 
