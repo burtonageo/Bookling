@@ -221,7 +221,7 @@ namespace Bookling.Controller
 			try {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = "DELETE FROM Books WHERE BookID = :id;";
-					command.Parameters.Add (new SqliteParameter (":id", bookID));
+					command.Parameters.AddWithValue (":id", bookID);
 					command.ExecuteNonQuery ();
 
 				}
