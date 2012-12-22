@@ -39,16 +39,17 @@ namespace Bookling.Controller
 			get {
 				return String.Format (
 					Environment.GetFolderPath (
-					Environment.SpecialFolder.ApplicationData) +
-					"{0}Bookling", Path.DirectorySeparatorChar);
+						Environment.SpecialFolder.ApplicationData) +
+						"{0}Bookling", Path.DirectorySeparatorChar);
 			}
 		}
 
 		public static String DatabasePath 
 		{
 			get {
-				return String.Format (LibraryManager.DatabaseDirectory + "{0}Library.db", 
-						Path.DirectorySeparatorChar);
+				return String.Format (
+					LibraryManager.DatabaseDirectory + "{0}Library.db", 
+					Path.DirectorySeparatorChar);
 			}
 		}
 
