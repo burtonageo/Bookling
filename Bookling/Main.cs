@@ -6,7 +6,7 @@ using MonoMac.ObjCRuntime;
 
 namespace Bookling
 {
-	class MainClass
+	sealed class MainClass
 	{
 		static void Main (string[] args)
 		{

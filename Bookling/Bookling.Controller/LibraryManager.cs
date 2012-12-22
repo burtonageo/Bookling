@@ -247,7 +247,7 @@ namespace Bookling.Controller
 					command.Parameters.AddWithValue (":genre", book.Genre);
 					command.Parameters.AddWithValue (":year", book.YearPublished);
 					command.Parameters.AddWithValue (":path", book.FilePath);
-					command.Parameters.AddWithValue (":id", bookID); 
+					command.Parameters.AddWithValue (":id", bookID);
 					command.ExecuteNonQuery ();
 				}
 			} catch (SqliteException e) {
