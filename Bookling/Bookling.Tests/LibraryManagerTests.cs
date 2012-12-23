@@ -79,7 +79,7 @@ namespace Bookling.UnitTests
 		}
 
 		[Test]
-		[ExpectedException("Bookling.Controller.BookNotFoundException")]
+		[ExpectedException ("Bookling.Controller.BookNotFoundException")]
 		public void RetrieveUnknownBookFromLibraryTest ()
 		{
 			testManager.GetBook (0);
@@ -94,14 +94,14 @@ namespace Bookling.UnitTests
 		}
 
 		[Test]
-		[ExpectedException("Bookling.Controller.BookNotFoundException")]
+		[ExpectedException ("Bookling.Controller.BookNotFoundException")]
 		public void RemoveUnknownBookFromLibraryByIndexTest ()
 		{
 			testManager.RemoveBook (0);
 		}
 
 		[Test]
-		[ExpectedException("Bookling.Controller.BookNotFoundException")]
+		[ExpectedException ("Bookling.Controller.BookNotFoundException")]
 		public void RemoveBookWithInvalidIndexTest ()
 		{
 			testManager.RemoveBook (-3);
@@ -116,7 +116,7 @@ namespace Bookling.UnitTests
 		}
 
 		[Test]
-		[ExpectedException("Bookling.Controller.BookNotFoundException")]
+		[ExpectedException ("Bookling.Controller.BookNotFoundException")]
 		public void RemoveUnknownBookFromLibraryByReferenceTest ()
 		{
 			testManager.RemoveBook (new Book ());
@@ -135,6 +135,13 @@ namespace Bookling.UnitTests
 
 			testManager.AlterBookData (0, b);
 			Assert.IsTrue (testManager.GetBook (0).Equals (b));
+		}
+
+		[Test]
+		[ExpectedException ("Bookling.Controller.BookNotFoundException")]
+		public void AlterBookNotInLibraryTest ()
+		{
+			testManager.AlterBookData (0, book);
 		}
 	}
 }
