@@ -209,7 +209,9 @@ namespace Bookling.Controller
 					command.Parameters.AddWithValue (":genre", book.Genre);
 					command.Parameters.AddWithValue (":year", book.YearPublished);
 					command.Parameters.AddWithValue (":path", book.FilePath);
-					command.ExecuteNonQuery ();
+					if (command.ExecuteNonQuery () == 0) {
+						throw new BookNotFoundException ();
+					}
 				}
 			} catch (SqliteException e) {
 				throw new SqliteException (e.Message);
@@ -222,8 +224,9 @@ namespace Bookling.Controller
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = "DELETE FROM Books WHERE BookID = :id;";
 					command.Parameters.AddWithValue (":id", bookID);
-					command.ExecuteNonQuery ();
-
+					if (command.ExecuteNonQuery () == 0) {
+						throw new BookNotFoundException ();
+					}
 				}
 			} catch (SqliteException e) {
 				throw new SqliteException (e.Message);
@@ -248,7 +251,9 @@ namespace Bookling.Controller
 					command.Parameters.AddWithValue (":year", book.YearPublished);
 					command.Parameters.AddWithValue (":path", book.FilePath);
 					command.Parameters.AddWithValue (":id", bookID);
-					command.ExecuteNonQuery ();
+					if (command.ExecuteNonQuery () == 0) {
+						throw new BookNotFoundException ();
+					}
 				}
 			} catch (SqliteException e) {
 				throw new SqliteException (e.Message);
