@@ -40,6 +40,13 @@ namespace Bookling.Models
 				FilePath == "" &&
 				Genre == "");
 		}
+
+		public override string ToString ()
+		{
+			return string.Format (
+				"{0} by {1}, a {2} book published in {3} - {4}", 
+				this.Title, this.Author, this.Genre, this.YearPublished, this.FilePath);
+		}
 	}
 }
 

@@ -242,6 +242,7 @@ namespace Bookling.Controller
 						"UPDATE Books SET " +
 						"BookTitle = :title, " +
 						"BookAuthor = :author, " +
+						"BookGenre = :genre, " +
 						"BookPublishedYear = :year, " +
 						"BookPath = :path " +
 						"WHERE BookID = :id;";
