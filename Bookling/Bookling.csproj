@@ -103,8 +103,9 @@
     <Compile Include="Bookling.Interface\Light Window\LightWindow.cs" />
     <Compile Include="Bookling.Controller\BookNotFoundException.cs" />
     <Compile Include="Bookling.Controller\LibraryDatabaseManager.cs" />
-    <Compile Include="Bookling.Tests\LibraryDatabaseManagerTests.cs" />
     <Compile Include="Bookling.Controller\LibraryFileManager.cs" />
+    <Compile Include="Bookling.UnitTests\LibraryDatabaseManagerTests.cs" />
+    <Compile Include="Bookling.UnitTests\LibraryFileManagerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.xib" />
@@ -133,7 +134,7 @@
     <Folder Include="Bookling.Interface\Metadata Dialog\" />
     <Folder Include="Bookling.Interface\Preferences Dialog\Preferences Views\" />
     <Folder Include="Bookling.Interface\Light Window\" />
-    <Folder Include="Bookling.Tests\" />
+    <Folder Include="Bookling.UnitTests\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Bookling.Interface\Light Window\Light Dialog\Icons\close_%402X.png">
