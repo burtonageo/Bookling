@@ -194,6 +194,34 @@ namespace Bookling.Controller
 			return b;
 		}
 
+		public int GetBookIndex (Book book)
+		{
+			int index = 0;
+			using (SqliteCommand command = new SqliteCommand (Connection)) {
+				command.CommandText = 
+					"SELECT BookID " +
+					"FROM Books WHERE " +
+					"BookTitle = :title AND " +
+					"BookAuthor = :author AND " +
+					"BookGenre = :genre AND " +
+					"BookPath = :path AND " +
+					"BookPublishedYear = :year;";
+				command.Parameters.AddWithValue (":title", book.Title); 
+				command.Parameters.AddWithValue (":author", book.Author);
+				command.Parameters.AddWithValue (":genre", book.Genre);
+				command.Parameters.AddWithValue (":year", book.YearPublished);
+				command.Parameters.AddWithValue (":path", book.FilePath);
+				SqliteDataReader reader = command.ExecuteReader ();
+				if (reader.HasRows == false) {
+					throw new BookNotFoundException ();
+				}
+				while (reader.Read ()) {
+					index = reader.GetInt32 (0);
+				}
+			}
+			return index;
+		}
+
 		public void RemoveBook (Book book)
 		{
 			try {

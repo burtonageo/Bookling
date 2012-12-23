@@ -86,6 +86,20 @@ namespace Bookling.UnitTests
 		}
 
 		[Test]
+		public void GetIndexOfKnownBookInLibraryTest ()
+		{
+			testManager.AddBook (book);
+			Assert.IsTrue (testManager.GetBookIndex (book) == 0);
+		}
+
+		[Test]
+		[ExpectedException ("Bookling.Controller.BookNotFoundException")]
+		public void GetIndexOfUnkownBookInLibraryTest ()
+		{
+			testManager.GetBookIndex (book);
+		}
+
+		[Test]
 		public void RemoveKnownBookFromLibraryByIndexTest ()
 		{
 			testManager.AddBook (book);

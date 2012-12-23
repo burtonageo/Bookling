@@ -1,25 +1,24 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Controller/LibraryManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Bookling/Bookling.Controller/LibraryDatabaseManager.cs">
     <Files>
-      <File FileName="Bookling/Bookling.Models/Book.cs" Line="33" Column="6" />
-      <File FileName="Bookling/Bookling.Controller/LibraryManager.cs" Line="252" Column="9" />
-      <File FileName="Bookling/Bookling.Tests/LibraryManagerTests.cs" Line="110" Column="9" />
-      <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialog.designer.cs" Line="1" Column="1" />
-      <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialog.cs" Line="1" Column="1" />
-      <File FileName="Bookling/Bookling.Interface/Metadata Dialog/BookMetadataDialogController.cs" Line="80" Column="5" />
-      <File FileName="Bookling/Bookling.Controller/BookNotFoundException.cs" Line="1" Column="1" />
+      <File FileName="Bookling/Bookling.Models/Book.cs" Line="46" Column="19" />
+      <File FileName="Bookling/Bookling.Controller/LibraryDatabaseManager.cs" Line="33" Column="11" />
+      <File FileName="Bookling/Bookling.Tests/LibraryDatabaseManagerTests.cs" Line="45" Column="22" />
+      <File FileName="Bookling/Bookling.Controller/BookNotFoundException.cs" Line="36" Column="5" />
+      <File FileName="Bookling/Bookling.Controller/LibraryFileManager.cs" Line="33" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Bookling" expanded="True">
             <Node name="Bookling.Controller" expanded="True">
-              <Node name="LibraryManager.cs" selected="True" />
+              <Node name="LibraryDatabaseManager.cs" selected="True" />
             </Node>
             <Node name="Bookling.Interface" expanded="True">
               <Node name="Metadata Dialog" expanded="True" />
             </Node>
+            <Node name="Bookling.Models" expanded="True" />
             <Node name="Bookling.Tests" expanded="True" />
           </Node>
         </State>
