@@ -25,6 +25,8 @@
 // THE SOFTWARE.
 using System;
 using NUnit.Framework;
+using Bookling.Controller;
+using Bookling.Models;
 
 namespace Bookling.UnitTests
 {
