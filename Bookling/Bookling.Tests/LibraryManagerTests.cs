@@ -121,6 +121,21 @@ namespace Bookling.UnitTests
 		{
 			testManager.RemoveBook (new Book ());
 		}
+
+		[Test]
+		public void AlterKnownBookInLibraryTest ()
+		{
+			testManager.AddBook (book);
+			Book b = new Book ();
+			b.Title = "A Different Book";
+			b.Author = "Other Author";
+			b.Genre = "Horror";
+			b.YearPublished = 1992;
+			b.FilePath = "/home/docs/book.mobi";
+
+			testManager.AlterBookData (0, b);
+			Assert.IsTrue (testManager.GetBook (0).Equals (b));
+		}
 	}
 }
 
