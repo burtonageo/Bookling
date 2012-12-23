@@ -235,7 +235,9 @@ namespace Bookling.Controller
 
 		public void AlterBookData (int bookID, Book book)
 		{
-			
+			if (bookID < 0) {
+				throw new BookNotFoundException ();
+			}
 			try {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
