@@ -104,6 +104,7 @@
     <Compile Include="Bookling.Controller\BookNotFoundException.cs" />
     <Compile Include="Bookling.Controller\LibraryDatabaseManager.cs" />
     <Compile Include="Bookling.Tests\LibraryDatabaseManagerTests.cs" />
+    <Compile Include="Bookling.Controller\LibraryFileManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.xib" />

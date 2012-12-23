@@ -32,7 +32,7 @@ using System.IO;
 
 namespace Bookling.Controller
 {
-	public class LibraryManager
+	public class LibraryDatabaseManager
 	{
 		public static String DatabaseDirectory 
 		{
@@ -48,7 +48,7 @@ namespace Bookling.Controller
 		{
 			get {
 				return String.Format (
-					LibraryManager.DatabaseDirectory + "{0}Library.db", 
+					LibraryDatabaseManager.DatabaseDirectory + "{0}Library.db", 
 					Path.DirectorySeparatorChar);
 			}
 		}
@@ -109,19 +109,19 @@ namespace Bookling.Controller
 
 		private SqliteConnection Connection;
 
-		public LibraryManager ()
+		public LibraryDatabaseManager ()
 		{
 			Connection = new SqliteConnection (
-				"Data Source = " + LibraryManager.DatabasePath + 
+				"Data Source = " + LibraryDatabaseManager.DatabasePath + 
 				"; Version = 3;");
 
-			if (!Directory.Exists (LibraryManager.DatabaseDirectory)) {
-				Directory.CreateDirectory (LibraryManager.DatabaseDirectory);
+			if (!Directory.Exists (LibraryDatabaseManager.DatabaseDirectory)) {
+				Directory.CreateDirectory (LibraryDatabaseManager.DatabaseDirectory);
 			}
 
-			bool exists = File.Exists (LibraryManager.DatabasePath);
+			bool exists = File.Exists (LibraryDatabaseManager.DatabasePath);
 			if (!exists) {
-				SqliteConnection.CreateFile (LibraryManager.DatabasePath);
+				SqliteConnection.CreateFile (LibraryDatabaseManager.DatabasePath);
 			}
 
 			Connection.Open ();
@@ -136,7 +136,7 @@ namespace Bookling.Controller
 			}
 		}
 
-		~LibraryManager ()
+		~LibraryDatabaseManager ()
 		{
 			Connection.Close ();
 		}

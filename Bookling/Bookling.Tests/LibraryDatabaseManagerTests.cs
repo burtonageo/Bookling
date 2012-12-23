@@ -32,15 +32,15 @@ using Bookling.Models;
 namespace Bookling.UnitTests
 {
 	[TestFixture]
-	public class LibraryManagerTests
+	public class LibraryDatabaseManagerTests
 	{
-		private LibraryManager testManager;
+		private LibraryDatabaseManager testManager;
 		private Book book;
 
 		[SetUp]
 		public void CreateLibraryManager ()
 		{
-			testManager = new LibraryManager ();
+			testManager = new LibraryDatabaseManager ();
 
 			book = new Book();
 			book.Title = "Sample Book";
@@ -53,8 +53,8 @@ namespace Bookling.UnitTests
 		[TearDown]
 		public void DeleteLibraryManagerDatabase ()
 		{
-			File.Delete (LibraryManager.DatabasePath);
-			Directory.Delete (LibraryManager.DatabaseDirectory);
+			File.Delete (LibraryDatabaseManager.DatabasePath);
+			Directory.Delete (LibraryDatabaseManager.DatabaseDirectory);
 		}
 
 		[Test]
