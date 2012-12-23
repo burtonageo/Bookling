@@ -38,7 +38,8 @@ namespace Bookling.Models
 				Title == "" &&
 				Author == "" &&
 				FilePath == "" &&
-				Genre == "");
+				Genre == "" && 
+				YearPublished == 0);
 		}
 
 		public override string ToString ()
