@@ -59,7 +59,8 @@ namespace Bookling.Controller
 				int max = 0;	
 				try {
 					SqliteCommand command = Connection.CreateCommand ();
-					command.CommandText = "SELECT COALESCE (MAX (BookID) + 1, 0) " +
+					command.CommandText = 
+						"SELECT COALESCE (MAX (BookID) + 1, 0) " +
 						"FROM Books";
 
 					SqliteDataReader reader = command.ExecuteReader();
