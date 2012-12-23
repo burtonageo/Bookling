@@ -42,7 +42,7 @@ namespace Bookling.Interface
 			set;
 		}
 
-		private LibraryManager manager;
+		private LibraryDatabaseManager manager;
 		private LibraryListViewDataSource source;
 	
 		#region Constructors
@@ -83,7 +83,7 @@ namespace Bookling.Interface
 		[Export("AwakeFromNib")]
 		public override void AwakeFromNib ()
 		{
-			manager = new LibraryManager ();
+			manager = new LibraryDatabaseManager ();
 			//source = new LibraryListViewDataSource (manager.Books);
 			//Console.WriteLine (manager.Books.Count);
 			tableView.DataSource = source;

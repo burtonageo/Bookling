@@ -41,7 +41,7 @@ namespace Bookling.Interface
 	{
 		private LibraryListViewController listViewController;
 		private LibraryGridViewController gridViewController;
-		private LibraryManager libraryManager;
+		private LibraryDatabaseManager libraryManager;
 		private NSViewController currentController;
 		
 		public ArrayList Books {
@@ -57,7 +57,7 @@ namespace Bookling.Interface
 
 		public override void FinishedLaunching (NSObject notification)
 		{
-			libraryManager = new LibraryManager ();
+			libraryManager = new LibraryDatabaseManager ();
 			listViewController = new LibraryListViewController ();
 			gridViewController = new LibraryGridViewController ();
 			SwitchToController (listViewController);
