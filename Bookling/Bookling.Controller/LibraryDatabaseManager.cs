@@ -220,9 +220,6 @@ namespace Bookling.Controller
 
 		public void RemoveBook (int bookID) 
 		{
-			if (bookID < 0) {
-				throw new BookNotFoundException ();
-			}
 			try {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = "DELETE FROM Books WHERE BookID = :id;";
@@ -238,9 +235,6 @@ namespace Bookling.Controller
 
 		public void AlterBookData (int bookID, Book book)
 		{
-			if (bookID < 0) {
-				throw new BookNotFoundException ();
-			}
 			try {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
