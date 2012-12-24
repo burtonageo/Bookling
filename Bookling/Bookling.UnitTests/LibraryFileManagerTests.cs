@@ -30,12 +30,22 @@ using Bookling.Models;
 
 namespace Bookling.UnitTests
 {
-	[TestFixture()]
+	[TestFixture]
 	public class LibraryFileManagerTests
 	{
-		[Test()]
-		public void TestCase ()
+		private LibraryFileManager fileManager;
+		private Book book;
+
+		[SetUp]
+		public void CreateLibraryFileManager ()
 		{
+			fileManager = new LibraryFileManager ();
+		}
+
+		[Test]
+		public void CreateLibraryFileManagerTest ()
+		{
+			Assert.IsNotNull (fileManager);
 		}
 	}
 }
