@@ -109,6 +109,7 @@ namespace Bookling.Controller
 		}
 
 		private SqliteConnection Connection;
+		private bool disposed = false;
 
 		public LibraryDatabaseManager ()
 		{
@@ -144,18 +145,23 @@ namespace Bookling.Controller
 
 		public void Dispose ()
 		{
-			Dispose (true); 
+			Dispose (true);
+			disposed = true;
 			GC.SuppressFinalize (this);
 		}
 
 		protected void Dispose (bool freeManagedObjectsAlso)
 		{
-			if (freeManagedObjectsAlso) {
-				if (Connection != null) {
-					Connection.Close ();
-					Connection.Dispose ();
-					Connection = null;
+			if (!disposed) {
+				if (freeManagedObjectsAlso) {
+					if (Connection != null) {
+						Connection.Close ();
+						Connection.Dispose ();
+						Connection = null;
+					}
 				}
+			} else {
+				throw new ObjectDisposedException (GetType ().FullName);
 			}
 		}
 
