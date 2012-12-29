@@ -145,6 +145,7 @@ namespace Bookling.Controller
 		public void Dispose ()
 		{
 			Dispose (true); 
+			GC.SuppressFinalize(this);
 		}
 
 		protected void Dispose (bool freeManagedObjectsAlso)
