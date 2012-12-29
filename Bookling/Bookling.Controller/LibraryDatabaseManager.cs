@@ -32,7 +32,7 @@ using System.IO;
 
 namespace Bookling.Controller
 {
-	public class LibraryDatabaseManager
+	public class LibraryDatabaseManager : IDisposable
 	{
 		public static String DatabaseDirectory 
 		{
@@ -139,7 +139,24 @@ namespace Bookling.Controller
 
 		~LibraryDatabaseManager ()
 		{
-			Connection.Close ();
+			Dispose (false);
+		}
+
+		public void Dispose ()
+		{
+			Dispose (true); 
+		}
+
+		protected void Dispose (bool freeManagedObjectsAlso)
+		{
+			if (freeManagedObjectsAlso) {
+				if (Connection != null) {
+					Connection.Close ();
+					Connection.Dispose ();
+					Connection = null;
+				}
+
+			}
 		}
 
 		public void AddBook (Book book)
