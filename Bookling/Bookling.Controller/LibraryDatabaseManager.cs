@@ -155,7 +155,6 @@ namespace Bookling.Controller
 					Connection.Dispose ();
 					Connection = null;
 				}
-
 			}
 		}
 
