@@ -56,7 +56,7 @@ namespace Bookling.Controller
 		public int MaxId 
 		{
 			get {
-				int max = 0;	
+				int max = 0;
 				try {
 					SqliteCommand command = Connection.CreateCommand ();
 					command.CommandText = 
