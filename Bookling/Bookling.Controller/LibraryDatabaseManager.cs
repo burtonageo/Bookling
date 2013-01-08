@@ -34,6 +34,8 @@ namespace Bookling.Controller
 {
 	public class LibraryDatabaseManager : IDisposable
 	{
+		#region Properties
+
 		public static String DatabaseDirectory 
 		{
 			get {
@@ -111,6 +113,9 @@ namespace Bookling.Controller
 		private SqliteConnection Connection;
 		private bool disposed = false;
 
+		#endregion
+		#region Constructor
+
 		public LibraryDatabaseManager ()
 		{
 			Connection = new SqliteConnection (
@@ -138,6 +143,9 @@ namespace Bookling.Controller
 			}
 		}
 
+		#endregion
+		#region Destructors
+
 		~LibraryDatabaseManager ()
 		{
 			Dispose (false);
@@ -164,6 +172,9 @@ namespace Bookling.Controller
 				throw new ObjectDisposedException (GetType ().FullName);
 			}
 		}
+
+		#endregion
+		#region Methods
 
 		public void AddBook (Book book)
 		{			
@@ -311,6 +322,8 @@ namespace Bookling.Controller
 				throw new SqliteException (e.Message);
 			}
 		}
+
+		#endregion
 	}
 }
 

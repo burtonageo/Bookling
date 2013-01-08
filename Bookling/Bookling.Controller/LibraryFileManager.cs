@@ -27,8 +27,10 @@ using System;
 
 namespace Bookling.Controller
 {
-	public class LibraryFileManager
+	public class LibraryFileManager : IDisposable
 	{
+		private string LibraryDirectory;
+
 		public LibraryFileManager ()
 		{
 		}
