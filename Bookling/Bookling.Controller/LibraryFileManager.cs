@@ -48,13 +48,22 @@ namespace Bookling.Controller
 		public LibraryFileManager ()
 		{
 			configFile = String.Format
-				(LibraryManager.ConfigFolder + "{%0}config.xml", Path.DirectorySeparatorChar);
+				(LibraryManager.ConfigFolder + "{0}config.xml", Path.DirectorySeparatorChar);
 			if (!File.Exists (configFile)) {
+				/*
 				File.Create (configFile);
 				XmlTextWriter configWriter = new XmlTextWriter (configFile, null);
 				configWriter.WriteStartDocument ();
 
+				configWriter.WriteStartElement ("config");
+
+
+
+				configWriter.WriteEndElement ();
+
 				configWriter.WriteEndDocument ();
+				configWriter.Close ();
+				*/
 			}
 		}
 
@@ -83,6 +92,9 @@ namespace Bookling.Controller
 				throw new ObjectDisposedException (GetType ().FullName);
 			}
 		}
+
+		#endregion
+		#region Methods
 
 		#endregion
 	}
