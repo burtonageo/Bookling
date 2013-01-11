@@ -40,6 +40,7 @@ namespace Bookling.UnitTests
 		[SetUp]
 		public void CreateLibraryManager ()
 		{
+			Directory.CreateDirectory (LibraryManager.ConfigFolder);
 			testManager = new LibraryDatabaseManager ();
 
 			book = new Book();
@@ -54,7 +55,7 @@ namespace Bookling.UnitTests
 		public void DeleteLibraryManagerDatabase ()
 		{
 			File.Delete (LibraryDatabaseManager.DatabasePath);
-			Directory.Delete (LibraryDatabaseManager.DatabaseDirectory);
+			Directory.Delete (LibraryManager.ConfigFolder);
 		}
 
 		[Test]

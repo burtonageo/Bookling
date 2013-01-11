@@ -32,21 +32,59 @@ namespace Bookling.Controller
 {
 	public class LibraryFileManager : IDisposable
 	{
+		#region Properties
+
 		public string LibraryDirectory {
 			get;
 			set;
 		}
 
 		private String configFile;
+		private bool disposed;
+
+		#endregion
+		#region Constructor
 
 		public LibraryFileManager ()
 		{
-			configFile = Environment.GetFolderPath
-				(LibraryManager.ConfigFolder + "config.xml");
+			configFile = String.Format
+				(LibraryManager.ConfigFolder + "{%0}config.xml", Path.DirectorySeparatorChar);
 			if (!File.Exists (configFile)) {
 				File.Create (configFile);
+				XmlTextWriter configWriter = new XmlTextWriter (configFile, null);
+				configWriter.WriteStartDocument ();
+
+				configWriter.WriteEndDocument ();
 			}
 		}
+
+		#endregion
+		#region Destructors
+
+		~LibraryFileManager ()
+		{
+			Dispose (false);
+		}
+		
+		public void Dispose ()
+		{
+			Dispose (true);
+			disposed = true;
+			GC.SuppressFinalize (this);
+		}
+		
+		protected void Dispose (bool freeManagedObjectsAlso)
+		{
+			if (!disposed) {
+				if (freeManagedObjectsAlso) {
+
+				}
+			} else {
+				throw new ObjectDisposedException (GetType ().FullName);
+			}
+		}
+
+		#endregion
 	}
 }
 

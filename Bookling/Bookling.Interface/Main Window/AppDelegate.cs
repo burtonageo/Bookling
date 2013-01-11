@@ -41,14 +41,8 @@ namespace Bookling.Interface
 	{
 		private LibraryListViewController listViewController;
 		private LibraryGridViewController gridViewController;
-		private LibraryDatabaseManager libraryManager;
+		private LibraryManager libraryManager;
 		private NSViewController currentController;
-		
-		public ArrayList Books {
-			get {
-				return libraryManager.Books;
-			}
-		}
 
 		public AppDelegate ()
 		{
@@ -57,7 +51,7 @@ namespace Bookling.Interface
 
 		public override void FinishedLaunching (NSObject notification)
 		{
-			libraryManager = new LibraryDatabaseManager ();
+			libraryManager = new LibraryManager ();
 			listViewController = new LibraryListViewController ();
 			gridViewController = new LibraryGridViewController ();
 			SwitchToController (listViewController);
@@ -115,7 +109,7 @@ namespace Bookling.Interface
 				book.Title = Path.GetFileNameWithoutExtension (bookPath);
 				book.FilePath = bookPath;
 				Console.WriteLine (book.Title + " " + book.FilePath);
-				libraryManager.AddBook (book);
+				//libraryManager.AddBook (book);
 				listViewController.tableView.ReloadData ();
 			}
 			//NSApplication.SharedApplication.EndSheet (filePanel);

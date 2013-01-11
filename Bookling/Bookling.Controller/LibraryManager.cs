@@ -39,11 +39,17 @@ namespace Bookling.Controller
 			}
 		}
 
+		private LibraryDatabaseManager databaseManager;
+		private LibraryFileManager fileManager;
+
 		public LibraryManager ()
 		{
 			if (!Directory.Exists (ConfigFolder)) {
 				Directory.CreateDirectory (ConfigFolder);
 			}
+
+			databaseManager = new LibraryDatabaseManager ();
+			fileManager = new LibraryFileManager ();
 		}
 	}
 }
