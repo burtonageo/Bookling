@@ -2,6 +2,10 @@
 *.userprefs
 .DS_Store
 
+# Generated Objective-C files
+*.h
+*.m
+
 # Compiled objects
 *.app
 *.exe
