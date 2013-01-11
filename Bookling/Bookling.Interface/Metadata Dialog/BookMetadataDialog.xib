@@ -143,7 +143,6 @@
 							<string key="NSFrame">{{5, 66}, {550, 379}}</string>
 							<reference key="NSSuperview" ref="1018359836"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="831815096"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<object class="NSMutableArray" key="NSTabViewItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
@@ -176,7 +175,7 @@
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSImageCell" key="NSCell" id="859975493">
-													<int key="NSCellFlags">134217728</int>
+													<int key="NSCellFlags">671088640</int>
 													<int key="NSCellFlags2">33554432</int>
 													<object class="NSCustomResource" key="NSContents">
 														<string key="NSClassName">NSImage</string>
@@ -797,7 +796,6 @@
 							<string key="NSFrame">{{412, 13}, {134, 25}}</string>
 							<reference key="NSSuperview" ref="1018359836"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="782274354">
