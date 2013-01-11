@@ -63,7 +63,6 @@
 							<string key="NSFrame">{{511, 18}, {75, 25}}</string>
 							<reference key="NSSuperview" ref="181839187"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:22</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="421568290">
@@ -155,7 +154,7 @@
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSPathCell" key="NSCell" id="176089611">
 								<int key="NSCellFlags">69206017</int>
-								<int key="NSCellFlags2">131072</int>
+								<int key="NSCellFlags2">163840</int>
 								<object class="NSURL" key="NSContents">
 									<object class="NSURL" key="NS.base">
 										<nil key="NS.base"/>
@@ -652,7 +651,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<string key="NSFrame">{{100, 104}, {360, 14}}</string>
 							<reference key="NSSuperview" ref="181839187"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSAntiCompressionPriority">{250, 750}</string>
 							<bool key="NSEnabled">YES</bool>

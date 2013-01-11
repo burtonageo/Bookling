@@ -135,7 +135,6 @@
     <Folder Include="Bookling.Interface\Main Window\Views\List View\" />
     <Folder Include="Bookling.Interface\Main Window\Views\Grid View\" />
     <Folder Include="Bookling.Interface\Metadata Dialog\" />
-    <Folder Include="Bookling.Interface\Preferences Dialog\Preferences Views\" />
     <Folder Include="Bookling.Interface\Light Window\" />
     <Folder Include="Bookling.UnitTests\" />
   </ItemGroup>

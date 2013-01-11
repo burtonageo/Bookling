@@ -78,8 +78,11 @@ namespace Bookling.Interface
 		{
 			if (!IsPartOfSeries) {
 				seriesField.Enabled = false;
+				seriesField.StringValue = "";
 				seriesStartField.Enabled = false;
+				seriesStartField.StringValue = "";
 				seriesEndField.Enabled = false;
+				seriesEndField.StringValue = "";
 			} else {
 				seriesField.Enabled = true;
 				seriesStartField.Enabled = true;
