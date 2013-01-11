@@ -22,4 +22,8 @@
 
 # Generated Test Results
 *.xml
-*.csproj.test-cache 
+*.csproj.test-cache
+
+# Compilation Folders
+obj/
+bin/ 
