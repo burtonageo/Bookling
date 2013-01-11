@@ -77,12 +77,14 @@ namespace Bookling.Interface
 		partial void SwitchIsInSeries (MonoMac.Foundation.NSObject sender)
 		{
 			if (!IsPartOfSeries) {
-				seriesField.Enabled = false;
-				seriesField.StringValue = "";
-				seriesStartField.Enabled = false;
 				seriesStartField.StringValue = "";
-				seriesEndField.Enabled = false;
+				seriesField.StringValue = "";
 				seriesEndField.StringValue = "";
+
+				seriesField.Enabled = false;
+				seriesStartField.Enabled = false;
+				seriesEndField.Enabled = false;
+
 			} else {
 				seriesField.Enabled = true;
 				seriesStartField.Enabled = true;
