@@ -1,10 +1,10 @@
 //
-// LibraryFileManager.cs
+// LibraryManager.cs
 //
 // Author:
 //       George Burton <burtonageo@gmail.com>
 //
-// Copyright (c) 2012 George Burton
+// Copyright (c) 2013 George Burton
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,26 +25,24 @@
 // THE SOFTWARE.
 using System;
 using System.IO;
-using System.Xml;
-using System.Xml.Schema;
 
 namespace Bookling.Controller
 {
-	public class LibraryFileManager : IDisposable
+	public class LibraryManager
 	{
-		public string LibraryDirectory {
-			get;
-			set;
+		public static String ConfigFolder {
+			get {
+				return String.Format (
+					Environment.GetFolderPath (
+					Environment.SpecialFolder.ApplicationData) +
+					"{0}Bookling", Path.DirectorySeparatorChar);
+			}
 		}
 
-		private String configFile;
-
-		public LibraryFileManager ()
+		public LibraryManager ()
 		{
-			configFile = Environment.GetFolderPath
-				(LibraryManager.ConfigFolder + "config.xml");
-			if (!File.Exists (configFile)) {
-				File.Create (configFile);
+			if (!Directory.Exists (ConfigFolder)) {
+				Directory.CreateDirectory (ConfigFolder);
 			}
 		}
 	}

@@ -106,6 +106,7 @@
     <Compile Include="Bookling.Controller\LibraryFileManager.cs" />
     <Compile Include="Bookling.UnitTests\LibraryDatabaseManagerTests.cs" />
     <Compile Include="Bookling.UnitTests\LibraryFileManagerTests.cs" />
+    <Compile Include="Bookling.Controller\LibraryManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.xib" />
