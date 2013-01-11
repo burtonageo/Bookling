@@ -26,4 +26,5 @@
 
 # Compilation Folders
 obj/
-bin/ 
+bin/
+test-results/ 
