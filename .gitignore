@@ -5,6 +5,11 @@
 # Generated Objective-C files
 *.h
 *.m
+*.xcodeproj
+*.hmap
+*.xcindexdb
+*.xcindexdb.strings
+*.idx
 
 # Compiled objects
 *.app
