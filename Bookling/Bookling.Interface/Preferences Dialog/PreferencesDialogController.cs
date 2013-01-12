@@ -101,20 +101,6 @@ namespace Bookling.Interface
 			Window.OrderOut (sender);
 		}
 
-
-		
-		partial void SwitchView (MonoMac.Foundation.NSObject sender)
-		{
-			switch (viewSelector.SelectedSegment) {
-			case 0:
-				break;
-			case 1:
-				break;
-			case 2:
-				break;
-			}
-		}
-
 	}
 }
 

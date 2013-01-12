@@ -32,9 +32,6 @@ namespace Bookling.Interface
 		[Action ("Cancel:")]
 		partial void Cancel (MonoMac.Foundation.NSObject sender);
 
-		[Action ("SwitchView:")]
-		partial void SwitchView (MonoMac.Foundation.NSObject sender);
-		
 		void ReleaseDesignerOutlets ()
 		{
 			if (viewSelector != null) {
