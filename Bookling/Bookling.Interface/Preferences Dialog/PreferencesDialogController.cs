@@ -62,9 +62,6 @@ namespace Bookling.Interface
 		// Shared initialization code
 		void Initialize ()
 		{
-			//resetButton = new NSButton ();
-			//resetButton.Enabled = false;
-			//acceptButton.Enabled = false;
 
 		}
 
