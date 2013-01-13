@@ -1,1 +1,11 @@
+Programmed by:
+	George Burton
 
+Designed by:
+	George Burton
+
+Window background textures: subtlepatterns.org
+
+Special thanks:
+	Apple Inc, for providing a world class operating system and world class app development tools.
+	Xamarin Inc, for a brilliant set of development tools.

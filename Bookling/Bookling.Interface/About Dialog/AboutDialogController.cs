@@ -54,6 +54,12 @@ namespace Bookling.Interface
 				new Selector ("CloseWindow:");
 		}
 
+		override public void Close ()
+		{
+			NSApplication.SharedApplication.StopModal ();
+			base.Close ();
+		}
+
 		partial void CloseWindow (MonoMac.Foundation.NSObject sender)
 		{
 			NSApplication.SharedApplication.StopModal ();
@@ -64,11 +70,6 @@ namespace Bookling.Interface
 		{
 			NSWorkspace.SharedWorkspace.OpenUrl
 				(NSUrl.FromString ("https://github.com/burtonageo/Bookling"));
-		}
-
-		partial void SwitchView (MonoMac.Foundation.NSObject sender)
-		{
-
 		}
 	}
 }
