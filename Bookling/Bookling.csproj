@@ -107,8 +107,8 @@
     <Compile Include="Bookling.UnitTests\LibraryDatabaseManagerTests.cs" />
     <Compile Include="Bookling.UnitTests\LibraryFileManagerTests.cs" />
     <Compile Include="Bookling.Controller\LibraryManager.cs" />
-    <Compile Include="Bookling.Interface\Widgets\Light Window\Light Dialog\LightDialog.cs" />
     <Compile Include="Bookling.Interface\Widgets\Light Window\LightWindow.cs" />
+    <Compile Include="Bookling.Interface\Widgets\Light Dialog\LightDialog.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.xib" />
@@ -136,33 +136,32 @@
     <Folder Include="Bookling.Interface\Metadata Dialog\" />
     <Folder Include="Bookling.UnitTests\" />
     <Folder Include="Bookling.Interface\Widgets\" />
-    <Folder Include="Bookling.Interface\Widgets\Light Window\Light Dialog\Textures\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Bookling.Interface\Widgets\Light Window\Light Dialog\Icons\close_%402X.png">
-      <LogicalName>lightdialog.close_@2X.png</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bookling.Interface\Widgets\Light Window\Light Dialog\Icons\close.png">
-      <LogicalName>lightdialog.close.png</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bookling.Interface\Widgets\Light Window\Light Dialog\Icons\close_pressed.png">
-      <LogicalName>lightdialog.close_pressed.png</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bookling.Interface\Widgets\Light Window\Light Dialog\Icons\close_pressed_%402X.png">
-      <LogicalName>lightdialog.closed_pressed_@2X.png</LogicalName>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bookling.Interface\Widgets\Light Window\Textures\card.png">
       <LogicalName>lightwindow.card.png</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Include="Bookling.Interface\Widgets\Light Window\Textures\card_%402X.png">
       <LogicalName>lightwindow.card_@2X.png</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bookling.Interface\Widgets\Light Window\Light Dialog\Textures\paper_%402X.png">
+    <EmbeddedResource Include="Bookling.Interface\About Dialog\Credits.txt" />
+    <EmbeddedResource Include="Bookling.Interface\Widgets\Light Dialog\Icons\close_%402X.png">
+      <LogicalName>lightdialog.close_@2X.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookling.Interface\Widgets\Light Dialog\Icons\close.png">
+      <LogicalName>lightdialog.close.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookling.Interface\Widgets\Light Dialog\Icons\close_pressed.png">
+      <LogicalName>lightdialog.close_pressed.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookling.Interface\Widgets\Light Dialog\Icons\close_pressed_%402X.png">
+      <LogicalName>lightdialog.closed_pressed_@2X.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookling.Interface\Widgets\Light Dialog\Textures\paper_%402X.png">
       <LogicalName>lightwindow.paper_@2X.png</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bookling.Interface\Widgets\Light Window\Light Dialog\Textures\paper.png">
+    <EmbeddedResource Include="Bookling.Interface\Widgets\Light Dialog\Textures\paper.png">
       <LogicalName>lightwindow.paper.png</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bookling.Interface\About Dialog\Credits.txt" />
   </ItemGroup>
 </Project>
