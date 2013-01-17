@@ -171,7 +171,6 @@ namespace Bookling.Controller
 						"(BookID, BookTitle, BookAuthor, " +
 						"BookGenre, BookPublishedYear, BookPath) " +
 						"VALUES (:id, :title, :author, :genre, :year, :path);";
-
 					command.Parameters.AddWithValue (":id", MaxId); 
 					command.Parameters.AddWithValue (":title", book.Title); 
 					command.Parameters.AddWithValue (":author", book.Author);
@@ -197,7 +196,8 @@ namespace Bookling.Controller
 				command.CommandText = 
 					"SELECT BookTitle, BookAuthor, " +
 					"BookGenre, BookPublishedYear, BookPath " +
-					"FROM Books WHERE BookID = " + index + ";";
+					"FROM Books WHERE BookID = :index ";
+				command.Parameters.Add (":index", index);
 			
 				SqliteDataReader reader = command.ExecuteReader ();
 				if (reader.HasRows == false) {
@@ -271,7 +271,9 @@ namespace Bookling.Controller
 		{
 			try {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
-					command.CommandText = "DELETE FROM Books WHERE BookID = :id;";
+					command.CommandText = 
+						"DELETE FROM Books " +
+						"WHERE BookID = :id;";
 					command.Parameters.AddWithValue (":id", bookID);
 					if (command.ExecuteNonQuery () == 0) {
 						throw new BookNotFoundException ();
