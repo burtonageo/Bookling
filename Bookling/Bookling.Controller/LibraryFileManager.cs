@@ -39,7 +39,12 @@ namespace Bookling.Controller
 			set;
 		}
 
-		private String configFile;
+		private String configFile {
+			get {
+				return String.Format
+					(LibraryManager.ConfigFolder + "{0}config.xml", Path.DirectorySeparatorChar); 
+			}
+		}
 		private bool disposed;
 
 		#endregion
@@ -47,23 +52,16 @@ namespace Bookling.Controller
 
 		public LibraryFileManager ()
 		{
-			configFile = String.Format
-				(LibraryManager.ConfigFolder + "{0}config.xml", Path.DirectorySeparatorChar);
 			if (!File.Exists (configFile)) {
-				/*
 				File.Create (configFile);
 				XmlTextWriter configWriter = new XmlTextWriter (configFile, null);
-				configWriter.WriteStartDocument ();
+				//configWriter.WriteStartDocument ();
+				//configWriter.WriteStartElement ("config");
 
-				configWriter.WriteStartElement ("config");
+				//configWriter.WriteEndElement ();
+				//configWriter.WriteEndDocument ();
+				//configWriter.Close ();
 
-
-
-				configWriter.WriteEndElement ();
-
-				configWriter.WriteEndDocument ();
-				configWriter.Close ();
-				*/
 			}
 		}
 

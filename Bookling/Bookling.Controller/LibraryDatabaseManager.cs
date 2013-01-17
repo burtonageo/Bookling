@@ -121,7 +121,7 @@ namespace Bookling.Controller
 			if (!exists) {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = 
-						"CREATE TABLE Books (BookID INTEGER PRIMARY KEY, " +
+						"CREATE TABLE Books (BookID INTEGER PRIMARY KEY NOT NULL, " +
 						"BookTitle TEXT, BookAuthor TEXT, BookGenre TEXT, " +
 						"BookPublishedYear INTEGER, BookPath TEXT);"; 
 					command.ExecuteNonQuery();
