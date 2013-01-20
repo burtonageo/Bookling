@@ -47,6 +47,12 @@ namespace Bookling.UnitTests
 			Directory.CreateDirectory (configFolderString);
 		}
 
+		[TestFixtureTearDown]
+		public void DeleteConfigFolder ()
+		{
+			Directory.Delete (configFolderString);
+		}
+
 		[SetUp]
 		public void CreateLibraryManager ()
 		{
