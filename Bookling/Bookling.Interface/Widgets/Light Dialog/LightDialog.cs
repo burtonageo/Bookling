@@ -82,11 +82,11 @@ namespace Bookling.Interface
 			windowCloseButton.Hidden = true;
 
 			if (NSScreen.MainScreen.BackingScaleFactor > 1.0f) {
-				AssignCloseImage ("lightdialog.close_@2X.png", 
+				AssignCloseImage ("lightdialog.close_@2X.png",
 				              "lightdialog.closed_pressed_@2X.png");
 				AssignBackgroundImage ("lightwindow.paper_@2X.png");
 			} else {
-				AssignCloseImage ("lightdialog.close.png", 
+				AssignCloseImage ("lightdialog.close.png",
 				              "lightdialog.close_pressed.png");
 				AssignBackgroundImage ("lightwindow.paper.png");
 			}
@@ -112,7 +112,7 @@ namespace Bookling.Interface
 				(Assembly.GetExecutingAssembly ().
 				 GetManifestResourceStream (
 					closeIconFileName));
-			CloseButton.Frame = new RectangleF (new PointF (0.0f, 0.0f), 
+			CloseButton.Frame = new RectangleF (new PointF (0.0f, 0.0f),
 			                                    new SizeF (closeImage.Size.Height,
 			           									closeImage.Size.Width));
 			NSImage pressedCloseImage = NSImage.FromStream 
@@ -120,7 +120,7 @@ namespace Bookling.Interface
 				 GetManifestResourceStream (
 					pressedCloseIconFileName));
 			CloseButton.Frame = new RectangleF (
-				new PointF (0.0f, 0.0f), 
+				new PointF (0.0f, 0.0f),
 				new SizeF (pressedCloseImage.Size.Height,
 			           pressedCloseImage.Size.Width));
 			
