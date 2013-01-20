@@ -38,14 +38,11 @@ namespace Bookling.Controller
 
 		public static String DatabasePath 
 		{
-			get {
-				return String.Format (
-					LibraryManager.ConfigFolder + "{0}Library.db", 
-					Path.DirectorySeparatorChar);
-			}
+			get;
+			protected set;
 		}
 
-		public int MaxId 
+		public int MaxId
 		{
 			get {
 				int max = 0;
@@ -106,27 +103,36 @@ namespace Bookling.Controller
 		#endregion
 		#region Constructor
 
-		public LibraryDatabaseManager ()
+		public LibraryDatabaseManager (String dbFolderPath)
 		{
+			DatabasePath = String.Format(dbFolderPath + "{0}Library.db", 
+			                             Path.DirectorySeparatorChar);
 			Connection = new SqliteConnection (
 				"Data Source = " + LibraryDatabaseManager.DatabasePath + 
 				"; Version = 3;");
-
+			
 			bool exists = File.Exists (LibraryDatabaseManager.DatabasePath);
 			if (!exists) {
 				SqliteConnection.CreateFile (LibraryDatabaseManager.DatabasePath);
 			}
-
+			
 			Connection.Open ();
 			if (!exists) {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = 
 						"CREATE TABLE Books (BookID INTEGER PRIMARY KEY NOT NULL, " +
-						"BookTitle TEXT, BookAuthor TEXT, BookGenre TEXT, " +
-						"BookPublishedYear INTEGER, BookPath TEXT);"; 
+							"BookTitle TEXT, BookAuthor TEXT, BookGenre TEXT, " +
+							"BookPublishedYear INTEGER, BookPath TEXT);"; 
 					command.ExecuteNonQuery();
 				}
 			}
+		}
+
+		public LibraryDatabaseManager () : this (String.Format (
+			LibraryManager.ConfigFolder + "{0}Library.db", 
+			Path.DirectorySeparatorChar))
+		{
+
 		}
 
 		#endregion
@@ -197,7 +203,7 @@ namespace Bookling.Controller
 					"SELECT BookTitle, BookAuthor, " +
 					"BookGenre, BookPublishedYear, BookPath " +
 					"FROM Books WHERE BookID = :index ";
-				command.Parameters.Add (":index", index);
+				command.Parameters.AddWithValue (":index", index);
 			
 				SqliteDataReader reader = command.ExecuteReader ();
 				if (reader.HasRows == false) {

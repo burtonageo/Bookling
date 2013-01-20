@@ -35,18 +35,22 @@ namespace Bookling.UnitTests
 	public class LibraryDatabaseManagerTests
 	{
 		private LibraryDatabaseManager testManager;
+		private String configFolderString;
 		private Book book;
 
 		[TestFixtureSetUp]
 		public void CreateConfigFolder ()
 		{
-			Directory.CreateDirectory (LibraryManager.ConfigFolder);
+			configFolderString = String.Format (Environment.GetFolderPath (
+				Environment.SpecialFolder.MyDocuments) + "{0}Bookling-Tests{0}", 
+			                                    Path.DirectorySeparatorChar);
+			Directory.CreateDirectory (configFolderString);
 		}
 
 		[SetUp]
 		public void CreateLibraryManager ()
 		{
-			testManager = new LibraryDatabaseManager ();
+			testManager = new LibraryDatabaseManager (configFolderString);
 
 			book = new Book();
 			book.Title = "Sample Book";

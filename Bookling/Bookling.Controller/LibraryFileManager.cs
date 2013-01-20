@@ -61,7 +61,6 @@ namespace Bookling.Controller
 				//configWriter.WriteEndElement ();
 				//configWriter.WriteEndDocument ();
 				//configWriter.Close ();
-
 			}
 		}
 
