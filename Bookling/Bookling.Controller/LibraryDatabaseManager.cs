@@ -36,7 +36,7 @@ namespace Bookling.Controller
 	{
 		#region Properties
 
-		public static String DatabasePath 
+		public static String DatabaseFile 
 		{
 			get;
 			protected set;
@@ -105,15 +105,15 @@ namespace Bookling.Controller
 
 		public LibraryDatabaseManager (String dbFolderPath)
 		{
-			DatabasePath = String.Format(dbFolderPath + "{0}Library.db", 
+			DatabaseFile = String.Format(dbFolderPath + "{0}Library.db", 
 			                             Path.DirectorySeparatorChar);
 			Connection = new SqliteConnection (
-				"Data Source = " + LibraryDatabaseManager.DatabasePath + 
+				"Data Source = " + LibraryDatabaseManager.DatabaseFile + 
 				"; Version = 3;");
 			
-			bool exists = File.Exists (LibraryDatabaseManager.DatabasePath);
+			bool exists = File.Exists (LibraryDatabaseManager.DatabaseFile);
 			if (!exists) {
-				SqliteConnection.CreateFile (LibraryDatabaseManager.DatabasePath);
+				SqliteConnection.CreateFile (LibraryDatabaseManager.DatabaseFile);
 			}
 			
 			Connection.Open ();
@@ -128,9 +128,7 @@ namespace Bookling.Controller
 			}
 		}
 
-		public LibraryDatabaseManager () : this (String.Format (
-			LibraryManager.ConfigFolder + "{0}Library.db", 
-			Path.DirectorySeparatorChar))
+		public LibraryDatabaseManager () : this (LibraryManager.ConfigFolder)
 		{
 
 		}

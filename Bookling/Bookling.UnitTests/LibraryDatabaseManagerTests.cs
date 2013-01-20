@@ -36,14 +36,18 @@ namespace Bookling.UnitTests
 	{
 		private LibraryDatabaseManager testManager;
 		private String configFolderString;
+		private String testFolderString;
 		private Book book;
 
 		[TestFixtureSetUp]
 		public void CreateConfigFolder ()
 		{
-			configFolderString = String.Format (Environment.GetFolderPath (
+			testFolderString = String.Format (Environment.GetFolderPath (
 				Environment.SpecialFolder.MyDocuments) + "{0}Bookling-Tests", 
-			                                    Path.DirectorySeparatorChar);
+			                                  Path.DirectorySeparatorChar);
+			configFolderString = testFolderString + 
+				String.Format ("{0}Database-Tests", Path.DirectorySeparatorChar);
+			Directory.CreateDirectory (testFolderString);
 			Directory.CreateDirectory (configFolderString);
 		}
 
@@ -51,6 +55,7 @@ namespace Bookling.UnitTests
 		public void DeleteConfigFolder ()
 		{
 			Directory.Delete (configFolderString);
+			Directory.Delete (testFolderString);
 		}
 
 		[SetUp]
@@ -69,7 +74,7 @@ namespace Bookling.UnitTests
 		[TearDown]
 		public void DeleteLibraryManagerDatabase ()
 		{
-			File.Delete (LibraryDatabaseManager.DatabasePath);
+			File.Delete (LibraryDatabaseManager.DatabaseFile);
 		}
 
 		[Test]

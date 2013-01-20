@@ -24,6 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using System.IO;
 using NUnit.Framework;
 using Bookling.Controller;
 using Bookling.Models;
@@ -34,12 +35,39 @@ namespace Bookling.UnitTests
 	public class LibraryFileManagerTests
 	{
 		private LibraryFileManager fileManager;
+		private String testFolderString;
+		private String configFolderString;
 		private Book book;
+
+		[TestFixtureSetUp]
+		public void CreateLibraryFileManagerFolders ()
+		{
+			testFolderString = String.Format (Environment.GetFolderPath (
+				Environment.SpecialFolder.MyDocuments) + "{0}Bookling-Tests",
+			                                  Path.DirectorySeparatorChar);
+			configFolderString = String.Format (testFolderString +
+			                                    "{0}File-Tests", Path.DirectorySeparatorChar);
+			Directory.CreateDirectory (testFolderString);
+			Directory.CreateDirectory (configFolderString);
+		}
+
+		[TestFixtureTearDown]
+		public void DeleteLibraryFileManagerFolders ()
+		{
+			Directory.Delete (configFolderString);
+			Directory.Delete (testFolderString);
+		}
 
 		[SetUp]
 		public void CreateLibraryFileManager ()
 		{
-			fileManager = new LibraryFileManager ();
+			fileManager = new LibraryFileManager (configFolderString);
+		}
+
+		[TearDown]
+		public void DeleteConfigFile ()
+		{
+			File.Delete (fileManager.ConfigFile);
 		}
 
 		[Test]
