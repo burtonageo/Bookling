@@ -120,9 +120,20 @@ namespace Bookling.Controller
 			if (!exists) {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = 
-						"CREATE TABLE Books (BookID INTEGER PRIMARY KEY NOT NULL, " +
-							"BookTitle TEXT, BookAuthor TEXT, BookGenre TEXT, " +
-							"BookPublishedYear INTEGER, BookPath TEXT);"; 
+						"CREATE TABLE Authors (" +
+							"AuthorID INTEGER PRIMARY KEY NOT NULL, " +
+							"AuthorName TEXT); " +
+
+						"CREATE TABLE Genres (" +
+							"GenreID INTEGER PRIMARY KEY NOT NULL, " +
+							"GenreName TEXT); " +
+
+						"CREATE TABLE Books (" +
+							"BookID INTEGER PRIMARY KEY NOT NULL, " +
+							"BookTitle TEXT, " +
+							"FOREIGN KEY (BookAuthorID) REFERENCES Authors (AuthorID), " +
+							"FOREIGN KEY (BookGenreID) REFERENCES Genres (GenreID), " +
+							"BookPublishedYear INTEGER, BookPath TEXT);";
 					command.ExecuteNonQuery();
 				}
 			}

@@ -28,6 +28,7 @@
     <EnableCodeSigning>False</EnableCodeSigning>
     <CreatePackage>False</CreatePackage>
     <CodeSigningKey>Mac Developer</CodeSigningKey>
+    <UseSGen>False</UseSGen>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>none</DebugType>
@@ -43,6 +44,7 @@
     <EnableCodeSigning>False</EnableCodeSigning>
     <CreatePackage>False</CreatePackage>
     <CodeSigningKey>Mac Developer</CodeSigningKey>
+    <UseSGen>False</UseSGen>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|x86' ">
     <DebugType>none</DebugType>
@@ -59,6 +61,7 @@
     <EnablePackageSigning>True</EnablePackageSigning>
     <CreatePackage>True</CreatePackage>
     <CodeSigningKey>3rd Party Mac Developer Application</CodeSigningKey>
+    <UseSGen>False</UseSGen>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -110,6 +113,7 @@
     <Compile Include="Bookling.Controller\LibraryManager.cs" />
     <Compile Include="Bookling.Interface\Widgets\Light Window\LightWindow.cs" />
     <Compile Include="Bookling.Interface\Widgets\Light Dialog\LightDialog.cs" />
+    <Compile Include="Bookling.Interface\Main Window\Widgets\TransparentOutlineView\TransparentOutlineView.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.xib" />
@@ -137,6 +141,7 @@
     <Folder Include="Bookling.Interface\Metadata Dialog\" />
     <Folder Include="Bookling.UnitTests\" />
     <Folder Include="Bookling.Interface\Widgets\" />
+    <Folder Include="Bookling.Interface\Main Window\Widgets\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Bookling.Interface\Widgets\Light Window\Textures\card.png">
