@@ -25,15 +25,33 @@
 // THE SOFTWARE.
 using System;
 using MonoMac;
+using MonoMac.Foundation;
 using MonoMac.AppKit;
+using MonoMac.ObjCRuntime;
 
 namespace Bookling
 {
+	[Register("TransparentOutlineView")]
 	public class TransparentOutlineView : NSOutlineView
 	{
-		public TransparentOutlineView ()
+		// Called when created from unmanaged code
+		public TransparentOutlineView (IntPtr handle) : base (handle)
+		{
+			Initialize ();
+		}
+		
+		// Called when created directly from a XIB file
+		[Export ("initWithCoder:")]
+		public TransparentOutlineView (NSCoder coder) : base (coder)
+		{
+			Initialize ();
+		}
+		
+		// Shared initialization code
+		void Initialize ()
 		{
 		}
+
 	}
 }
 

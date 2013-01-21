@@ -182,10 +182,20 @@ namespace Bookling.Controller
 			try {			
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = 
-						"INSERT INTO Books " +
-						"(BookID, BookTitle, BookAuthor, " +
-						"BookGenre, BookPublishedYear, BookPath) " +
-						"VALUES (:id, :title, :author, :genre, :year, :path);";
+						"INSERT INTO Books (" +
+							"BookID, " +
+							"BookTitle, " +
+							"BookAuthor, " +
+							"BookGenre, " +
+							"BookPublishedYear, " +
+							"BookPath) " +
+						"VALUES (" +
+							":id, " +
+							":title, " +
+							":author, " +
+							":genre, " +
+							":year, " +
+							":path);";
 					command.Parameters.AddWithValue (":id", MaxId); 
 					command.Parameters.AddWithValue (":title", book.Title); 
 					command.Parameters.AddWithValue (":author", book.Author);
@@ -209,9 +219,16 @@ namespace Bookling.Controller
 
 			using (SqliteCommand command = new SqliteCommand (Connection)) {
 				command.CommandText = 
-					"SELECT BookTitle, BookAuthor, " +
-					"BookGenre, BookPublishedYear, BookPath " +
-					"FROM Books WHERE BookID = :index ";
+					"SELECT " +
+						"BookTitle, " +
+						"BookAuthor, " +
+						"BookGenre, " +
+						"BookPublishedYear, " +
+						"BookPath " +
+					"FROM " +
+						"Books " +
+					"WHERE " +
+						"BookID = :index;";
 				command.Parameters.AddWithValue (":index", index);
 			
 				SqliteDataReader reader = command.ExecuteReader ();
@@ -234,13 +251,16 @@ namespace Bookling.Controller
 			int index = 0;
 			using (SqliteCommand command = new SqliteCommand (Connection)) {
 				command.CommandText = 
-					"SELECT BookID " +
-					"FROM Books WHERE " +
-					"BookTitle = :title AND " +
-					"BookAuthor = :author AND " +
-					"BookGenre = :genre AND " +
-					"BookPath = :path AND " +
-					"BookPublishedYear = :year;";
+					"SELECT " +
+						"BookID " +
+					"FROM " +
+						"Books " +
+					"WHERE " +
+						"BookTitle = :title AND " +
+						"BookAuthor = :author AND " +
+						"BookGenre = :genre AND " +
+						"BookPath = :path AND " +
+						"BookPublishedYear = :year;";
 				command.Parameters.AddWithValue (":title", book.Title); 
 				command.Parameters.AddWithValue (":author", book.Author);
 				command.Parameters.AddWithValue (":genre", book.Genre);
@@ -262,12 +282,14 @@ namespace Bookling.Controller
 			try {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
-						"DELETE FROM Books WHERE " +
-						"BookTitle = :title AND " +
-						"BookAuthor = :author AND " +
-						"BookGenre = :genre AND " +
-						"BookPath = :path AND " +
-						"BookPublishedYear = :year;";
+						"DELETE FROM " +
+							"Books " +
+						"WHERE " +
+							"BookTitle = :title AND " +
+							"BookAuthor = :author AND " +
+							"BookGenre = :genre AND " +
+							"BookPath = :path AND " +
+							"BookPublishedYear = :year;";
 					command.Parameters.AddWithValue (":title", book.Title); 
 					command.Parameters.AddWithValue (":author", book.Author);
 					command.Parameters.AddWithValue (":genre", book.Genre);
@@ -287,8 +309,10 @@ namespace Bookling.Controller
 			try {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = 
-						"DELETE FROM Books " +
-						"WHERE BookID = :id;";
+						"DELETE FROM " +
+							"Books " +
+						"WHERE " +
+							"BookID = :id;";
 					command.Parameters.AddWithValue (":id", bookID);
 					if (command.ExecuteNonQuery () == 0) {
 						throw new BookNotFoundException ();
@@ -304,13 +328,16 @@ namespace Bookling.Controller
 			try {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText =
-						"UPDATE Books SET " +
-						"BookTitle = :title, " +
-						"BookAuthor = :author, " +
-						"BookGenre = :genre, " +
-						"BookPublishedYear = :year, " +
-						"BookPath = :path " +
-						"WHERE BookID = :id;";
+						"UPDATE " +
+							"Books " +
+						"SET " +
+							"BookTitle = :title, " +
+							"BookAuthor = :author, " +
+							"BookGenre = :genre, " +
+							"BookPublishedYear = :year, " +
+							"BookPath = :path " +
+						"WHERE " +
+							"BookID = :id;";
 					command.Parameters.AddWithValue (":title", book.Title); 
 					command.Parameters.AddWithValue (":author", book.Author);
 					command.Parameters.AddWithValue (":genre", book.Genre);
