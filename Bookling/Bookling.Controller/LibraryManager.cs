@@ -25,11 +25,14 @@
 // THE SOFTWARE.
 using System;
 using System.IO;
+using System.Collections;
+using Bookling.Models;
 
 namespace Bookling.Controller
 {
 	public class LibraryManager
 	{
+		#region Properties
 		public static String ConfigFolder {
 			get {
 				return String.Format (
@@ -39,9 +42,16 @@ namespace Bookling.Controller
 			}
 		}
 
+		public ArrayList Authors {
+			get {
+
+			}
+		} 
+
 		private LibraryDatabaseManager databaseManager;
 		private LibraryFileManager fileManager;
-
+		#endregion
+		#region Constructors
 		public LibraryManager ()
 		{
 			if (!Directory.Exists (ConfigFolder)) {
@@ -51,6 +61,28 @@ namespace Bookling.Controller
 			databaseManager = new LibraryDatabaseManager ();
 			fileManager = new LibraryFileManager ();
 		}
+		#endregion
+		#region Methods
+		public void Add (String bookPath)
+		{
+
+		}
+
+		public void Remove(Book book)
+		{
+
+		}
+
+		public void Alter(Book original, Book newBook)
+		{
+
+		}
+
+		public void Rescan()
+		{
+
+		}
+		#endregion
 	}
 }
 
