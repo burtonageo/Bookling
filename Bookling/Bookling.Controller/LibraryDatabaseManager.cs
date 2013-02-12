@@ -108,8 +108,7 @@ namespace Bookling.Controller
 			DatabaseFile = String.Format(dbFolderPath + "{0}Library.db", 
 			                             Path.DirectorySeparatorChar);
 			Connection = new SqliteConnection (
-				"Data Source = " +
-				LibraryDatabaseManager.DatabaseFile +
+				"Data Source = " + LibraryDatabaseManager.DatabaseFile + 
 				"; Version = 3;");
 			
 			bool exists = File.Exists (LibraryDatabaseManager.DatabaseFile);
@@ -121,20 +120,13 @@ namespace Bookling.Controller
 			if (!exists) {
 				using (SqliteCommand command = new SqliteCommand (Connection)) {
 					command.CommandText = 
-						"CREATE TABLE Authors (" +
-							"AuthorID INTEGER PRIMARY KEY NOT NULL, " +
-							"AuthorName TEXT); " +
-
-						"CREATE TABLE Genres (" +
-							"GenreID INTEGER PRIMARY KEY NOT NULL, " +
-							"GenreName TEXT); " +
-
 						"CREATE TABLE Books (" +
 							"BookID INTEGER PRIMARY KEY NOT NULL, " +
 							"BookTitle TEXT, " +
-							"FOREIGN KEY (BookAuthorID) REFERENCES Authors (AuthorID), " +
-							"FOREIGN KEY (BookGenreID) REFERENCES Genres (GenreID), " +
-							"BookPublishedYear INTEGER, BookPath TEXT);";
+							"BookAuthor TEXT, " +
+							"BookGenre TEXT, " +
+							"BookPublishedYear INTEGER, " +
+							"BookPath TEXT);";
 					command.ExecuteNonQuery();
 				}
 			}

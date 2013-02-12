@@ -111,7 +111,7 @@ namespace Bookling.Controller
 		public void DeleteBook(string bookPath)
 		{
 			if (!File.Exists(bookPath)) {
-				throw new BookNotFoundException("Book cannot be found");
+				throw new BookNotFoundException();
 			}
 			File.Delete(bookPath);
 		}
