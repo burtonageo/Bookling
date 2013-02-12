@@ -108,7 +108,8 @@ namespace Bookling.Controller
 			DatabaseFile = String.Format(dbFolderPath + "{0}Library.db", 
 			                             Path.DirectorySeparatorChar);
 			Connection = new SqliteConnection (
-				"Data Source = " + LibraryDatabaseManager.DatabaseFile + 
+				"Data Source = " +
+				LibraryDatabaseManager.DatabaseFile +
 				"; Version = 3;");
 			
 			bool exists = File.Exists (LibraryDatabaseManager.DatabaseFile);
