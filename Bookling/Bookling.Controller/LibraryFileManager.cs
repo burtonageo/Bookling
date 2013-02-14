@@ -48,25 +48,30 @@ namespace Bookling.Controller
 		#endregion
 		#region Constructors
 
-		public LibraryFileManager (String configFilePath)
+		public LibraryFileManager (String configFilePath, String libraryDirectory)
 		{
 			if (!Directory.Exists (configFilePath)) {
 				Directory.CreateDirectory (configFilePath);
 			}
+			if (!Directory.Exists (libraryDirectory)) {
+				Directory.CreateDirectory (libraryDirectory);
+				LibraryDirectory = libraryDirectory;
+			}
 			ConfigFile = String.Format (configFilePath + "{0}config.xml", Path.DirectorySeparatorChar);
 			if (!File.Exists (ConfigFile)) {
 				File.Create (ConfigFile);
-				//XmlTextWriter configWriter = new XmlTextWriter (ConfigFile, null);
-				//configWriter.WriteStartDocument ();
-				//configWriter.WriteStartElement ("config");
+				XmlTextWriter configWriter = new XmlTextWriter (ConfigFile, null);
+				configWriter.WriteStartDocument ();
+				configWriter.WriteStartElement ("config");
 
-				//configWriter.WriteEndElement ();
-				//configWriter.WriteEndDocument ();
-				//configWriter.Close ();
+				configWriter.WriteEndElement ();
+				configWriter.WriteEndDocument ();
+				configWriter.Close ();
 			}
 		}
 
-		public LibraryFileManager () : this (LibraryManager.ConfigFolder)
+		public LibraryFileManager (String libraryDirectory) : 
+			this (LibraryManager.ConfigFolder, libraryDirectory)
 		{
 
 		}

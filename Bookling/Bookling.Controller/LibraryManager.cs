@@ -42,24 +42,40 @@ namespace Bookling.Controller
 			}
 		}
 
+		public String LibraryFolder {
+			get;
+			set;
+		}
+
 		public ArrayList Authors {
 			get {
-
+				return new ArrayList();
 			}
-		} 
+		}
 
 		private LibraryDatabaseManager databaseManager;
 		private LibraryFileManager fileManager;
 		#endregion
 		#region Constructors
-		public LibraryManager ()
+		public LibraryManager (String libraryFolder)
 		{
 			if (!Directory.Exists (ConfigFolder)) {
 				Directory.CreateDirectory (ConfigFolder);
 			}
 
+			LibraryFolder = libraryFolder;
+
 			databaseManager = new LibraryDatabaseManager ();
-			fileManager = new LibraryFileManager ();
+			fileManager = new LibraryFileManager (LibraryFolder);
+		}
+
+		public LibraryManager () : this (
+			String.Format (
+				Environment.GetFolderPath (
+				Environment.SpecialFolder.MyDocuments) +
+				"{0}eBooks"))
+		{
+
 		}
 		#endregion
 		#region Methods
