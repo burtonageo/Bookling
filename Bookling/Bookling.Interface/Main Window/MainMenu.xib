@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
 		<string key="IBDocument.SystemVersion">12C2034</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
 		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2844</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1438,6 +1438,7 @@
 													<string key="NSFrameSize">{501, 356}</string>
 													<reference key="NSSuperview" ref="330095157"/>
 													<reference key="NSWindow"/>
+													<reference key="NSNextKeyView"/>
 													<string key="NSReuseIdentifierKey">_NS:11</string>
 												</object>
 											</object>
@@ -1500,7 +1501,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="389549783"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1280, 800}}</string>
 				<string key="NSMinSize">{600, 455}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<int key="NSWindowCollectionBehavior">128</int>
@@ -3934,6 +3935,7 @@
 							<string>mainWindow</string>
 							<string>searchBox</string>
 							<string>shareButton</string>
+							<string>splitView</string>
 							<string>viewSwitcher</string>
 						</object>
 						<object class="NSArray" key="dict.values">
@@ -3945,6 +3947,7 @@
 							<string>NSWindow</string>
 							<string>NSSearchField</string>
 							<string>NSButton</string>
+							<string>NSSplitView</string>
 							<string>NSSegmentedControl</string>
 						</object>
 					</object>
@@ -3959,6 +3962,7 @@
 							<string>mainWindow</string>
 							<string>searchBox</string>
 							<string>shareButton</string>
+							<string>splitView</string>
 							<string>viewSwitcher</string>
 						</object>
 						<object class="NSArray" key="dict.values">
@@ -3990,6 +3994,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">shareButton</string>
 								<string key="candidateClassName">NSButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">splitView</string>
+								<string key="candidateClassName">NSSplitView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">viewSwitcher</string>

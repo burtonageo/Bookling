@@ -73,7 +73,7 @@ namespace Bookling.Controller
 			String.Format (
 				Environment.GetFolderPath (
 				Environment.SpecialFolder.MyDocuments) +
-				"{0}eBooks"))
+				"{0}eBooks", Path.DirectorySeparatorChar))
 		{
 
 		}

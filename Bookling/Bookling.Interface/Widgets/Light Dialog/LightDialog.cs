@@ -96,7 +96,7 @@ namespace Bookling.Interface
 			RectangleF buttonFrame = CloseButton.Frame;
 
 			CloseButton.Frame = new RectangleF (
-				1.5f, containerFrame.Size.Height - buttonFrame.Size.Height - 2,
+				1.0f, containerFrame.Size.Height - buttonFrame.Size.Height - 2,
 				buttonFrame.Size.Width, buttonFrame.Size.Height);;
 			themeFrame.AddSubview (CloseButton);
 			CloseButton.AutoresizingMask = NSViewResizingMask.MinXMargin | NSViewResizingMask.MinYMargin;
