@@ -33,6 +33,7 @@ namespace Bookling.Controller
 	public class LibraryManager
 	{
 		#region Properties
+
 		public static String ConfigFolder {
 			get {
 				return String.Format (
@@ -55,8 +56,10 @@ namespace Bookling.Controller
 
 		private LibraryDatabaseManager databaseManager;
 		private LibraryFileManager fileManager;
+
 		#endregion
 		#region Constructors
+
 		public LibraryManager (String libraryFolder)
 		{
 			if (!Directory.Exists (ConfigFolder)) {
@@ -77,8 +80,10 @@ namespace Bookling.Controller
 		{
 
 		}
+
 		#endregion
 		#region Methods
+
 		public void Add (String bookPath)
 		{
 
