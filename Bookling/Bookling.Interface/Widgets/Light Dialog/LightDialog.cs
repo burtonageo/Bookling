@@ -38,10 +38,12 @@ namespace Bookling.Interface
 	public class LightDialog : LightWindow
 	{
 		#region Properties
+
 		public NSButton CloseButton {
 			protected set;
 			get;
 		}
+
 		#endregion
 		#region Constructors
 		
@@ -130,6 +132,7 @@ namespace Bookling.Interface
 			CloseButton.AlternateImage = pressedCloseImage;
 			CloseButton.Cell.HighlightsBy = (int)NSCellMask.ContentsCell;
 		}
+
 		#endregion
 	}
 }
