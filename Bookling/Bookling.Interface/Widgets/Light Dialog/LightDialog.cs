@@ -37,11 +37,12 @@ namespace Bookling.Interface
 	[Register ("LightDialog")]
 	public class LightDialog : LightWindow
 	{
+		#region Properties
 		public NSButton CloseButton {
 			protected set;
 			get;
 		}
-
+		#endregion
 		#region Constructors
 		
 		// Called when created from unmanaged code
@@ -62,8 +63,9 @@ namespace Bookling.Interface
 		{
 		}
 		
-#endregion
-		
+		#endregion
+		#region Methods
+
 		[Export ("awakeFromNib")]
 		public override void AwakeFromNib ()
 		{
@@ -128,6 +130,7 @@ namespace Bookling.Interface
 			CloseButton.AlternateImage = pressedCloseImage;
 			CloseButton.Cell.HighlightsBy = (int)NSCellMask.ContentsCell;
 		}
+		#endregion
 	}
 }
 
