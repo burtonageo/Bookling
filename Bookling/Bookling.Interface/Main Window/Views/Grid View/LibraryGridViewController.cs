@@ -33,6 +33,16 @@ namespace Bookling.Interface
 {
 	public partial class LibraryGridViewController : MonoMac.AppKit.NSViewController
 	{
+		#region Properties
+		
+		//strongly typed view accessor
+		public new LibraryGridView View {
+			get {
+				return (LibraryGridView)base.View;
+			}
+		}
+		
+		#endregion
 		#region Constructors
 		
 		// Called when created from unmanaged code
@@ -60,13 +70,10 @@ namespace Bookling.Interface
 		}
 		
 		#endregion
-		
-		//strongly typed view accessor
-		public new LibraryGridView View {
-			get {
-				return (LibraryGridView)base.View;
-			}
-		}
+		#region Methods
+
+		#endregion
+
 	}
 }
 
