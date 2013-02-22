@@ -55,6 +55,15 @@ namespace Bookling
 		}
 
 		#endregion
+		#region Methods
+
+		public override void AwakeFromNib ()
+		{
+			base.AwakeFromNib ();
+			// TODO: Implement
+		}
+
+		#endregion
 	}
 }
 
