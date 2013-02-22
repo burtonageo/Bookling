@@ -43,6 +43,7 @@ namespace Bookling.Controller
 			get;
 			protected set;
 		}
+
 		private bool disposed;
 
 		#endregion
