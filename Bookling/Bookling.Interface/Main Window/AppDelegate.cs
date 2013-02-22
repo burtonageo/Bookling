@@ -39,15 +39,23 @@ namespace Bookling.Interface
 {
 	public partial class AppDelegate : NSApplicationDelegate
 	{
+		#region Properties
+
 		private LibraryListViewController listViewController;
 		private LibraryGridViewController gridViewController;
 		private LibraryManager libraryManager;
 		private NSViewController currentController;
 
+		#endregion
+		#region Constructors
+
 		public AppDelegate ()
 		{
 
 		}
+
+		#endregion
+		#region Methods
 
 		public override void FinishedLaunching (NSObject notification)
 		{
@@ -155,6 +163,7 @@ namespace Bookling.Interface
 			}
 		}
 
+		#endregion
 	}
 }
 
