@@ -34,10 +34,15 @@ namespace Bookling.UnitTests
 	[TestFixture]
 	public class LibraryFileManagerTests
 	{
+		#region Properties
+
 		private LibraryFileManager fileManager;
 		private String testFolderString;
 		private String configFolderString;
 		private Book book;
+
+		#endregion
+		#region Test Preparation
 
 		[TestFixtureSetUp]
 		public void CreateLibraryFileManagerFolders ()
@@ -70,11 +75,16 @@ namespace Bookling.UnitTests
 			File.Delete (fileManager.ConfigFile);
 		}
 
+		#endregion
+		#region Tests
+
 		[Test]
 		public void CreateLibraryFileManagerTest ()
 		{
 			Assert.IsNotNull (fileManager);
 		}
+
+		#endregion
 	}
 }
 
