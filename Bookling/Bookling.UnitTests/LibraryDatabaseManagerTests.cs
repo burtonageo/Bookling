@@ -34,10 +34,15 @@ namespace Bookling.UnitTests
 	[TestFixture]
 	public class LibraryDatabaseManagerTests
 	{
+		#region Properties
+
 		private LibraryDatabaseManager testManager;
 		private String configFolderString;
 		private String testFolderString;
 		private Book book;
+
+		#endregion
+		#region Test Preparation
 
 		[TestFixtureSetUp]
 		public void CreateConfigFolder ()
@@ -76,6 +81,9 @@ namespace Bookling.UnitTests
 		{
 			File.Delete (LibraryDatabaseManager.DatabaseFile);
 		}
+
+		#endregion
+		#region Tests
 
 		[Test]
 		public void CreateLibraryManagerTest ()
@@ -177,6 +185,8 @@ namespace Bookling.UnitTests
 		{
 			testManager.AlterBookData (0, book);
 		}
+
+		#endregion
 	}
 }
 
