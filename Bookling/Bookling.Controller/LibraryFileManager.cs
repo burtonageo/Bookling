@@ -61,14 +61,12 @@ namespace Bookling.Controller
 			if (!File.Exists (ConfigFile)) {
 				File.Create (ConfigFile);
 				XmlTextWriter configWriter = new XmlTextWriter (ConfigFile, null);
-				/*
 				configWriter.WriteStartDocument ();
 				configWriter.WriteStartElement ("config");
-
 				configWriter.WriteEndElement ();
 				configWriter.WriteEndDocument ();
 				configWriter.Close ();
-				*/
+
 			}
 		}
 
