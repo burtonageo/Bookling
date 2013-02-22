@@ -37,6 +37,8 @@ namespace Bookling.Interface
 {
 	public partial class LibraryListViewController : MonoMac.AppKit.NSViewController
 	{
+		#region Properties
+
 		public ArrayList Books {
 			get;
 			set;
@@ -45,6 +47,7 @@ namespace Bookling.Interface
 		private LibraryDatabaseManager manager;
 		private LibraryListViewDataSource source;
 	
+		#endregion
 		#region Constructors
 		
 		// Called when created from unmanaged code
@@ -72,7 +75,8 @@ namespace Bookling.Interface
 		}
 		
 		#endregion
-		
+		#region Methods
+
 		//strongly typed view accessor
 		public new LibraryListView View {
 			get {
@@ -119,6 +123,8 @@ namespace Bookling.Interface
 				return new NSString ("Hello");
 			}
 		}
+
+		#endregion
 	}
 }
 
