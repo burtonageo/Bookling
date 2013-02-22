@@ -9,6 +9,16 @@ namespace Bookling.Interface
 {
 	public partial class AboutDialogController : MonoMac.AppKit.NSWindowController
 	{
+		#region Properties
+		
+		//strongly typed window accessor
+		public new AboutDialog Window {
+			get {
+				return (AboutDialog)base.Window;
+			}
+		}
+
+		#endregion
 		#region Constructors
 		
 		// Called when created from unmanaged code
@@ -37,13 +47,7 @@ namespace Bookling.Interface
 		}
 		
 		#endregion
-		
-		//strongly typed window accessor
-		public new AboutDialog Window {
-			get {
-				return (AboutDialog)base.Window;
-			}
-		}
+		#region Methods
 
 		[Export("awakeFromNib")]
 		public override void AwakeFromNib ()
@@ -71,6 +75,8 @@ namespace Bookling.Interface
 			NSWorkspace.SharedWorkspace.OpenUrl
 				(NSUrl.FromString ("https://github.com/burtonageo/Bookling"));
 		}
+
+		#endregion
 	}
 }
 
