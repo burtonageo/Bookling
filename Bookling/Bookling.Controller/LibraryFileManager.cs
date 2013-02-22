@@ -41,7 +41,7 @@ namespace Bookling.Controller
 
 		public String ConfigFile {
 			get;
-			set;
+			protected set;
 		}
 		private bool disposed;
 
@@ -105,7 +105,7 @@ namespace Bookling.Controller
 		#endregion
 		#region Methods
 
-		public void MoveBook(string fileSource)
+		public void MoveBook (string fileSource)
 		{
 			if (!File.Exists(fileSource)) {
 				throw new IOException("Book does not exist");
@@ -113,12 +113,17 @@ namespace Bookling.Controller
 			File.Copy(fileSource, LibraryDirectory);
 		}
 
-		public void DeleteBook(string bookPath)
+		public void DeleteBook (string bookPath)
 		{
 			if (!File.Exists(bookPath)) {
 				throw new BookNotFoundException();
 			}
 			File.Delete(bookPath);
+		}
+
+		public void Refresh ()
+		{
+			throw new NotImplementedException ();
 		}
 
 		#endregion
