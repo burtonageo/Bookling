@@ -52,6 +52,7 @@ namespace Bookling
 		// Shared initialization code
 		void Initialize ()
 		{
+			
 		}
 
 		#endregion
