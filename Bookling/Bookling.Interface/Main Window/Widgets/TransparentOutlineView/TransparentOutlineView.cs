@@ -34,6 +34,8 @@ namespace Bookling
 	[Register("TransparentOutlineView")]
 	public class TransparentOutlineView : NSOutlineView
 	{
+		#region Constructors
+
 		// Called when created from unmanaged code
 		public TransparentOutlineView (IntPtr handle) : base (handle)
 		{
@@ -52,6 +54,7 @@ namespace Bookling
 		{
 		}
 
+		#endregion
 	}
 }
 
