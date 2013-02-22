@@ -30,8 +30,13 @@ namespace Bookling.Models
 {
 	public struct Book
 	{
+		#region Properties
+
 		public String Title, Author, Genre, FilePath;
 	 	public int YearPublished;
+
+		#endregion
+		#region Methods
 
 		public bool HasNoData ()
 		{
@@ -49,6 +54,8 @@ namespace Bookling.Models
 				"{0} by {1}, a {2} book published in {3} - {4}", 
 				Title, Author, Genre, YearPublished, FilePath);
 		}
+
+		#endregion
 	}
 }
 
