@@ -57,7 +57,8 @@ namespace Bookling.Interface
 		{
 		}
 		
-#endregion
+		#endregion
+		#region Methods
 		
 		[Export ("awakeFromNib")]
 		public override void AwakeFromNib ()
@@ -77,5 +78,7 @@ namespace Bookling.Interface
 				Assembly.GetExecutingAssembly ().
 				GetManifestResourceStream (backgroundFileName)));		
 		}
+
+		#endregion
 	}
 }
