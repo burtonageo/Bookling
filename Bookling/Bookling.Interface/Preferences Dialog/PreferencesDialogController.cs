@@ -38,6 +38,16 @@ namespace Bookling.Interface
 {
 	public partial class PreferencesDialogController : MonoMac.AppKit.NSWindowController
 	{
+		#region Properties
+
+		//strongly typed window accessor
+		public new PreferencesDialog Window {
+			get {
+				return (PreferencesDialog)base.Window;
+			}
+		}
+
+		#endregion
 		#region Constructors
 		
 		// Called when created from unmanaged code
@@ -65,15 +75,8 @@ namespace Bookling.Interface
 
 		}
 
-		
 		#endregion
-		
-		//strongly typed window accessor
-		public new PreferencesDialog Window {
-			get {
-				return (PreferencesDialog)base.Window;
-			}
-		}
+		#region Methods
 
 		[Export("awakeFromNib")]
 		public override void AwakeFromNib ()
@@ -101,6 +104,7 @@ namespace Bookling.Interface
 			Window.OrderOut (sender);
 		}
 
+		#endregion
 	}
 }
 
