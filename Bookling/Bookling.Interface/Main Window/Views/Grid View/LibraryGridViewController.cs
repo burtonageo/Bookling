@@ -35,13 +35,7 @@ namespace Bookling.Interface
 	{
 		#region Properties
 		
-		//strongly typed view accessor
-		public new LibraryGridView View {
-			get {
-				return (LibraryGridView)base.View;
-			}
-		}
-		
+
 		#endregion
 		#region Constructors
 		
@@ -71,6 +65,13 @@ namespace Bookling.Interface
 		
 		#endregion
 		#region Methods
+
+		//strongly typed view accessor
+		public new LibraryGridView View {
+			get {
+				return (LibraryGridView)base.View;
+			}
+		}
 
 		#endregion
 
