@@ -10,6 +10,8 @@ namespace Bookling.Interface
 {
 	public partial class BookMetadataDialogController : MonoMac.AppKit.NSWindowController
 	{
+		#region Properties
+
 		public bool IsPartOfSeries {
 			get {
 				switch (isSeriesCheckBox.State) {
@@ -21,6 +23,7 @@ namespace Bookling.Interface
 			}
 		}
 
+		#endregion
 		#region Constructors
 		
 		// Called when created from unmanaged code
@@ -48,7 +51,8 @@ namespace Bookling.Interface
 		}
 		
 		#endregion
-		
+		#region Methods
+
 		//strongly typed window accessor
 		public new BookMetadataDialog Window {
 			get {
@@ -91,6 +95,8 @@ namespace Bookling.Interface
 				seriesEndField.Enabled = true;
 			}
 		}
+
+		#endregion
 	}
 }
 
