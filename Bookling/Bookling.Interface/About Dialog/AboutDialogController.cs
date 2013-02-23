@@ -66,7 +66,6 @@ namespace Bookling.Interface
 
 		partial void CloseWindow (MonoMac.Foundation.NSObject sender)
 		{
-			NSApplication.SharedApplication.StopModal ();
 			Close ();
 		}
 
