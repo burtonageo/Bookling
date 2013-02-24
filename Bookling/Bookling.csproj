@@ -114,6 +114,11 @@
     <Compile Include="Bookling.Interface\Widgets\Light Window\LightWindow.cs" />
     <Compile Include="Bookling.Interface\Widgets\Light Dialog\LightDialog.cs" />
     <Compile Include="Bookling.Interface\Main Window\Widgets\TransparentOutlineView\TransparentOutlineView.cs" />
+    <Compile Include="Bookling.Interface\Main Window\PdfReaderWindow\PdfReaderWindow.cs" />
+    <Compile Include="Bookling.Interface\Main Window\PdfReaderWindow\PdfReaderWindow.designer.cs">
+      <DependentUpon>PdfReaderWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookling.Interface\Main Window\PdfReaderWindow\PdfReaderWindowController.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Bookling.Interface\Preferences Dialog\PreferencesDialog.xib" />
@@ -122,6 +127,7 @@
     <InterfaceDefinition Include="Bookling.Interface\About Dialog\AboutDialog.xib" />
     <InterfaceDefinition Include="Bookling.Interface\Main Window\MainMenu.xib" />
     <InterfaceDefinition Include="Bookling.Interface\Metadata Dialog\BookMetadataDialog.xib" />
+    <InterfaceDefinition Include="Bookling.Interface\Main Window\PdfReaderWindow\PdfReaderWindow.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -142,6 +148,7 @@
     <Folder Include="Bookling.UnitTests\" />
     <Folder Include="Bookling.Interface\Widgets\" />
     <Folder Include="Bookling.Interface\Main Window\Widgets\" />
+    <Folder Include="Bookling.Interface\Main Window\PdfReaderWindow\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Bookling.Interface\Widgets\Light Window\Textures\card.png">
