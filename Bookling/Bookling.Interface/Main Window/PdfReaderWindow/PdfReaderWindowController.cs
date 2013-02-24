@@ -60,13 +60,16 @@ namespace Bookling.Interface
 		}
 		
 		#endregion
-		
+		#region Methods
+
 		//strongly typed window accessor
 		public new PdfReaderWindow Window {
 			get {
 				return (PdfReaderWindow)base.Window;
 			}
 		}
+
+		#endregion
 	}
 }
 
