@@ -98,7 +98,8 @@ namespace Bookling.Controller
 
 		public void Remove(Book book)
 		{
-
+			fileManager.DeleteBook (book.FilePath);
+			databaseManager.RemoveBook (book);
 		}
 
 		public void Alter(Book original, Book newBook)
@@ -108,7 +109,8 @@ namespace Bookling.Controller
 
 		public void Rescan()
 		{
-
+			fileManager.Rescan ();
+			databaseManager.
 		}
 		#endregion
 	}

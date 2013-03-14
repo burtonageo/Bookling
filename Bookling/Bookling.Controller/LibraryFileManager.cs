@@ -122,7 +122,7 @@ namespace Bookling.Controller
 			File.Delete(bookPath);
 		}
 
-		public void Refresh ()
+		public void Rescan ()
 		{
 			throw new NotImplementedException ();
 		}

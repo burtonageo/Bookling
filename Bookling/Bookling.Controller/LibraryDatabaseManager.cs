@@ -346,6 +346,11 @@ namespace Bookling.Controller
 			}
 		}
 
+		public void Rescan () 
+		{
+			throw new NotImplementedException ();
+		}
+
 		#endregion
 	}
 }
