@@ -39,7 +39,7 @@ namespace Bookling.Controller
 			set;
 		}
 
-		public String ConfigFile {
+		public String LibraryInfoFile {
 			get;
 			protected set;
 		}
@@ -49,21 +49,21 @@ namespace Bookling.Controller
 		#endregion
 		#region Constructors
 
-		public LibraryFileManager (String configFilePath, String libraryDirectory)
+		public LibraryFileManager (String infoFilePath, String libraryDirectory)
 		{
-			if (!Directory.Exists (configFilePath)) {
-				Directory.CreateDirectory (configFilePath);
+			if (!Directory.Exists (infoFilePath)) {
+				Directory.CreateDirectory (infoFilePath);
 			}
 			if (!Directory.Exists (libraryDirectory)) {
 				Directory.CreateDirectory (libraryDirectory);
 				LibraryDirectory = libraryDirectory;
 			}
-			ConfigFile = String.Format (configFilePath + "{0}config.xml", Path.DirectorySeparatorChar);
-			if (!File.Exists (ConfigFile)) {
-				File.Create (ConfigFile);
-				XmlTextWriter configWriter = new XmlTextWriter (ConfigFile, null);
+			LibraryInfoFile = String.Format (infoFilePath + "{0}config.xml", Path.DirectorySeparatorChar);
+			if (!File.Exists (LibraryInfoFile)) {
+				File.Create (LibraryInfoFile);
+				XmlTextWriter configWriter = new XmlTextWriter (LibraryInfoFile, null);
 				configWriter.WriteStartDocument ();
-				configWriter.WriteStartElement ("config");
+				configWriter.WriteStartElement ("Library");
 				configWriter.WriteEndElement ();
 				configWriter.WriteEndDocument ();
 				configWriter.Close ();
@@ -111,7 +111,7 @@ namespace Bookling.Controller
 			if (!File.Exists(fileSource)) {
 				throw new IOException("Book does not exist");
 			}
-			File.Copy(fileSource, LibraryDirectory);
+			File.Move(fileSource, LibraryDirectory);
 		}
 
 		public void DeleteBook (string bookPath)

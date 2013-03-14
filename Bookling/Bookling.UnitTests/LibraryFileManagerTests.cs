@@ -72,7 +72,7 @@ namespace Bookling.UnitTests
 		[TearDown]
 		public void DeleteConfigFile ()
 		{
-			File.Delete (fileManager.ConfigFile);
+			File.Delete (fileManager.LibraryInfoFile);
 		}
 
 		#endregion

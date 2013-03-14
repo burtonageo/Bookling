@@ -86,7 +86,14 @@ namespace Bookling.Controller
 
 		public void Add (String bookPath)
 		{
-
+			if (!File.Exists (bookPath)) {
+				throw new FileNotFoundException ();
+			}
+			Book b;
+			b.FilePath = bookPath;
+			b.Title = Path.GetFileName (bookPath);
+			fileManager.MoveBook (bookPath);
+			databaseManager.AddBook (b);
 		}
 
 		public void Remove(Book book)
