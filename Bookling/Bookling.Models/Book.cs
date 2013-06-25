@@ -31,8 +31,8 @@ namespace Bookling.Models
 	{
 		#region Properties
 
-		public String Title, Author, Genre, FilePath;
-	 	public int YearPublished;
+		public String Title, Author, Genre, SeriesName, FilePath;
+	 	public int YearPublished, SeriesNumber, TotalBooksInSeries;
 
 		#endregion
 		#region Methods
@@ -44,7 +44,9 @@ namespace Bookling.Models
 				Author == "" &&
 				FilePath == "" &&
 				Genre == "" && 
-				YearPublished == 0);
+				YearPublished == 0 &&
+				SeriesNumber == 0 &&
+				TotalBooksInSeries == 0);
 		}
 
 		public override string ToString ()
