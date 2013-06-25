@@ -1,6 +1,6 @@
 // WARNING
 //
-// This file has been generated automatically by MonoDevelop to store outlets and
+// This file has been generated automatically by Xamarin Studio to store outlets and
 // actions made in the Xcode designer. If it is removed, they will be lost.
 // Manual changes to this file may not be handled correctly.
 //
@@ -25,13 +25,7 @@ namespace Bookling.Interface
 
 		[Action ("ResetToDefaults:")]
 		partial void ResetToDefaults (MonoMac.Foundation.NSObject sender);
-
-		[Action ("Accept:")]
-		partial void Accept (MonoMac.Foundation.NSObject sender);
-
-		[Action ("Cancel:")]
-		partial void Cancel (MonoMac.Foundation.NSObject sender);
-
+		
 		void ReleaseDesignerOutlets ()
 		{
 			if (viewSelector != null) {

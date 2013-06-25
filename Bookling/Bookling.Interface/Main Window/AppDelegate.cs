@@ -110,17 +110,16 @@ namespace Bookling.Interface
 			filePanel.AllowedFileTypes = allowedFileTypes;
 			
 			int result = filePanel.RunModal();
-			//NSApplication.SharedApplication.BeginSheet (filePanel, mainWindow);
 			if (result == 1) {
-				String bookPath = filePanel.Url.ToString ().Replace ("%20", " ");
+				/*String bookPath = filePanel.Url.ToString ().Replace ("%20", " ");
 				Book book = new Book();
 				book.Title = Path.GetFileNameWithoutExtension (bookPath);
 				book.FilePath = bookPath;
-				Console.WriteLine (book.Title + " " + book.FilePath);
+				Console.WriteLine (book.Title + " " + book.FilePath);*/
+				libraryManager.Add(filePanel.Url.ToString ().Replace ("%20", " "));
 				//libraryManager.AddBook (book);
 				listViewController.tableView.ReloadData ();
 			}
-			//NSApplication.SharedApplication.EndSheet (filePanel);
 		}
 		
 		partial void ViewAsList (MonoMac.Foundation.NSObject sender)

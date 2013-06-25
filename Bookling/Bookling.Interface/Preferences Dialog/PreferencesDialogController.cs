@@ -91,18 +91,6 @@ namespace Bookling.Interface
 		{
 
 		}
-		
-		partial void Accept (MonoMac.Foundation.NSObject sender)
-		{
-			NSApplication.SharedApplication.StopModal ();
-			Window.OrderOut (sender);
-		}
-		
-		partial void Cancel (MonoMac.Foundation.NSObject sender)
-		{
-			NSApplication.SharedApplication.StopModal ();
-			Window.OrderOut (sender);
-		}
 
 		#endregion
 	}

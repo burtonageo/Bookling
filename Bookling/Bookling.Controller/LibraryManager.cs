@@ -93,7 +93,7 @@ namespace Bookling.Controller
 			b.FilePath = bookPath;
 			b.Title = Path.GetFileName (bookPath);
 			fileManager.MoveBook (bookPath);
-			databaseManager.AddBook (b);
+			//databaseManager.AddBook (b);
 		}
 
 		public void Remove(Book book)
@@ -110,7 +110,7 @@ namespace Bookling.Controller
 		public void Rescan()
 		{
 			fileManager.Rescan ();
-			databaseManager.
+			//databaseManager.
 		}
 		#endregion
 	}
